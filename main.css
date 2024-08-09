@@ -1,0 +1,603 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0 auto;
+	padding: 0;
+	text-indent: 0;
+	list-style-type: none;
+}
+
+body {
+	width: 1275px;
+	background-color: #f8f9fa;
+}
+
+h1{
+	margin: 12px 0;
+	font-size: 36px;
+	text-align: center;
+}
+h2{
+	float: left;
+	width: 100%;
+	height: 48px;
+	margin: 10px 0 5px 0;
+	font-size: 18px;
+	background-color:rgb(63, 63, 63);
+	color:rgb(218, 57, 57);
+	line-height: 48px;
+	text-indent: 16px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 3px 0px #999;
+}
+
+
+b{
+	color: rgb(233, 148, 56);
+	cursor:pointer;
+}
+ul{
+	margin: 0 8px;
+}
+li {
+	float: left;
+	width: 304px;
+	height: 74px;
+	line-height: 74px;
+	float: left;
+	border: solid 1px #ccc;
+	margin: 4px 4px;
+	text-indent: 4px;
+	text-align: left;
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: #efefef;
+	box-shadow: 1px 1px 3px 0px #cdcdcd;
+}
+
+li.hidden{
+	display: none;
+}
+li sub {
+	float: right;
+	font-size: 12px;
+	width: 98px;
+	margin-right: 5px;
+}
+li sub a{
+	float: left;
+	margin: 5px 2px auto 2px;
+	line-height: 25px;
+	width: 90px;
+	background-color: #dedede;
+	padding: 2px;
+	border-radius: 100px;
+	text-align: center;
+	font-weight: normal;
+	box-shadow: 1px 1px 1px 1px #fff;
+}
+li sub a:hover{
+	background-color:khaki;
+	color: red;
+}
+
+li sub a.hidden{
+	display: none;
+}
+
+
+li.long{
+	clear: both;
+	height: 52px;
+	line-height: 52px;
+	width: 1250px;
+}
+li.long h3{
+	float: left;
+	width: 960px;
+	font-size: 16px;
+	line-height: 52px;
+	text-indent: 8px;
+}
+li.long sub {
+	clear: none;
+	float: right;
+	line-height: 52px;
+	height: 52px;
+	width: 200px;
+}
+li.long span{
+	margin-top: 10px;
+}
+li.long sub{
+	margin-top: 8px;
+}
+
+
+li:hover{
+	background-color: #fff;
+}
+
+
+/* Icons */
+li span {
+	float: left;
+	width: 29px;
+	height: 29px;
+	margin: 20px 2px auto 6px;
+}
+li span.adobeico {
+	background: url("/images/softIcons.png") -147px 0px no-repeat;
+}
+li span.psico {
+	background: url("/images/softIcons.png") 0px 0px no-repeat;
+}
+li span.aiico {
+	background: url("/images/softIcons.png") -29px 0px no-repeat;
+}
+li span.prico {
+	background: url("/images/softIcons.png") -176px 0px no-repeat;
+}
+li span.lrico {
+	background: url("/images/softIcons.png") -205px 0px no-repeat;
+}
+li span.auico {
+	background: url("/images/softIcons.png") -117px 0px no-repeat;
+}
+li span.aeico {
+	background: url("/images/softIcons.png") -58px 0px no-repeat;
+}
+li span.chico {
+	background: url("/images/softIcons.png") -263px 0px no-repeat;
+}
+li span.acrobatico {
+	background: url("/images/softIcons.png") -29px -30px no-repeat;
+}
+li span.dwico {
+	background: url("/images/softIcons.png") -324px 0px no-repeat;
+}
+li span.meico {
+	background: url("/images/softIcons.png") -58px -30px no-repeat;
+}
+li span.idico {
+	background: url("/images/softIcons.png") -386px 0px no-repeat;
+}
+li span.icico {
+	background: url("/images/softIcons.png") -355px 0px no-repeat;
+}
+li span.anico {
+	background: url("/images/softIcons.png") -87px 0px no-repeat;
+}
+li span.brico {
+	background: url("/images/softIcons.png") -234px 0px no-repeat;
+}
+li span.plico {
+	background: url("/images/softIcons.png") -417px 0px no-repeat;
+}
+li span.xdico {
+	background: url("/images/softIcons.png") -447px 0px no-repeat;
+}
+li span.dnico {
+	background: url("/images/softIcons.png") -293px 0px no-repeat;
+}
+li span.amasterico {
+	background: url("/images/softIcons.png") 0px -30px no-repeat;
+}
+li span.autodeskico {
+	background: url("/images/softIcons.png") -147px -30px no-repeat;
+}
+li span.mayaico {
+	background: url("/images/softIcons.png") -88px -30px no-repeat;
+}
+li span.autocadico {
+	background: url("/images/softIcons.png") -118px -30px no-repeat;
+}
+li span.cadmico {
+	background: url("/images/softIcons.png") -118px -30px no-repeat;
+}
+li span.cadeico {
+	background: url("/images/softIcons.png") -118px -30px no-repeat;
+}
+li span.invico {
+	background: url("/images/softIcons.png") -176px -30px no-repeat;
+}
+li span.dsmaxpsico {
+	background: url("/images/softIcons.png") -205px -30px no-repeat;
+}
+li span.vrayico {
+	background: url("/images/softIcons.png") -235px -30px no-repeat;
+}
+li span.civico {
+	background: url("/images/softIcons.png") -264px -30px no-repeat;
+}
+li span.rivitico {
+	background: url("/images/softIcons.png") -294px -30px no-repeat;
+}
+li span.navisico {
+	background: url("/images/softIcons.png") -324px -30px no-repeat;
+}
+li span.rhinoico {
+	background: url("/images/softIcons.png") -355px -30px no-repeat;
+}
+li span.creoico {
+	background: url("/images/softIcons.png") -386px -30px no-repeat;
+}
+li span.c4dico {
+	background: url("/images/softIcons.png") -417px -30px no-repeat;
+}
+li span.sldwkico {
+	background: url("/images/softIcons.png") -447px -30px no-repeat;
+}
+li span.sldcamico {
+	background: url("/images/softIcons.png") 0px -60px no-repeat;
+}
+li span.adisnico {
+	background: url("/images/softIcons.png") -29px -60px no-repeat;
+}
+li span.ugnxico {
+	background: url("/images/softIcons.png") -58px -60px no-repeat;
+}
+li span.prismico {
+	background: url("/images/softIcons.png") -147px -91px no-repeat;
+}
+li span.snapgico {
+	background: url("/images/softIcons.png") -176px -91px no-repeat;
+}
+li span.originico {
+	background: url("/images/softIcons.png") -118px -91px no-repeat;
+}
+li span.spssico {
+	background: url("/images/softIcons.png") -324px -91px no-repeat;
+}
+li span.matlabico {
+	background: url("/images/softIcons.png") -87px -61px no-repeat;
+}
+li span.cdrico {
+	background: url("/images/softIcons.png") -205px -59px no-repeat;
+}
+li span.sktupico {
+	background: url("/images/softIcons.png") -147px -59px no-repeat;
+}
+li span.sktbkico {
+	background: url("/images/softIcons.png") -263px -90px no-repeat;
+}
+li span.endnoteico {
+	background: url("/images/softIcons.png") -356px -91px no-repeat;
+}
+li span.stataico {
+	background: url("/images/softIcons.png") -387px -91px no-repeat;
+}
+li span.lingoico {
+	background: url("/images/softIcons.png") -417px -91px no-repeat;
+}
+li span.davinciico {
+	background: url("/images/softIcons.png") -262px -59px no-repeat;
+}
+li span.keyshotico {
+	background: url("/images/softIcons.png") -385px -59px no-repeat;
+}
+li span.vstudioico {
+	background: url("/images/softIcons.png") -233px -59px no-repeat;
+}
+li span.sai2ico {
+	background: url("/images/softIcons.png") -234px -90px no-repeat;
+}
+li span.capture1ico {
+	background: url("/images/softIcons.png") -447px -90px no-repeat;
+}
+li span.ptzoomico {
+	background: url("/images/softIcons.png") 0px -122px no-repeat;
+}
+li span.painterico {
+	background: url("/images/softIcons.png") -29px -122px no-repeat;
+}
+li span.gigapixelico {
+	background: url("/images/softIcons.png") -58px -123px no-repeat;
+}
+li span.vegasico {
+	background: url("/images/softIcons.png") -88px -123px no-repeat;
+}
+li span.winosico {
+	background: url("/images/softIcons.png") -147px -123px no-repeat;
+}
+li span.winlibico {
+	background: url("/images/softIcons.png") 0px -91px no-repeat;
+}
+li span.heuico {
+	background: url("/images/softIcons.png") -325px -60px no-repeat;
+}
+li span.wdefenico {
+	background: url("/images/softIcons.png") -117px -122px no-repeat;
+}
+li span.officeico {
+	background: url("/images/softIcons.png") -90px -90px no-repeat;
+}
+li span.editplugsico {
+	background: url("/images/softIcons.png") -293px -59px no-repeat;
+}
+li span.mindmico {
+	background: url("/images/softIcons.png") -176px -122px no-repeat;
+}
+li span.xmindico {
+	background: url("/images/softIcons.png") -205px -121px no-repeat;
+}
+li span.vmwareico {
+	background: url("/images/softIcons.png") -446px -59px no-repeat;
+}
+li span.winrarico {
+	background: url("/images/softIcons.png") -293px -90px no-repeat;
+}
+li span.rufusico {
+	background: url("/images/softIcons.png") -205px -90px no-repeat;
+}
+li span.idmico {
+	background: url("/images/softIcons.png") -234px -122px no-repeat;
+}
+li span.ultraisoicon {
+	background: url("/images/softIcons.png") -263px -122px no-repeat;
+}
+li span.balenaico {
+	background: url("/images/softIcons.png") -292px -122px no-repeat;
+}
+li span.pwmillico {
+	background: url("/images/softIcons.png") -325px -122px no-repeat;
+}
+li span.mstcamico{
+	background: url("/images/softIcons.png") -117px -60px no-repeat;
+}
+li span.minitabico{
+	background: url("/images/softIcons.png") -176px -60px no-repeat;
+}
+li span.multisimico{
+	background: url("/images/softIcons.png") -59px -90px no-repeat;
+}
+li span.eplanico{
+	background: url("/images/softIcons.png") -356px -122px no-repeat;
+}
+li span.t20ico{
+	background: url("/images/softIcons.png") -28px -90px no-repeat;
+}
+li span.t20ico{
+	background: url("/images/softIcons.png") -28px -90px no-repeat;
+}
+li span.abaqusico{
+	background: url("/images/softIcons.png") -417px -122px no-repeat;
+}
+li span.eviewsico{
+	background: url("/images/softIcons.png") -387px -122px no-repeat;
+}
+li span.marveico{
+	background: url("/images/softIcons.png") -446px -122px no-repeat;
+}
+li span.multiphysicsico{
+	background: url("/images/softIcons.png") 0px -154px no-repeat;
+}
+li span.lumionico{
+	background: url("/images/softIcons.png") -30px -154px no-repeat;
+}
+li span.ansysprico{
+	background: url("/images/softIcons.png") -59px -152px no-repeat;
+}
+li span.ansyselico{
+	background: url("/images/softIcons.png") -88px -152px no-repeat;
+}
+li span.hyperworksico{
+	background: url("/images/softIcons.png") -117px -152px no-repeat;
+}
+li span.proteusico{
+	background: url("/images/softIcons.png") -149px -152px no-repeat;
+}
+li span.zbrushico{
+	background: url("/images/softIcons.png") -176px -152px no-repeat;
+}
+li span.admsico{
+	background: url("/images/softIcons.png") -205px -152px no-repeat;
+}
+li span.jetbrainico{
+	background: url("/images/softIcons.png") -234px -152px no-repeat;
+}
+li span.clionico{
+	background: url("/images/softIcons.png") -263px -152px no-repeat;
+}
+li span.datagripico{
+	background: url("/images/softIcons.png") -29px -183px no-repeat;
+}
+li span.golandico{
+	background: url("/images/softIcons.png") 0px -184px no-repeat;
+}
+li span.pycharmico{
+	background: url("/images/softIcons.png") -386px -153px no-repeat;
+}
+li span.ideaiuico{
+	background: url("/images/softIcons.png") -447px -153px no-repeat;
+}
+li span.phpstormico{
+	background: url("/images/softIcons.png") -417px -153px no-repeat;
+}
+li span.riderico{
+	background: url("/images/softIcons.png") -355px -153px no-repeat;
+}
+li span.rubymineico{
+	background: url("/images/softIcons.png") -325px -153px no-repeat;
+}
+li span.webstormico{
+	background: url("/images/softIcons.png") -293px -153px no-repeat;
+}
+li span.labviewico{
+	background: url("/images/softIcons.png") -58px -184px no-repeat;
+}
+li span.anacondico{
+	background: url("/images/softIcons.png") -87px -184px no-repeat;
+}
+li span.astudioico{
+	background: url("/images/softIcons.png") -118px -184px no-repeat;
+}
+li span.keilico{
+	background: url("/images/softIcons.png") -147px -184px no-repeat;
+}
+li span.srcinsightico{
+	background: url("/images/softIcons.png") -176px -184px no-repeat;
+}
+li span.msvstudioico{
+	background: url("/images/softIcons.png") -205px -184px no-repeat;
+}
+li span.unity3dico{
+	background: url("/images/softIcons.png") -234px -184px no-repeat;
+}
+li span.verovisiico{
+	background: url("/images/softIcons.png") -263px -184px no-repeat;
+}
+li span.catiaico{
+	background: url("/images/softIcons.png") -293px -184px no-repeat;
+}
+li span.dynaformico{
+	background: url("/images/softIcons.png") -323px -184px no-repeat;
+}
+li span.teklaico{
+	background: url("/images/softIcons.png") -356px -184px no-repeat;
+}
+li span.caxa3dico{
+	background: url("/images/softIcons.png") -418px -184px no-repeat;
+}
+li span.caxacadico{
+	background: url("/images/softIcons.png") -387px -184px no-repeat;
+}
+li span.caxacappico{
+	background: url("/images/softIcons.png") -448px -184px no-repeat;
+}
+li span.tecplotico{
+	background: url("/images/softIcons.png") -356px -60px no-repeat;
+}
+li span.wilcomesico{
+	background: url("/images/softIcons.png") -29px -216px no-repeat;
+}
+li span.wilcompeico{
+	background: url("/images/softIcons.png") 0px -216px no-repeat;
+}
+li span.cassico{
+	background: url("/images/softIcons.png") -58px -216px no-repeat;
+}
+li span.artcamico{
+	background: url("/images/softIcons.png") -88px -216px no-repeat;
+}
+li span.halconico{
+	background: url("/images/softIcons.png") -117px -216px no-repeat;
+}
+li span.qprimeico{
+	background: url("/images/softIcons.png") -147px -216px no-repeat;
+}
+li span.tiaico{
+	background: url("/images/softIcons.png") -176px -216px no-repeat;
+}
+li span.thingsico{
+	background: url("/images/softIcons.png") -205px -216px no-repeat;
+}
+li span.sketchico{
+	background: url("/images/softIcons.png") -263px -216px no-repeat;
+}
+li span.pixelmatorico{
+	background: url("/images/softIcons.png") -233px -216px no-repeat;
+}
+li span.dowineico{
+	background: url("/images/softIcons.png") -293px -216px no-repeat;
+}
+li span.finalcutico{
+	background: url("/images/softIcons.png") -325px -216px no-repeat;
+}
+li span.parallelsico{
+	background: url("/images/softIcons.png") -356px -216px no-repeat;
+}
+li span.upxico{
+	background: url("/images/softIcons.png") -386px -216px no-repeat;
+}
+li span.reneepdfico{
+	background: url("/images/softIcons.png") -417px -216px no-repeat;
+}
+
+
+a,a:visited{
+	text-decoration-line: none;
+	color: #333333;
+}
+a:hover{
+	color: #f00;
+}
+
+p{
+	text-indent: 8px;
+	line-height: 32px;
+	width: 60%;
+	float: left;	
+}
+
+.center {
+	width: 100%;
+	margin: 0;
+	background-color: #ffffff;
+}
+.clr{
+	clear: both;	
+}
+
+.site_discription{
+	float: left;
+	width: 100%;
+	margin: 5px auto;
+
+}
+.vipimg{
+	float: right;
+	width: 20%;
+	height: 94px;
+	line-height: 94px;
+}
+.vipmq{
+	float: left;
+	width: 80%;
+	height: 30px;
+	line-height: 30px;
+}
+marquee{
+	height: 30px;
+	line-height: 30px;
+	width: 98%;
+	color: red;
+	font-weight: bold;
+}
+
+.sitenav{
+	clear: both;
+	float: left;
+	width: 100%;
+}
+.sitenav ul li {
+	width: 49%;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	cursor:pointer;
+}
+
+.software_list{
+	float: left;
+	text-align: left;
+}
+.txtCenter{
+	margin-top: 49px;
+	text-align: center;
+}
+
+#MacOS {
+	display: none;
+}
+#MacOS h2{
+	background-color: #f8ce2e;	
+}
+
+.site_foot{
+	float: left;
+	width: 100%;
+	margin: 35px auto;
+
+}
