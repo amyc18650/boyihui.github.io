@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)https://www.wmzhe.com/album/shangbanshijian -->
-<html lang="zh-cn"><head><meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+
 <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="common_v2.css" type="text/css" rel="stylesheet">
 
@@ -13,7 +17,7 @@
 <div id="header">
       <div style="display: flex; justify-content: center; align-items: center; ">
             <a href="xxxxxxxxx" id="logo"><img src="logo.png" width="600" height="266" alt=""></a>
-            <div id="search"> </div>
+            
         </div>
     </div>
 
@@ -31,14 +35,27 @@
 
 <div class="header_mobile">
     <div>
-        
+        <div id="header">
+            <div style="display: flex; justify-content: center; align-items: center; ">
+                  <a href="xxxxxxxxx" id="logo"><img src="logo.png" width="600" height="266" alt=""></a>
+                  <div class="cont">
+                    <div class="logo">&nbsp; &nbsp; &nbsp;</div>
+                    <h3 style= "color:#e90707; display: flex; justify-content: center; align-items: center;font-size: 24px "> 快捷登录管理/会员系统 </h3>
+                    <h3>&nbsp; &nbsp; &nbsp;   </h3>
+            
+                    
+                </div>
+              </div>
+          </div>
+
+          
     </div>
 
     <div class="mark js_menu_mark">
       
 
-        <div class="header_mobile_bottom">
-             </div>
+    <div class="header_mobile_bottom">
+                 </div>
     </div>
 </div>
 
@@ -115,34 +132,6 @@
 <link rel="stylesheet" href="swiper-bundle.min.css">
 
 <h3 style="display: flex; justify-content: center; align-items: center; ">版权所有 ©2023-2024 博義會娛樂 保留所有权 </h3>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>访问计数器</title>
-    <script>
-        // 检查本地存储中是否有访问计数
-        if (localStorage.getItem("visitCount") === null) {
-            localStorage.setItem("visitCount", 0);
-        }
- 
-        // 每次页面加载时增加访问计数
-        function updateVisitCount() {
-            var visitCount = localStorage.getItem("visitCount");
-            visitCount = parseInt(visitCount, 10);
-            visitCount += 1;
-            localStorage.setItem("visitCount", visitCount);
-            document.getElementById("visitCount").innerText = "您已访问本页面：" + visitCount + " 次。";
-        }
- 
-        // 页面加载时调用函数
-        window.onload = function() {
-            updateVisitCount();
-        };
-    </script>
-</head>
-<body>
-  <!-- <p id="visitCount"></p>-->
-</body>
-</html>
+
 
 </body></html>
