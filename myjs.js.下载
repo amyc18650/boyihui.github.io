@@ -1,0 +1,86 @@
+// JavaScript Document
+
+
+function hWindowsOS(){
+	var divW=document.getElementById("windowsOS");
+	var divM=document.getElementById("MacOS");
+	divW.style.display="none";
+	divM.style.display="block";
+}
+
+function hMacOS(){
+	var divW=document.getElementById("windowsOS");
+	var divM=document.getElementById("MacOS");
+	divW.style.display="block";
+	divM.style.display="none";
+}
+
+$(document).ready(function(){
+	$("#windowsOS").load("/windows.html");
+})
+$(document).ready(function(){
+	$("#MacOS").load("/macos.html");
+})
+
+$(document).ready(function(){
+	var hostname=document.domain;
+	switch(hostname){
+		case "3so.site" :
+			$("h1").text("3SO软件仓库");
+			$("title").text("3SO工作室");
+			break;
+		case "soft8.site" :
+			$("h1").text("Soft8软件仓库");
+			$("title").text("SOFT8工作室");
+			break;
+		case "ruanjian.bar" :
+		case "www.ruanjian.bar" :
+			$("h1").text("软件吧");
+			$("title").text("软件吧");
+			break;
+		case "webcom.top" :
+		case "www.webcom.top" :
+			$("h1").text("WebCom软件仓库");
+			$("title").text("WebCom工作室");
+			break;
+		case "sosoft.top" :
+		case "www.sosoft.top" :
+			$("h1").text("SoSoft软件仓库");
+			$("title").text("SOSOFT工作室");
+			break;
+		case "cityray.top" :
+		case "www.cityray.top" :
+			$("h1").text("CityRay软件仓库");
+			$("title").text("城市之光工作室");
+			break;
+		case "3bit.top" :
+		case "www.3bit.top" :
+			$("h1").text("3BIT软件仓库");
+			$("title").text("3BIT工作室");
+			break;
+		case "4bit.top" :
+		case "www.4bit.top" :
+			$("h1").text("4BIT软件仓库");
+			$("title").text("4BIT工作室");
+			break;
+		case "7bit.top" :
+		case "www.7bit.top" :
+			$("h1").text("7BIT软件仓库");
+			$("title").text("7BIT工作室");
+			break;
+		case "gao.pw" :
+		case "www.gao.pw" :
+			$("h1").text("“搞”软件仓库");
+			$("title").text("搞设计工作室");
+			break;
+		case "321.pw" :
+		case "www.321.pw" :
+			$("h1").text("藏宝阁资源");
+			$("title").text("藏宝阁工作室");
+			break;
+		default :
+			$("h1").text("藏宝阁");
+			$("title").text("藏宝阁工作室");
+	}
+	
+})

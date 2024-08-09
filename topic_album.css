@@ -1,0 +1,320 @@
+/* 合集专题页 */
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+  
+.software_index_title h3 {
+    color: #008ECE;
+    font-size: 18px;
+    line-height: 19px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.software_index_title h3 a {
+    font-size: 14px;
+    color: #999;
+    font-weight: 400;
+}
+
+.software_index_title .sub_title {
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+}
+/* 头部图片，菜单 */
+.album_top {
+    height: 300px;
+    margin-top: 30px;
+}
+
+.album_top_img {
+    width: 800px;
+    height: 300px;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+.album_top_img img {
+    width: 100%;
+    height: 100%;
+}
+
+.album_top_menu {
+    width: 460px;
+}
+.album_top_menu li {
+    width: 220px;
+    height: 140px;
+    background-color: #ddd;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 140px;
+    overflow: hidden;
+}
+
+.album_top_menu li:nth-child(2n) {
+    margin-right: 0;
+}
+
+.album_top_menu img {
+    width: 100%;
+    height: auto;
+}
+
+.album_list li {
+    width: 398px;
+    height: 182px;
+    position: relative;
+    margin-right: 43px;
+    margin-bottom: 40px;
+}
+
+.album_list li:nth-child(3n) {
+    margin-right: 0;
+}
+
+.album_list li::after {
+    content: "";
+    position: absolute;
+    width: 282px;
+    height: 43px;
+    background-image: url(/static/wmzhe/images/album_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 1;
+    bottom: -21px;
+    left: 50%;
+    margin-left: -141px;
+}
+
+.album_list dl {
+    width: 398px;
+    height: 182px;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 40px 30px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+}
+
+.album_list dt {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-right: 24px;
+}
+
+.album_list img {
+    width: 100%;
+    height: 100%;
+}
+
+.album_list h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.album_list .time {
+    color: #999;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.album_list .decs {
+    color: #666;
+    font-weight: 400;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.album_software {
+    margin-bottom: 100px;
+}
+
+.album_software li {
+    width: 285px;
+    margin-right: 45px;
+}
+
+.album_software li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.album_software dl {
+    width: 220px;
+}
+
+.album_software dt {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.album_software img {
+    width: 28px;
+    height: auto;
+}
+
+.album_software h4 a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.album_software .decs {
+    color: #999;
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+.album_software .download {
+    width: 60px;
+    height: 30px;
+    border: 1px solid #83BADF;
+    color: #008ECE;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+@media (max-width:576px) {
+    .topic_album_wrap {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .album_top {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+    .album_top_img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .album_top_img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .album_top_menu {
+        width: 100%;
+    }
+
+    .album_top_menu li {
+        margin-right: 0;
+        width: 48%;
+        margin-right: 2%;
+        height: auto;
+        line-height: unset;
+        margin-bottom: 15px;
+    }
+
+    .album_top_menu li:nth-child(2n) {
+        margin-left: 2%;
+        margin-right: 0;
+    }
+
+    .album_list_wrap {
+        margin-bottom: 30px;
+    }
+
+    .album_list {
+        width: 100%;
+    }
+
+    .album_list li {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .album_list dl {
+        width: 100%;
+        padding: 30px 15px;
+        height: auto;
+    }
+
+    .album_list dt {
+        width: 97px;
+        height: 97px;
+        margin-right: 20px;
+    }
+
+    .album_list li::after {
+        width: 200px;
+        bottom: 11px;
+        margin-left: -100px;
+        height: 22px;
+    }
+
+    .album_list h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .album_software {
+        margin-bottom: 30px;
+    }
+
+    .album_software li {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .album_software li:last-child {
+        margin-bottom: 0;
+    }
+
+    .album_software dl {
+        width: calc(100% - 80px);
+    }
+
+    .album_software dt {
+        width: 55px;
+        height: 55px;
+        line-height: 50px;
+        border-radius: 10px;
+    }
+
+    .album_software dd {
+        padding-top: 8px;
+    }
+
+
+    .album_software img {
+        width: 40px;
+    }
+
+    .album_software .download {
+        margin-top: 13px;
+    }
+
+    .software_index_title {
+        margin-bottom: 15px;
+    }
+}

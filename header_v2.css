@@ -1,0 +1,389 @@
+.header_top {
+    background-color: #f5f5f5;
+    height: 44px;
+    line-height: 44px;
+}
+
+.header_top a, 
+.header_top span {
+    color: #fff;
+    margin-right: 30px;
+    
+}
+
+.header_top a {
+    cursor: pointer;
+}
+
+.header_top a:hover {
+    text-decoration: none;
+}
+
+#header {
+    background-color: #f5f5f5;
+   
+}
+#header .container {
+    height: 120px;
+    padding-top: 28px;
+}
+
+#header #logo {
+    width: 205px;
+    height: 65px;
+    margin-left: 20px;
+}
+
+#header #logo img {
+    height: 100%;
+    width: auto;
+}
+
+#header .hot a {
+    color: #fff
+}
+
+.navWrap {
+    background-color: #f5f5f5;
+    height: 56px;
+}
+#nav {
+    text-align: center;
+}
+
+#nav .nav-left {
+    width: 100%;
+}
+#nav a {
+    height: 56px;
+    line-height: 56px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#nav a.nav-cur,#nav a.nav-cur:hover {
+	background: none !important;
+    text-decoration: none;
+}
+
+#nav a.nav-cur {
+    background-color: none !important;
+    position: relative;
+}
+
+#nav a:hover {
+    background: none !important;
+    position: relative;
+}
+
+#nav a.nav-cur::after,
+#nav a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #fff;;
+}
+
+#search {
+    margin-top: 10px;
+}
+
+#search-form {
+    height: 50px;
+}
+
+#search-form-input {
+    height: 50px;
+    width: 530px;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#search-form-input::placeholder {
+    color: #999999;
+}
+
+#search-form-submit {
+    width: 106px;
+    height: 50px;
+    background-color: #008ECE;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    outline: none;
+}
+
+
+
+.nav-right {
+    width: 70px;
+}
+
+.nav-right a {
+    float: right;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.header_mobile {
+    width: 100%;
+    height: 50px;
+    background-color: #5D80A4;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    display: none;
+}
+
+.header_mobile .logo {
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+}
+
+.header_mobile .logo img {
+    width: 100%;
+    height: auto;
+}
+
+.header_mobile i {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 15px;
+}
+
+.header_mobile .more {
+    background-image: url(1.png);
+    margin-left: 10px;
+}
+
+.header_mobile .search {
+    background-image: url(1.png);
+    margin-right: 10px;
+}
+
+.header_mobile .mark {
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: rgba(57, 80, 102, .95);
+    z-index: 20;
+    top: 50px;
+    display: none;
+}
+
+.header_mobile .mark li > a {
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header_mobile ul {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.header_mobile li {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.header_mobile li:last-child {
+    border-bottom: none;
+}
+
+.header_mobile i.close {
+    background-image: url(1.png);
+}
+
+.header_mobile_bottom {
+    position: absolute;
+    bottom: 20px;
+    line-height: 24px;
+    width: 100%;
+}
+
+.header_mobile_bottom a,
+.header_mobile_bottom span {
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right: 1px solid rgba(255, 255, 255, .2);
+    color: #fff;
+    font-size: 14px;
+}
+
+.header_mobile_bottom a:nth-child(1) {
+    margin-left: 0;
+}
+
+.header_mobile_bottom span:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.header_mobile_bottom a {
+    font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+.login_btn {
+    color: #fff;
+    cursor: pointer;
+    width: 50px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 8px;
+    text-align: center;
+    background-color: #5E81A3;
+    border-radius: 5px;
+}
+
+.login_btn:hover {
+    background-color: #7294b5;
+}
+
+.user_info {
+    position: relative;
+    cursor: pointer;
+}
+
+.user_info span{
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.user_info .headimgurl {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: #ddd;
+    margin-top: 6px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user_info .headimgurl img {
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline;
+}
+
+.sign_out {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 100px;
+    background-color: #456D8D;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    color: #fff;
+    display: none;
+}
+
+.sign_out i {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url(/static/wmzhe/images/tuichu.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+@media (max-width:576px) {
+    .header_top {
+        display: none;
+    }
+
+    #header {
+        height: auto;
+    }
+
+    #header .container {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        height: auto;
+    }
+
+    #header #logo {
+        width: auto;
+        height: 42px;
+        margin-left: 10px;
+        padding-top: 0;
+    }
+
+    #search {
+        width: 190px;
+        margin: 4px 10px 0 0;
+    }
+
+    #search-form {
+        height: 100%;
+        position: relative;
+    }
+
+    #search-form-input {
+        width: 100%;
+        height: 100%;
+        padding-left: 5px;
+        padding-right: 25px;
+    }
+
+    #search-form .link-icon {
+        position: absolute;
+        right: -2px;
+    }
+
+    .navWrap {
+        height: 45px;
+        padding-left: 0;
+    }
+
+    #nav {
+        text-align: left;
+        width: 570px !important;
+    }
+    #nav a {
+        height: 45px;
+        line-height: 45px;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #nav a.nav-cur::after,
+    #nav a:hover::after {
+        bottom: 6px;
+    }
+
+    .header_mobile {
+        display: block;
+    }
+
+    .header_pc {
+        display: none;
+    }
+}
+
+
+@media (max-width:320px) {
+    #search {
+        width: 170px;
+    }
+}

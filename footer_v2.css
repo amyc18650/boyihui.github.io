@@ -1,0 +1,131 @@
+#footer_v2 {
+    background-color: #112E40;
+    padding-top: 50px;
+    padding-bottom: 36px;
+    text-align: unset;
+}
+
+#footer_v2 a {
+    font-size: 14px;
+}
+
+.about {
+    width: 555px;
+}
+.about dt {
+    margin-right: 100px;
+}
+
+.about img {
+    width: 57px;
+    height: auto;
+}
+
+.about a {
+    display: inline-block;
+    width: 56px;
+    margin-right: 109px;
+    color: #fff !important;
+    margin-bottom: 8px;
+}
+.about a:nth-child(3n) {
+    margin-right: 0;
+}
+
+.share {
+    color: #999;
+}
+
+.QRcode {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.QRcode img {
+    width: 80px;
+    height: auto;
+}
+
+.share i {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    margin-left: 8px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.share a:nth-child(1) i {
+    background-image: url(/static/wmzhe/images/footer_02.png);
+}
+
+.share a:nth-child(2) i {
+    background-image: url(/static/wmzhe/images/footer_03.png);
+}
+
+.share a:nth-child(3) i {
+    background-image: url(/static/wmzhe/images/footer_04.png);
+    width: 16px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+}
+
+.copyright a {
+    color: #999;
+}
+
+@media (max-width:576px) {
+    #footer_v2 {
+        height: auto;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+
+    #footer_v2 .about {
+        width: 100%;
+        margin-bottom: 60px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    #footer_v2 .about dt {
+        margin: 0 auto;
+        width: 57px;
+    }
+
+    #footer_v2 .about dd {
+        text-align: center;
+    }
+
+    #footer_v2 .about a {
+        margin-left: 25px;
+        margin-right: 0;
+        display: inline-block;
+        width: 60px;
+    }
+
+    #footer_v2 .share {
+        float: unset;
+        text-align: center;
+    }
+
+    #footer_v2 .QRcode {
+        text-align: center;
+    }
+
+    #footer_v2 .copyright {
+        color: #fff;
+        font-size: 12px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-top: 30px;
+    }
+
+    #footer_v2 .copyright a {
+        font-size: 12px;
+    }
+}
