@@ -254,14 +254,14 @@
     }
 
     .album_list dl {
-        width: 90%;
-        padding: 12px 10px;
+        width: 95%;
+        padding: 12px 16px;
         height: auto;
     }
 
     .album_list dt {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
         margin-right: 2px;
     }
 
