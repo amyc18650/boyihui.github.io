@@ -42,7 +42,7 @@ ul{
 }
 li {
 	float: left;
-	width: 204px;
+	width: 304px;
 	height: 74px;
 	line-height: 74px;
 	float: left;
@@ -127,7 +127,6 @@ li span {
 	height: 29px;
 	margin: 20px 2px auto 6px;
 }
-
 
 
 a,a:visited{
