@@ -72,8 +72,8 @@
     width: 398px;
     height: 182px;
     position: relative;
-    margin-right: 43px;
-    margin-bottom: 40px;
+    margin-right: 4px;
+    margin-bottom: 4px;
 }
 
 .album_list li:nth-child(3n) {
@@ -88,18 +88,18 @@
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: 1;
-    bottom: -21px;
+    bottom: -2px;
     left: 50%;
     margin-left: -141px;
 }
 
 .album_list dl {
     width: 398px;
-    height: 182px;
+    height: 142px;
     background-color: #f5f5f5;
     border-radius: 20px;
     border: 1px solid #ddd;
-    padding: 40px 30px;
+    padding: 20px 15px;
     cursor: pointer;
     position: absolute;
     z-index: 3;
@@ -199,7 +199,7 @@
     font-size: 14px;
 }
 
-@media (max-width:276px) {
+@media (max-width:576px) {
     .topic_album_wrap {
         padding-left: 10px;
         padding-right: 10px;
@@ -207,8 +207,8 @@
     .album_top {
         width: 100%;
         height: auto;
-        margin-bottom: 15px;
-        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-top: 1px;
     }
     .album_top_img {
         width: 100%;
@@ -231,7 +231,7 @@
         margin-right: 2%;
         height: auto;
         line-height: unset;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .album_top_menu li:nth-child(2n) {
@@ -240,7 +240,7 @@
     }
 
     .album_list_wrap {
-        margin-bottom: 30px;
+        margin-bottom: 3px;
     }
 
     .album_list {
@@ -248,26 +248,26 @@
     }
 
     .album_list li {
-        width: 100%;
+        width: 90%;
         margin-bottom: 5px;
     }
 
     .album_list dl {
-        width: 100%;
-        padding: 30px 15px;
+        width: 90%;
+        padding: 12px 10px;
         height: auto;
     }
 
     .album_list dt {
-        width: 97px;
-        height: 97px;
-        margin-right: 20px;
+        width: 70px;
+        height: 70px;
+        margin-right: 2px;
     }
 
     .album_list li::after {
         width: 200px;
         bottom: 11px;
-        margin-left: -100px;
+        margin-left: -10px;
         height: 22px;
     }
 
