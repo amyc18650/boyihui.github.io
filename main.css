@@ -214,3 +214,212 @@ marquee{
 	margin: 35px auto;
 
 }
+
+@media (min-width:1300px) {
+	.container,.container-lg,.container-md,.container-sm,.container-xl {
+		max-width:100%;
+	}
+}
+@media only screen and (max-width:768px) {
+	body > .container {
+		width:100%;
+	}
+	#header {
+		height:3.5rem;
+		position:relative;
+		width:100% !important;
+		background-color:#fff;
+	}
+	#logo {
+		margin:0 10px;
+		padding-top:5px;
+		display:inline-block;
+		float:none;
+		width:auto;
+		height:56px;
+	}
+	#logo img {
+		width:auto;
+		height:46px;
+	}
+	#search {
+		position:initial;
+		float:right;
+		width:170px;
+		height:34px;
+		margin:11px 10px 11px 0;
+		background:#f2f2f2;
+		border-radius:3px;
+	}
+	#search .search-input {
+		float:left;
+	}
+	#search .link-icon {
+		float:right;
+		width:30px;
+		height:34px;
+		vertical-align:top;
+		cursor:pointer;
+	}
+	#search .link-icon .icon {
+		background-repeat:no-repeat;
+		background-image:url(../images/sprite-common-sef7c107ce9.png);
+		background-position:0 -306px;
+		width:16px;
+		height:14px;
+		margin:9px auto;
+		display:block;
+	}
+	#search-form-input {
+		width:115px;
+		height:34px;
+		padding:0 5px 0 10px;
+		line-height:28px;
+		background:transparent;
+		border:none;
+		outline:none;
+	}
+	.hot {
+		display:none;
+	}
+	.navWrap {
+		overflow-x:auto;
+		height:46px;
+		padding-left:12px;
+	}
+	#nav {
+		width:744px !important;
+	}
+	#nav a {
+		font-size:17px;
+		line-height:46px;
+		height:46px;
+		padding:0 12px;
+	}
+	#footer {
+		padding-top:30px;
+	}
+	#footer .container {
+		width:100%;
+	}
+	#footer .logosub {
+		width:89px;
+		height:30px;
+	}
+	.footerlink a,#footer .copyright a {
+		font-size:12px !important;
+		margin-left:10px;
+		margin-right:10px;
+	}
+	#footer .copyright {
+		line-height:16px !important;
+	}
+	.crumbs {
+		margin-bottom:10px;
+		margin-top:10px;
+	}
+	.pagewrap {
+		padding-left:.5rem;
+		padding-right:.5rem;
+	}
+	.aibyte_article blockquote {
+		position:relative;
+	}
+	.aibyte_article blockquote::before {
+		content:'';
+		position:absolute;
+		top:-10px;
+		left:-5px;
+		right:0;
+		border-top:10px solid #1ec356;
+		border-radius:10px 10px 0 0;
+	}
+	.goto_software {
+		height:45px;
+		line-height:45px;
+		padding:11px 0;
+	}
+	.goto_software i {
+		margin-right:10px;
+		width:22px;
+		height:22px;
+	}
+	.goto_software span {
+		height:22px;
+		line-height:22px;
+		letter-spacing:3px;
+	}
+	.aibyte_ad {
+		width:100% !important;
+	}
+	#A01,#B01,#C01 {
+		margin-top:0 !important;
+	}
+	#fast-nav {
+		margin-bottom:10px;
+		padding-left:10px;
+		padding-right:10px;
+	}
+	.cmbox {
+		margin-left:.5rem;
+		margin-right:1.7rem;
+		background:none;
+		border:none;
+	}
+	.cmbox .title .tab {
+		display:flex;
+		padding:0;
+	}
+	.cmbox .title .tab i {
+		flex:1;
+		padding:0;
+	}
+	.corner .photo::after {
+		width:66px;
+		height:65px;
+		left:11px !important;
+		top:2px !important;
+	}
+
+	.article_title_con span::after {
+		right: -12px;
+	}
+}
+@media only screen and (max-width:576px) {
+	#app {
+		width:100%;
+		margin-top: 50px;
+		padding-top: 10px;
+	}
+}
+
+.adv-close{
+	position: absolute;
+	width: 40px;
+	height: 18px;
+	text-align: center;
+	line-height: 18px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 11px;
+	background: rgba(153,154,170,.6);
+	top: 8px;
+	right: 8px;
+	cursor: pointer;
+	z-index: 9999;
+}
+
+pre{margin:15px auto;font:14px/20px Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New", monospace;font-weight:300;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background-color:#f5f5f5;padding:10px 25px;line-height: 2em}
+code{margin: auto 2px;padding: 4px;font-size: 13px;color: #333;border: 1px solid #ddd;background: #f6f6f6;border-radius: 2px}
+.marked{padding:0.2em;margin:0;background-color: #eceae6;border-radius:3px;font-weight:bold;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace}
+table.reference,table.tecspec{border-collapse:collapse;width:100%;margin-bottom:4px;margin-top:4px}
+table.reference .fa {font-size:24px;}
+table.reference tr:nth-child(odd){background-color:#f6f4f0}
+table.reference tr:nth-child(even){background-color:#fff}
+table.reference tr.fixzebra{background-color:#f6f4f0}
+table.reference th{color:#fff;background-color:#555;border:1px solid #555;font-size:14px;padding-left:10px;vertical-align:top;text-align:left;line-height: 2em}
+table.reference th a:link,table.reference th a:visited{color:#fff}
+table.reference th a:active,table.reference th a:hover{color:#ee872a}
+tr td:first-child{min-width:25px}
+table.reference td{line-height:2em;min-width:24px;border:1px solid #d4d4d4;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top}
+table.reference td.example_code{vertical-align:bottom}
