@@ -9,7 +9,7 @@
 }
 
 body {
-	width: 275px;
+	width: 1275px;
 	background-color: #f8f9fa;
 }
 
@@ -215,12 +215,12 @@ marquee{
 
 }
 
-@media (min-width:1300px) {
+@media only screen and (max-width:1300px) {
 	.container,.container-lg,.container-md,.container-sm,.container-xl {
 		max-width:50%;
 	}
 	body {
-	width: 275px;
+	width: 100%;
 	background-color: #111111;
 }
 @media only screen and (max-width:768px) {
