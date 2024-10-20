@@ -93,6 +93,12 @@ li.long{
 	line-height: 52px;
 	width: 1250px;
 }
+li.long1{
+	clear: both;
+	height: 352px;
+	line-height: 32px;
+	width: 1250px;
+}
 li.long h3{
 	float: left;
 	width: 960px;
