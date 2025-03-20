@@ -1,162 +1,96 @@
 <!DOCTYPE html>
-<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-
-<link href="bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="common_v2.css" type="text/css" rel="stylesheet">
-
-<link href="header_v2.css" type="text/css" rel="stylesheet">
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
+<body>
+    <div class="container">
+        <h1>计算器</h1>
+        <label for="number">输入一个数字(必填项):</label>
+        <input type="number" id="number" required>
 
+        <label for="step">步进（默认0.001）:</label>
+        <input type="number" id="step" step="0.001" value="0.001">
 
+        <label for="left">左值（默认6.800）:</label>
+        <input type="number" id="left" step="0.001" value="6.800">
 
-<div class="header_pc">
-<div id="header">
-      <div style="margin-left: -120px;display: flex; justify-content: center; align-items: center; ">
-            <a href="xxxxxxxxx" target="_self" id="logo"><img src="logo.png" >     
-		  
-		  </a>
-            
-        </div>
+        <label for="right">右值（默认7.400）:</label>
+        <input type="number" id="right" step="0.001" value="7.400">
+
+        <button onclick="calculate()">计算</button>
+
+        <div class="result" id="result"></div>
     </div>
 
-<div class="login_module_wrap js_wrap">
-    <div class="cont">
-        <div class="logo">&nbsp; &nbsp; &nbsp;</div>
-        <h3 style= "color:#e90707; display: flex; justify-content: center; align-items: center;font-size: 24px "> 真诚合作欧博环球买分批发特级代理条件全网最高微信号：boyi123465 </h3>
-        <h3>&nbsp; &nbsp; &nbsp;   </h3>
+    <script>
+        function calculate() {
+            const baseNumber = parseFloat(document.getElementById('number').value);
+            const step = parseFloat(document.getElementById('step').value) || 0.001;
+            const startN = parseFloat(document.getElementById('left').value) || 6.800;
+            const endN = parseFloat(document.getElementById('right').value) || 7.400;
 
-        
-    </div>
-</div>
+            let minValue = Math.floor((baseNumber * startN) / 1000) * 1000;
+            let maxValue = Math.ceil((baseNumber * endN) / 1000) * 1000;
+            let arrs = [];
+            for (let i = minValue; i <= maxValue; i += 1000) {
+                arrs.push(i);
+            }
 
-</div>
+            let results = [];
+            let N = startN;
+            while (N <= endN) {
+                let Y = baseNumber * N;
+                for (let arr of arrs) {
+                    let diff = Math.abs(Y - arr);
+                    if (diff < N) {
+                        results.push({ N, Y, arr, diff });
+                    }
+                }
+                N = parseFloat((N + step).toFixed(3));
+            }
 
-<div class="header_mobile">
-    <div>
-        <div id="header">
-            <div style="margin-top: 9px; display: flex; justify-content: center; align-items: center; ">
-                  <a href="xxxxxxxxx" id="logo"><img src="logo.png" >
-                </a>
-                 
-              </div>
-              <div class="cont">
-               
-                <a class="logo">&nbsp; &nbsp; &nbsp; </a>
-                <a class="logo">&nbsp; &nbsp; &nbsp; </a>
-                
-                
-                
-               
-        
-            </div>
-           
-          </div>
-          
-          
-    </div>
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
 
-    <h3 style= "color:#e90707; display: flex; margin-left: 20px; align-items: center;font-size: 20px "> 方便快捷一键登录所有管理会员系统 </h3>
-</div>
+            if (results.length > 0) {
+                results.forEach(result => {
+                    let p = document.createElement('p');
+                    p.textContent = `(${baseNumber} * ${result.N.toFixed(3)} = ${result.Y.toFixed(2)}) - ${result.arr} = ${result.diff.toFixed(2)} 小于 ${result.N.toFixed(3)}`;
+                    resultDiv.appendChild(p);
+                });
+            } else {
+                resultDiv.textContent = '没有找到符合条件的结果。';
+            }
 
-<div class="logo">&nbsp; &nbsp; &nbsp;</div>
-<div class="logo">&nbsp; &nbsp; &nbsp;</div>
-<a class="logo">&nbsp; &nbsp; &nbsp; </a>
-<a class="logo">&nbsp; &nbsp; &nbsp; </a>
-
-<link href="topic_album.css" type="text/css" rel="stylesheet">
-<div id="app" class="topic_album_wrap">
-    <div style="display: flex; justify-content: center; align-items: center; ">
-     
-      
-
-      <ul class="album_list clearfix js_album_list">
-            
-            <li onclick="window.location.href='ob.html';return false">
-                <dl data-slug="jdkbanbenji">
-                    <dt class="fl">
-                        <img src="logo_ob.png" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">欧博网址</h3>
-                        <p class="time">更新时间：2024-06-25</p>
-                        <p class="decs">欧博会员代理登录端口</p>
-                    </dd>
-                </dl>
-            </li>
-        <li onclick="window.location.href='360.html';return false">
-                <dl data-slug="jdkchangshangji">
-                    <dt class="fl">
-                        <img src="logo.3f6e1494.webp" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">环球360</h3>
-                        <p class="time">更新时间：2024-07-15</p>
-                        <p style= "color:#363636; font-size: 14px">欧博会员代理登录端口</p>
-                    </dd>
-                </dl>
-            </li>
-        <li onclick="window.location.href='hg.html';return false">
-                <dl data-slug="PPTdashi">
-                    <dt class="fl">
-                        <img src="logo_hg.png" alt="PPT大师">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">皇冠网址</h3>
-                        <p class="time">更新时间：2024-05-19</p>
-                        <p class="decs">皇冠会员代理登录端口</p>
-                    </dd>
-                </dl>
-            </li>
-            
-            <li onclick="window.location.href='index.html';return false">
-                <dl data-slug="PPTdashi">
-                    <dt class="fl">
-                        <img src="hp.gif" alt="皇牌">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">皇牌精英</h3>
-                        <p class="time">更新时间：2024-11-18</p>
-                        <p style= "color:#d20505; font-size: 14px">皇牌精英即将推出</p>
-                    </dd>
-                </dl>
-            </li>
-
-            <li onclick="window.location.href='ka.html';return false">
-                <dl data-slug="diannaogaoshou">
-                    <dt class="fl">
-                        <img src="logo_kk.png" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">卡卡湾电投</h3>
-                        <p class="decs">登录/联系客服窗口</p>
-			<p style= "color:#e43509; font-size: 12px">有两位打百家乐99%胜率大神</p>
-			<p style= "color:#e43509; font-size: 12px">在丰益卡卡湾v7台v8台不定时带路打</p>
-                    </dd>
-                </dl>
-            </li>
-
-	      <li onclick="window.location.href='yx.html';return false">
-                <dl data-slug="diannaogaoshou">
-                    <dt class="fl">
-                        <img src="yx.png" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">亚星</h3>
-                        <p class="time">更新时间：2024-09-12</p>
-                        <p class="decs">亚星会员/管理登录</p>
-                    </dd>
-                </dl>
-            </li>
-           
-            
-        </ul>
-    </div>
-</div>
-<h3 style="display: flex; justify-content: center; align-items: center; ">版权所有 ©2023-2024 博義娛樂 保留所有权 </h3>
-
-
-</body></html>
+            let endTime = new Date();
+            let startTime = new Date(); // 这里假设startTime是计算开始的时间，实际应用中需要在计算开始前记录
+            resultDiv.innerHTML += `<p>总共耗时: ${endTime - startTime} 毫秒</p>`;
+        }
+    </script>
+</body>
+</html>
