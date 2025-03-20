@@ -67,11 +67,11 @@
                 let Y = baseNumber * N;
                 for (let arr of arrs) {
                     let diff = Math.abs(Y - arr);
-                    if (diff < N) {
+                    if (diff < N) {if (Y < arr){
                        
                         results.push({ N, Y, arr, diff });
                     }
-                    }
+                    }}
                     
                 N = parseFloat((N + step).toFixed(3));
             }
