@@ -114,10 +114,10 @@
             const rightInput = parseFloat(document.getElementById('right').value);
             const endN = isNaN(rightInput) ? 7.900 : rightInput;
 
-            let minValue = Math.floor((baseNumber * startN) / 1000) * 1000;
-            let maxValue = Math.ceil((baseNumber * endN) / 1000) * 1000;
+            let minValue = Math.floor((baseNumber * startN) / 100) * 100;
+            let maxValue = Math.ceil((baseNumber * endN) / 100) * 100;
             let arrs = [];
-            for (let i = minValue; i <= maxValue; i += 1000) {
+            for (let i = minValue; i <= maxValue; i += 100) {
                 arrs.push(i);
             }
 
