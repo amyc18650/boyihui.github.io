@@ -56,6 +56,8 @@
             overflow-x: auto;
             white-space: pre-wrap;
         }
+        .highlight-green { color: #2ecc71; }
+        .highlight-red { color: #e74c3c; }
         @media (max-width: 1200px) {
             h1 { font-size: 1.2em; }
             input, button, select { padding: 8px; }
@@ -121,7 +123,17 @@
                 for (let arr of arrs) {
                     let diff = Math.abs(Y - arr);
                     if (diff < N && Y < arr) {
-                        results.push({ N, Y, arr, diff });
+                        let result = { N, Y, arr, diff };
+                        // 判断 Y 的末尾是否为 0 或 5
+                        let yStr = result.Y.toFixed(2);
+                        result.yClass = (yStr.endsWith('0') || yStr.endsWith('5')) ? 'highlight-green' : '';
+                        // 判断 diff 末尾 0 的个数
+                        let diffStr = result.diff.toFixed(2);
+                        let zeroCount = diffStr.split('.')[1].match(/0+$/)?.length || 0;
+                        if (zeroCount >= 4) result.diffClass = 'highlight-red';
+                        else if (zeroCount === 3) result.diffClass = 'highlight-green';
+                        else result.diffClass = '';
+                        results.push(result);
                     }
                 }
                 N = parseFloat((N + step).toFixed(3));
@@ -131,7 +143,7 @@
             resultDiv.innerHTML = '';
             if (results.length > 0) {
                 resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p>` +
-                    results.map(r => `<p>(${baseNumber} * ${r.N.toFixed(3)} = ${r.Y.toFixed(2)}) - ${r.arr} = ${r.diff.toFixed(2)} 小于 ${r.N.toFixed(3)}</p>`).join('');
+                    results.map(r => `<p>(<span class="${r.yClass}">${baseNumber} * ${r.N.toFixed(3)} = ${r.Y.toFixed(2)}</span>) - ${r.arr} = <span class="${r.diffClass}">${r.diff.toFixed(2)}</span> 小于 ${r.N.toFixed(3)}</p>`).join('');
             } else {
                 resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p><p>没有找到符合条件的结果。</p>`;
             }
