@@ -10,31 +10,22 @@
             margin: 10px;
             padding: 0;
             background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
         }
         .container {
-            width: 100%;
-            max-width: 400px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 10px;
             box-sizing: border-box;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h1 {
             font-size: 1.5em;
             text-align: center;
             margin-bottom: 15px;
-            color: #333;
         }
         label {
             font-size: 0.9em;
             display: block;
             margin-bottom: 5px;
-            color: #555;
         }
         input, button, select {
             margin: 5px 0;
@@ -44,10 +35,6 @@
             font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 4px;
-        }
-        input:focus, button:focus, select:focus {
-            outline: none;
-            border-color: #4CAF50;
         }
         button {
             background-color: #4CAF50;
@@ -68,8 +55,6 @@
             font-size: 0.9em;
             overflow-x: auto;
             white-space: pre-wrap;
-            max-height: 200px;
-            overflow-y: auto;
         }
         @media (max-width: 1200px) {
             h1 { font-size: 1.2em; }
@@ -85,11 +70,11 @@
         <label for="number">输入一个数字(必填项):</label>
         <input type="number" id="number" required>
 
-        <label for="baseStep">基准步进单位:</label>
+        <label for="baseStep">区间步进单位:</label>
         <select id="baseStep">
-            <option value="100">100步进</option>
-            <option value="1000" selected>1000步进 (默认)</option>
-            <option value="10000">10000步进</option>
+            <option value="100">100 步进</option>
+            <option value="1000" selected>1000 步进 (默认)</option>
+            <option value="10000">10000 步进</option>
         </select>
 
         <label for="step">步进（默认0.005）:</label>
@@ -109,34 +94,32 @@
         function calculate() {
             const startTime = performance.now();
 
-            const numberInput = document.getElementById('number');
-            let baseNumber = parseFloat(numberInput.value);
-            if (!numberInput.value || isNaN(baseNumber)) {
+            const baseNumberInput = document.getElementById('number');
+            const baseNumber = parseFloat(baseNumberInput.value);
+            if (!baseNumberInput.value || isNaN(baseNumber)) {
                 document.getElementById('result').textContent = '请输入一个有效的数字！';
                 return;
             }
 
-            // 根据选择的步进单位调整 baseNumber
-            const baseStep = parseInt(document.getElementById('baseStep').value);
-            baseNumber = Math.round(baseNumber / baseStep) * baseStep;
-
             const step = parseFloat(document.getElementById('step').value) || 0.005;
             const startN = parseFloat(document.getElementById('left').value) || 7.200;
             const endN = parseFloat(document.getElementById('right').value) || 7.900;
+            const baseStep = parseInt(document.getElementById('baseStep').value);
 
-            const minValue = Math.floor((baseNumber * startN) / 100) * 100;
-            const maxValue = Math.ceil((baseNumber * endN) / 100) * 100;
-            const arrs = [];
-            for (let i = minValue; i <= maxValue; i += 100) {
+            // 使用 baseStep 计算 minValue 和 maxValue
+            let minValue = Math.floor((baseNumber * startN) / baseStep) * baseStep;
+            let maxValue = Math.ceil((baseNumber * endN) / baseStep) * baseStep;
+            let arrs = [];
+            for (let i = minValue; i <= maxValue; i += baseStep) {
                 arrs.push(i);
             }
 
-            const results = [];
+            let results = [];
             let N = startN;
             while (N <= endN) {
-                const Y = baseNumber * N;
-                for (const arr of arrs) {
-                    const diff = Math.abs(Y - arr);
+                let Y = baseNumber * N;
+                for (let arr of arrs) {
+                    let diff = Math.abs(Y - arr);
                     if (diff < N && Y < arr) {
                         results.push({ N, Y, arr, diff });
                     }
@@ -144,10 +127,14 @@
                 N = parseFloat((N + step).toFixed(3));
             }
 
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = results.length > 0 
-                ? results.map(r => `<p>(${baseNumber} * ${r.N.toFixed(3)} = ${r.Y.toFixed(2)}) - ${r.arr} = ${r.diff.toFixed(2)} 小于 ${r.N.toFixed(3)}</p>`).join('')
-                : '没有找到符合条件的结果。';
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            if (results.length > 0) {
+                resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p>` +
+                    results.map(r => `<p>(${baseNumber} * ${r.N.toFixed(3)} = ${r.Y.toFixed(2)}) - ${r.arr} = ${r.diff.toFixed(2)} 小于 ${r.N.toFixed(3)}</p>`).join('');
+            } else {
+                resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p><p>没有找到符合条件的结果。</p>`;
+            }
 
             const endTime = performance.now();
             resultDiv.innerHTML += `<p>总共耗时: ${(endTime - startTime).toFixed(2)} 毫秒</p>`;
