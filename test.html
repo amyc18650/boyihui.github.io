@@ -87,15 +87,15 @@
 
         <label for="baseStep">基准步进单位:</label>
         <select id="baseStep">
-            <option value="1000">1000步进 (默认)</option>
             <option value="100">100步进</option>
+            <option value="1000" selected>1000步进 (默认)</option>
             <option value="10000">10000步进</option>
         </select>
 
         <label for="step">步进（默认0.005）:</label>
         <input type="number" id="step" step="0.001" value="0.005">
 
-        <label for="left">左值（默认7.00）:</label>
+        <label for="left">左值（默认7.000）:</label>
         <input type="number" id="left" step="0.001" value="7.000">
 
         <label for="right">右值（默认7.900）:</label>
@@ -118,9 +118,7 @@
 
             // 根据选择的步进单位调整 baseNumber
             const baseStep = parseInt(document.getElementById('baseStep').value);
-            if (baseStep === 100 || baseStep === 1000) {
-                baseNumber = Math.round(baseNumber / baseStep) * baseStep;
-            }
+            baseNumber = Math.round(baseNumber / baseStep) * baseStep;
 
             const step = parseFloat(document.getElementById('step').value) || 0.005;
             const startN = parseFloat(document.getElementById('left').value) || 7.200;
