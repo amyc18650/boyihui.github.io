@@ -56,4 +56,103 @@
             overflow-x: auto;
             white-space: pre-wrap;
         }
-        .highlight-base { ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        .highlight-base { 
+            color: #006400; /* 深绿色 */
+            font-weight: bold; 
+        }
+        .highlight-diff { 
+            color: red; /* 修改为纯红色 */
+            font-weight: bold; /* 加粗 */
+        }
+        @media (max-width: 1200px) {
+            h1 { font-size: 1.2em; }
+            input, button, select { padding: 8px; }
+            .container { padding: 5px; }
+            label { font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>老苏开心查</h1>
+        <label for="number">输入一个数字(必填项):</label>
+        <input type="number" id="number" required>
+
+        <label for="baseStep">区间步进单位:</label>
+        <select id="baseStep">
+            <option value="100">100 步进</option>
+            <option value="1000" selected>1000 步进 (默认)</option>
+            <option value="10000">10000 步进</option>
+        </select>
+
+        <label for="step">步进（默认0.005）:</label>
+        <input type="number" id="step" step="0.001" value="0.005">
+
+        <label for="left">左值（默认7.000）:</label>
+        <input type="number" id="left" step="0.001" value="7.000">
+
+        <label for="right">右值（默认7.900）:</label>
+        <input type="number" id="right" step="0.001" value="7.900">
+
+        <button onclick="calculate()">计算</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const startTime = performance.now();
+
+            const baseNumberInput = document.getElementById('number');
+            const baseNumber = parseFloat(baseNumberInput.value);
+            if (!baseNumberInput.value || isNaN(baseNumber)) {
+                document.getElementById('result').textContent = '请输入一个有效的数字！';
+                return;
+            }
+
+            // 判断 baseNumber 末尾是否为 0 或 5
+            const baseStr = baseNumber.toString();
+            const baseClass = (baseStr[baseStr.length - 1] === '0' || baseStr[baseStr.length - 1] === '5') ? 'highlight-base' : '';
+
+            const step = parseFloat(document.getElementById('step').value) || 0.005;
+            const startN = parseFloat(document.getElementById('left').value) || 7.200;
+            const endN = parseFloat(document.getElementById('right').value) || 7.900;
+            const baseStep = parseInt(document.getElementById('baseStep').value);
+
+            let minValue = Math.floor((baseNumber * startN) / baseStep) * baseStep;
+            let maxValue = Math.ceil((baseNumber * endN) / baseStep) * baseStep;
+            let arrs = [];
+            for (let i = minValue; i <= maxValue; i += baseStep) {
+                arrs.push(i);
+            }
+
+            let results = [];
+            let N = startN;
+            while (N <= endN) {
+                let Y = baseNumber * N;
+                for (let arr of arrs) {
+                    let diff = Math.abs(Y - arr);
+                    if (diff < N && Y < arr) {
+                        let result = { N, Y, arr, diff };
+                        // 高亮条件：arr 是 10000 的整倍数
+                        result.arrClass = (arr % 10000 === 0) ? 'highlight-diff' : '';
+                        results.push(result);
+                    }
+                }
+                N = parseFloat((N + step).toFixed(3));
+            }
+
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            if (results.length > 0) {
+                resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p>` +
+                    results.map(r => `<p>(<span class="${baseClass}">${baseNumber}</span> * ${r.N.toFixed(3)} = ${r.Y.toFixed(2)}) - <span class="${r.arrClass}">${r.arr}</span> = ${r.diff.toFixed(2)} 小于 ${r.N.toFixed(3)}</p>`).join('');
+            } else {
+                resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p><p>没有找到符合条件的结果。</p>`;
+            }
+
+            const endTime = performance.now();
+            resultDiv.innerHTML += `<p>总共耗时: ${(endTime - startTime).toFixed(2)} 毫秒</p>`;
+        }
+    </script>
+</body>
+</html>
