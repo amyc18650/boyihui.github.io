@@ -61,8 +61,12 @@
             font-weight: bold; 
         }
         .highlight-diff { 
-            color: red; /* 修改为纯红色 */
-            font-weight: bold; /* 加粗 */
+            color: red; /* 加粗红色用于 arr */
+            font-weight: bold; 
+        }
+        .highlight-n { 
+            color: #006400; /* 加粗深绿色用于 N */
+            font-weight: bold; 
         }
         @media (max-width: 1200px) {
             h1 { font-size: 1.2em; }
@@ -133,8 +137,11 @@
                     let diff = Math.abs(Y - arr);
                     if (diff < N && Y < arr) {
                         let result = { N, Y, arr, diff };
-                        // 高亮条件：arr 是 10000 的整倍数
+                        // 高亮条件 1：arr 是 10000 的整倍数
                         result.arrClass = (arr % 10000 === 0) ? 'highlight-diff' : '';
+                        // 高亮条件 2：N 的最后一位是 0 或 5
+                        const nStr = N.toFixed(3); // 固定 3 位小数以检查最后一位
+                        result.nClass = (nStr[nStr.length - 1] === '0' || nStr[nStr.length - 1] === '5') ? 'highlight-n' : '';
                         results.push(result);
                     }
                 }
@@ -145,7 +152,7 @@
             resultDiv.innerHTML = '';
             if (results.length > 0) {
                 resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p>` +
-                    results.map(r => `<p>(<span class="${baseClass}">${baseNumber}</span> * ${r.N.toFixed(3)} = ${r.Y.toFixed(2)}) - <span class="${r.arrClass}">${r.arr}</span> = ${r.diff.toFixed(2)} 小于 ${r.N.toFixed(3)}</p>`).join('');
+                    results.map(r => `<p>(<span class="${baseClass}">${baseNumber}</span> * <span class="${r.nClass}">${r.N.toFixed(3)}</span> = ${r.Y.toFixed(2)}) - <span class="${r.arrClass}">${r.arr}</span> = ${r.diff.toFixed(2)} 小于 <span class="${r.nClass}">${r.N.toFixed(3)}</span></p>`).join('');
             } else {
                 resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p><p>没有找到符合条件的结果。</p>`;
             }
