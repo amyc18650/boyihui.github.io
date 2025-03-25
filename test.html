@@ -113,7 +113,6 @@
                 return;
             }
 
-            // 判断 baseNumber 末尾是否为 0 或 5
             const baseStr = baseNumber.toString();
             const baseClass = (baseStr[baseStr.length - 1] === '0' || baseStr[baseStr.length - 1] === '5') ? 'highlight-base' : '';
 
@@ -137,10 +136,9 @@
                     let diff = Math.abs(Y - arr);
                     if (diff < N && Y < arr) {
                         let result = { N, Y, arr, diff };
-                        // 高亮条件 1：arr 是 10000 的整倍数
-                        result.arrClass = (arr % 10000 === 0) ? 'highlight-diff' : '';
-                        // 高亮条件 2：N 的最后一位是 0 或 5
-                        const nStr = N.toFixed(3); // 固定 3 位小数以检查最后一位
+                        // 修改高亮逻辑：当 N < 25000 时，arr 是 1000 或 10000 的倍数时高亮
+                        result.arrClass = (arr % 10000 === 0 || (N < 25000 && arr % 1000 === 0)) ? 'highlight-diff' : '';
+                        const nStr = N.toFixed(3);
                         result.nClass = (nStr[nStr.length - 1] === '0' || nStr[nStr.length - 1] === '5') ? 'highlight-n' : '';
                         results.push(result);
                     }
