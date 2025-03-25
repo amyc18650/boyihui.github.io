@@ -136,8 +136,8 @@
                     let diff = Math.abs(Y - arr);
                     if (diff < N && Y < arr) {
                         let result = { N, Y, arr, diff };
-                        // 修改高亮逻辑：当 N < 25000 时，arr 是 1000 或 10000 的倍数时高亮
-                        result.arrClass = (arr % 10000 === 0 || (N < 25000 && arr % 1000 === 0)) ? 'highlight-diff' : '';
+                        // 修改高亮逻辑：N 在 7.08 到 7.48 范围内，且满足 arr 是 10000 或 (N < 25000 时 1000) 的倍数
+                        result.arrClass = (N >= 7.08 && N <= 7.48 && (arr % 10000 === 0 || (N < 25000 && arr % 1000 === 0))) ? 'highlight-diff' : '';
                         const nStr = N.toFixed(3);
                         result.nClass = (nStr[nStr.length - 1] === '0' || nStr[nStr.length - 1] === '5') ? 'highlight-n' : '';
                         results.push(result);
