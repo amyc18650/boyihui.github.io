@@ -1,162 +1,75 @@
 <!DOCTYPE html>
-<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-
-<link href="bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="common_v2.css" type="text/css" rel="stylesheet">
-
-<link href="header_v2.css" type="text/css" rel="stylesheet">
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海哥娱乐 - 即将上线 | Hai Ge Entertainment - Coming Soon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        #countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #e74c3c;
+        }
+    </style>
 </head>
-
-
-
-<div class="header_pc">
-<div id="header">
-      <div style="margin-left: -120px;display: flex; justify-content: center; align-items: center; ">
-            <a href="xxxxxxxxx" target="_self" id="logo"><img src="logo.png" >     
-		  
-		  </a>
-            
-        </div>
+<body>
+    <div class="container">
+        <h1>海哥娱乐，即将上线</h1>
+        <p>Hai Ge Entertainment, Coming Soon</p>
+        <div id="countdown">倒计时加载中...</div>
     </div>
 
-<div class="login_module_wrap js_wrap">
-    <div class="cont">
-        <div class="logo">&nbsp; &nbsp; &nbsp;</div>
-        <h3 style= "color:#e90707; display: flex; justify-content: center; align-items: center;font-size: 24px "> 真诚合作欧博环球买分批发特级代理条件全网最高微信号：boyi123465 </h3>
-        <h3>&nbsp; &nbsp; &nbsp;   </h3>
+    <script>
+        // 设置上线时间（示例：2025年7月10日 00:00:00，柬埔寨时间，UTC+7）
+        const launchDate = new Date('2025-07-10T00:00:00+07:00').getTime();
 
-        
-    </div>
-</div>
+        // 更新倒计时
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
 
-</div>
+            if (timeLeft <= 0) {
+                document.getElementById('countdown').innerHTML = '已上线！';
+                return;
+            }
 
-<div class="header_mobile">
-    <div>
-        <div id="header">
-            <div style="margin-top: 9px; display: flex; justify-content: center; align-items: center; ">
-                  <a href="xxxxxxxxx" id="logo"><img src="logo.png" >
-                </a>
-                 
-              </div>
-              <div class="cont">
-               
-                <a class="logo">&nbsp; &nbsp; &nbsp; </a>
-                <a class="logo">&nbsp; &nbsp; &nbsp; </a>
-                
-                
-                
-               
-        
-            </div>
-           
-          </div>
-          
-          
-    </div>
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    <h3 style= "color:#e90707; display: flex; margin-left: 20px; align-items: center;font-size: 20px "> 方便快捷一键登录所有管理会员系统 </h3>
-</div>
+            document.getElementById('countdown').innerHTML = 
+                `倒计时: ${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+        }
 
-<div class="logo">&nbsp; &nbsp; &nbsp;</div>
-<div class="logo">&nbsp; &nbsp; &nbsp;</div>
-<a class="logo">&nbsp; &nbsp; &nbsp; </a>
-<a class="logo">&nbsp; &nbsp; &nbsp; </a>
-
-<link href="topic_album.css" type="text/css" rel="stylesheet">
-<div id="app" class="topic_album_wrap">
-    <div style="display: flex; justify-content: center; align-items: center; ">
-     
-      
-
-      <ul class="album_list clearfix js_album_list">
-            
-            <li onclick="window.location.href='ob.html';return false">
-                <dl data-slug="jdkbanbenji">
-                    <dt class="fl">
-                        <img src="logo_ob.png" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">欧博网址</h3>
-                        <p class="time">更新时间：2024-06-25</p>
-                        <p class="decs">欧博会员代理登录端口</p>
-                    </dd>
-                </dl>
-            </li>
-        <li onclick="window.location.href='360.html';return false">
-                <dl data-slug="jdkchangshangji">
-                    <dt class="fl">
-                        <img src="logo.3f6e1494.webp" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">环球360</h3>
-                        <p class="time">更新时间：2024-07-15</p>
-                        <p style= "color:#363636; font-size: 14px">欧博会员代理登录端口</p>
-                    </dd>
-                </dl>
-            </li>
-        <li onclick="window.location.href='hg.html';return false">
-                <dl data-slug="PPTdashi">
-                    <dt class="fl">
-                        <img src="logo_hg.png" alt="PPT大师">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">皇冠网址</h3>
-                        <p class="time">更新时间：2024-05-19</p>
-                        <p class="decs">皇冠会员代理登录端口</p>
-                    </dd>
-                </dl>
-            </li>
-            
-            <li onclick="window.location.href='index.html';return false">
-                <dl data-slug="PPTdashi">
-                    <dt class="fl">
-                        <img src="hp.gif" alt="皇牌">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">皇牌精英</h3>
-                        <p class="time">更新时间：2024-11-18</p>
-                        <p style= "color:#d20505; font-size: 14px">皇牌精英即将推出</p>
-                    </dd>
-                </dl>
-            </li>
-
-            <li onclick="window.location.href='ka.html';return false">
-                <dl data-slug="diannaogaoshou">
-                    <dt class="fl">
-                        <img src="logo_kk.png" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">卡卡湾电投</h3>
-                        <p class="decs">登录/联系客服窗口</p>
-			<p style= "color:#e43509; font-size: 12px">有两位打百家乐99%胜率大神</p>
-			<p style= "color:#e43509; font-size: 12px">在丰益卡卡湾v7台v8台不定时带路打</p>
-                    </dd>
-                </dl>
-            </li>
-
-	      <li onclick="window.location.href='yx.html';return false">
-                <dl data-slug="diannaogaoshou">
-                    <dt class="fl">
-                        <img src="yx.png" alt="">
-                    </dt>
-                    <dd>
-                        <h3 style= "color:#0639a8; font-size: 18px ">亚星</h3>
-                        <p class="time">更新时间：2024-09-12</p>
-                        <p class="decs">亚星会员/管理登录</p>
-                    </dd>
-                </dl>
-            </li>
-           
-            
-        </ul>
-    </div>
-</div>
-<h3 style="display: flex; justify-content: center; align-items: center; ">版权所有 ©2023-2024 博義娛樂 保留所有权 </h3>
-
-
-</body></html>
+        // 每秒更新倒计时
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // 立即运行一次
+    </script>
+</body>
+</html>
