@@ -5,227 +5,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>博義娛樂</title>
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "Microsoft YaHei", Arial, sans-serif;
-    background-color: #fff;
-  }
-  .center {
-    max-width: 1200px;
-    margin: auto;
-    padding: 10px;
-  }
-  a {
-    text-decoration: none;
-  }
-  h3 {
-    margin: 5px 0;
-  }
-  /* Header */
-  .header {
-    text-align: center;
-    padding: 10px 0;
-  }
-  .header img {
-    max-width: 240px;
-    height: auto;
-  }
-  .notification {
-    color: #e90707;
-    font-size: 20px;
-    margin: 10px 0;
-    text-align: center;
-  }
-  .notification a {
-    color: red;
-  }
-
-  /* Album / 内容列表 */
-  .album_list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .album_list li {
-    display: flex;
-    width: 100%;
-    max-width: 550px;
-    margin: 10px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .album_list li:hover {
-    transform: translateY(-3px);
-  }
-  dl {
-    display: flex;
-    margin: 0;
-    width: 100%;
-  }
-  dt img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    margin: 10px;
-  }
-  dd {
-    flex: 1;
-    padding: 10px;
-  }
-  dd h3 {
-    font-size: 18px;
-    color: #0639a8;
-  }
-  dd p {
-    font-size: 12px;
-    margin: 3px 0;
-  }
-  dd p.decs {
-    font-size: 12px;
-    color: #333;
-  }
-  dd p.time {
-    font-size: 12px;
-    color: #666;
-  }
-
-  /* Responsive */
-  @media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+        font-family: "Microsoft YaHei", sans-serif;
+        background-color: #1a1a2e;
+        color: #d1d1d1;
+    }
+    a {
+        color: #4da6ff;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .center {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .logo-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .logo-header img {
+        width: 240px;
+        height: 100px;
+        object-fit: contain;
+    }
+    .notification {
+        background-color: #2a2a40;
+        padding: 15px 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        color: #ff4d4d;
+        font-size: 18px;
+        text-align: center;
+    }
+    .album_list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+    }
     .album_list li {
-      width: 48%;
+        background-color: #2a2a40;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        width: calc(50% - 20px);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
     }
-    .notification {
-      font-size: 22px;
+    .album_list li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.6);
     }
-  }
-  @media screen and (max-width: 767px) {
-    .notification {
-      font-size: 18px;
+    .album_list dl {
+        display: flex;
+        padding: 15px;
+        margin: 0;
     }
-  }
-
-  footer {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 14px;
-    color: #555;
-  }
+    .album_list dt {
+        flex-shrink: 0;
+        margin-right: 15px;
+    }
+    .album_list dt img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        border-radius: 5px;
+    }
+    .album_list dd {
+        margin: 0;
+        flex-grow: 1;
+    }
+    .album_list h3 {
+        color: #4da6ff;
+        font-size: 18px;
+        margin: 0 0 5px 0;
+    }
+    .album_list p {
+        margin: 2px 0;
+        font-size: 12px;
+        color: #d1d1d1;
+    }
+    .album_list p.time {
+        font-size: 11px;
+        color: #b0b0b0;
+    }
+    .album_list p.decs {
+        color: #e43509;
+        font-size: 12px;
+    }
+    @media (max-width: 768px) {
+        .album_list li {
+            width: 100%;
+        }
+        .notification {
+            font-size: 16px;
+        }
+    }
+    h3.footer {
+        text-align: center;
+        color: #d1d1d1;
+        margin: 40px 0 20px 0;
+        font-size: 14px;
+    }
 </style>
 </head>
 <body>
 <div class="center">
-
-  <!-- 单一 Header + 通知 -->
-  <div class="header">
-    <img src="logo.png" alt="logo">
-    <div class="notification">
-      <a href="" target="_blank">欧博网络出现波动，现在临时局部登录不上请大家耐心等待！</a>
+    <div class="logo-header">
+        <img src="logo.png" alt="博義娛樂">
     </div>
-  </div>
+    <div class="notification">
+        欧博网络出现波动，现在临时局部登录不上请大家耐心等待
+    </div>
 
-  <!-- Album / 内容列表 -->
-  <ul class="album_list">
-    <li onclick="window.location.href='https://www.talkmore.cc';">
-      <dl>
-        <dt><img src="tm.png" alt=""></dt>
-        <dd>
-          <h3>JPbest在线聊天app</h3>
-          <p>点击窗口，下载并注册jpbest，像微信一样，安全，快捷。可用于替代Skype。</p>
-        </dd>
-      </dl>
-    </li>
+    <ul class="album_list">
+        <li onclick="window.location.href='https://www.talkmore.cc';">
+            <dl>
+                <dt><img src="tm.png" alt=""></dt>
+                <dd>
+                    <h3>JPbest在线聊天app</h3>
+                    <p>点击窗口，下载并注册jpbest，像微信一样，安全，快捷。可用于替代Skype。</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='gb.html';">
-      <dl>
-        <dt><img src="gb.png" alt=""></dt>
-        <dd>
-          <h3>皇牌贵宾会</h3>
-          <p class="time">更新时间：2024-12-20</p>
-          <p class="decs">皇冠百家乐全网最公正平台！</p>
-          <p style="color:#e43509; font-size: 14px;">正式上线！手机登录请横向屏幕。</p>
-        </dd>
-      </dl>
-    </li>
+        <li onclick="window.location.href='gb.html';">
+            <dl>
+                <dt><img src="gb.png" alt=""></dt>
+                <dd>
+                    <h3>皇牌贵宾会</h3>
+                    <p class="time">更新时间：2024-12-20</p>
+                    <p class="decs">皇冠百家乐全网最公正平台！正式上线！手机登录请横向屏幕。</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='ob.html';">
-      <dl>
-        <dt><img src="logo_ob.png" alt=""></dt>
-        <dd>
-          <h3>欧博网址</h3>
-          <p class="time">更新时间：2024-06-25</p>
-          <p class="decs">欧博频繁出现打庄出货机器投注等问题可以转至皇牌继续游戏</p>
-        </dd>
-      </dl>
-    </li>
+        <li onclick="window.location.href='ob.html';">
+            <dl>
+                <dt><img src="logo_ob.png" alt=""></dt>
+                <dd>
+                    <h3>欧博网址</h3>
+                    <p class="time">更新时间：2024-06-25</p>
+                    <p class="decs">欧博频繁出现打庄出货机器投注等问题可以转至皇牌继续游戏</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='360.html';">
-      <dl>
-        <dt><img src="logo.3f6e1494.webp" alt=""></dt>
-        <dd>
-          <h3>环球360</h3>
-          <p class="time">更新时间：2024-07-15</p>
-          <p style="color:#e43509; font-size: 12px;">环球360维护结束，请正常登录</p>
-        </dd>
-      </dl>
-    </li>
+        <li onclick="window.location.href='360.html';">
+            <dl>
+                <dt><img src="logo.3f6e1494.webp" alt=""></dt>
+                <dd>
+                    <h3>环球360</h3>
+                    <p class="time">更新时间：2024-07-15</p>
+                    <p class="decs">环球360维护结束，请正常登录</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='hg.html';">
-      <dl>
-        <dt><img src="logo_hg.png" alt=""></dt>
-        <dd>
-          <h3>皇冠网址</h3>
-          <p class="time">更新时间：2024-05-19</p>
-          <p class="decs">皇冠会员代理登录端口</p>
-        </dd>
-      </dl>
-    </li>
+        <li onclick="window.location.href='hg.html';">
+            <dl>
+                <dt><img src="logo_hg.png" alt=""></dt>
+                <dd>
+                    <h3>皇冠网址</h3>
+                    <p class="time">更新时间：2024-05-19</p>
+                    <p class="decs">皇冠会员代理登录端口</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='ka.html';">
-      <dl>
-        <dt><img src="logo_kk.png" alt=""></dt>
-        <dd>
-          <h3>卡卡湾电投</h3>
-          <p class="decs">登录/联系客服窗口</p>
-          <p style="color:#e43509; font-size: 12px;">会员登陆</p>
-        </dd>
-      </dl>
-    </li>
+        <li onclick="window.location.href='ka.html';">
+            <dl>
+                <dt><img src="logo_kk.png" alt=""></dt>
+                <dd>
+                    <h3>卡卡湾电投</h3>
+                    <p class="decs">登录/联系客服窗口</p>
+                    <p class="decs">会员登陆</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='yx.html';">
-      <dl>
-        <dt><img src="yx.png" alt=""></dt>
-        <dd>
-          <h3>亚星</h3>
-          <p class="time">更新时间：2024-09-12</p>
-          <p class="decs">亚星会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
+        <li onclick="window.location.href='yx.html';">
+            <dl>
+                <dt><img src="yx.png" alt=""></dt>
+                <dd>
+                    <h3>亚星</h3>
+                    <p class="time">更新时间：2024-09-12</p>
+                    <p class="decs">亚星会员/管理登录</p>
+                </dd>
+            </dl>
+        </li>
 
-    <li onclick="window.location.href='wl.html';">
-      <dl>
-        <dt><img src="wl.png" alt=""></dt>
-        <dd>
-          <h3>万利</h3>
-          <p class="time">您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p>
-          <p class="decs">万利会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
-  </ul>
+        <li onclick="window.location.href='wl.html';">
+            <dl>
+                <dt><img src="wl.png" alt=""></dt>
+                <dd>
+                    <h3>万利</h3>
+                    <p class="time">您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p>
+                    <p class="decs">万利会员/管理登录</p>
+                </dd>
+            </dl>
+        </li>
+    </ul>
 
+    <h3 class="footer">版权所有 ©2023-2024 博義娛樂 保留所有权</h3>
 </div>
-
-<footer>
-版权所有 ©2023-2024 博義娛樂 保留所有权
-</footer>
-
 </body>
 </html>
