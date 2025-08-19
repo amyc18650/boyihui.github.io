@@ -1,180 +1,135 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>博義會娛樂</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      list-style: none;
-    }
-
-    body, .center {
-      width: 100%;
-      max-width: 1275px;
-      margin: 0 auto;
-      background-color: #f8f9fa;
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
-    }
-
-    h2 {
-      width: 100%;
-      height: 48px;
-      margin: 10px 0 5px 0;
-      font-size: 18px;
-      background-color: rgb(63, 63, 63);
-      color: rgb(218, 57, 57);
-      line-height: 48px;
-      text-indent: 16px;
-      border-radius: 8px;
-      box-shadow: 1px 1px 3px 0px #999;
-      display: flex;
-      align-items: center;
-    }
-
-    b { color: rgb(233, 148, 56); cursor:pointer; }
-
-    .center img { max-width: 100%; height: auto; margin: 20px 10px 0 5px; display:block; }
-
-    .site_discription { width: 100%; margin: 5px auto; }
-    .vipmq { width: 100%; height: auto; line-height: 30px; }
-    marquee { height: 30px; line-height: 30px; width: 100%; color: red; font-weight: bold; }
-
-    .software_list { width: 100%; text-align: left; }
-    .software_list ul { padding: 0; margin: 0; }
-    .software_list li {
-      width: 100%;
-      min-height: 52px;
-      line-height: 52px;
-      border: solid 1px #ccc;
-      margin: 4px 0;
-      text-indent: 4px;
-      text-align: left;
-      border-radius: 5px;
-      font-weight: bold;
-      background-color: #efefef;
-      box-shadow: 1px 1px 3px 0px #cdcdcd;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .software_list li span {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
-      background-color: #999; /* 可替换为图标背景 */
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-
-    .software_list li h3 {
-      flex: 1 1 auto;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    li sub {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 5px;
-    }
-    li sub a {
-      display: inline-block;
-      margin: 2px 4px 2px 0;
-      padding: 2px 6px;
-      background-color: #dedede;
-      border-radius: 100px;
-      text-align: center;
-      font-weight: normal;
-      box-shadow: 1px 1px 1px 1px #fff;
-      white-space: nowrap;
-    }
-    li sub a:hover { background-color: khaki; color: red; }
-    li sub a.hidden { display: none; }
-
-    a, a:visited { text-decoration: none; color: #333; }
-    a:hover { color: #f00; }
-
-    .site_foot { width: 100%; text-align: center; padding: 10px; font-size: 0.9rem; line-height: 1.5; margin-top:20px; }
-
-    /* 小屏自适应 */
-    @media (max-width: 768px) {
-      .site_discription p { font-size: 0.95rem; }
-      .software_list h2 { font-size: 1.1rem; }
-      .software_list li { width: 100%; }
-      .software_list li sub { flex-wrap: wrap; }
-      .software_list li sub a { margin: 2px 4px 2px 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博義會娛樂</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box; list-style:none;}
+body {width:100%; max-width:1275px; margin:0 auto; background:#f8f9fa; font-family:Arial,sans-serif; overflow-x:hidden;}
+.center {width:100%; margin:0 auto; background:#fff;}
+h2 {width:100%; height:48px; margin:10px 0 5px 0; font-size:18px; background:#3f3f3f; color:#da3939; line-height:48px; text-indent:16px; border-radius:8px; box-shadow:1px 1px 3px #999; display:flex; align-items:center;}
+b {color:#e99438; cursor:pointer;}
+.center img {max-width:100%; height:auto; margin:20px 10px 0 5px; display:block;}
+.site_discription {width:100%; margin:5px auto;}
+.vipmq {width:100%; height:auto; line-height:30px;}
+marquee {height:30px; line-height:30px; width:100%; color:red; font-weight:bold;}
+.software_list {width:100%; text-align:left;}
+.software_list ul {padding:0; margin:0;}
+.software_list li {
+  width:100%; min-height:52px; line-height:52px; border:1px solid #ccc; margin:4px 0; text-indent:4px; text-align:left; border-radius:5px; font-weight:bold; background:#efefef; box-shadow:1px 1px 3px #cdcdcd; display:flex; flex-wrap:wrap; align-items:center;
+}
+.software_list li span {display:inline-block; width:30px; height:30px; margin-right:10px; background:#999; border-radius:4px; flex-shrink:0;}
+.software_list li h3 {flex:1 1 auto; font-size:16px; line-height:1.5;}
+li sub {display:flex; flex-wrap:wrap; margin-top:5px;}
+li sub a {display:inline-block; margin:2px 4px 2px 0; padding:2px 6px; background:#dedede; border-radius:100px; text-align:center; font-weight:normal; box-shadow:1px 1px 1px #fff; white-space:nowrap;}
+li sub a:hover {background:khaki; color:red;}
+li sub a.hidden {display:none;}
+a,a:visited {text-decoration:none; color:#333;}
+a:hover {color:#f00;}
+.site_foot {width:100%; text-align:center; padding:10px; font-size:0.9rem; line-height:1.5; margin-top:20px;}
+/* 小屏自适应 */
+@media (max-width:768px){
+  .site_discription p {font-size:0.95rem;}
+  .software_list h2 {font-size:1.1rem;}
+  .software_list li {width:100%;}
+  .software_list li sub {flex-wrap:wrap;}
+  .software_list li sub a {margin:2px 4px 2px 0;}
+}
+</style>
 </head>
 <body>
-  <div class="center">
-    <img src="logo.png" alt="logo" style="width:240px; height:100px;">
+<div class="center">
+<img src="logo.png" alt="logo" style="width:240px; height:100px;">
+<div class="site_discription">
+<p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>
+<p class="vipmq" id="vipfc">
+<a href="https://www.boyi999.com" target="_blank">
+<marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
+真诚合作欧博环球买分批发特级代理条件全网最,稍后更新微信号，请大家耐心等待谢谢，感谢您的真诚合作！
+</marquee>
+</a>
+</p>
+</div>
 
-    <div class="site_discription">
-      <p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>		
-      <p class="vipmq" id="vipfc">
-        <a href="https://www.boyi999.com" target="_blank">
-          <marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
-            真诚合作欧博环球买分批发特级代理条件全网最,稍后更新微信号，请大家耐心等待谢谢，感谢您的真诚合作！
-          </marquee>
-        </a>
-      </p>
-    </div>
+<div class="software_list clr" id="windowsOS">
+<h2><img src="yx.png" width="40" height="40" alt=""> 亚星娱乐 系列</h2>
+<ul>
+<li class="long"><span></span>
+<a href="https://www.yaxin222.com" target="_blank" title="开心娱乐"><h3>亚星娱乐全球地址汇聚。所有地区都可以点击进入，请自行选择。</h3></a>
+<sub>
+<a href="https://www.yaxin355.com" target="_blank">主力链接通道</a>
+<a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yxvip001.com" target="_blank">会员登录入口一</a>
+<sub>
+<a href="https://www.yxvip002.com" target="_blank">普通链接通道</a>
+<a href="https://www.yaxin355.com" target="_blank">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yaxin222.com" target="_blank" title="开心娱乐">会员登录入口二</a>
+<sub>
+<a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
+<a href="https://www.yxvip005.com" target="_blank">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yaxin55.com" target="_blank" title="开心娱乐">海外用户入口三</a>
+<sub>
+<a href="https://www.yaxin66.com" target="_blank">普通链接通道</a>
+<a href="https://www.yx333.com" target="_blank">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yaxin998.com" target="_blank" title="开心娱乐">会员登录入口五</a>
+<sub>
+<a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
+<a href="https://www.yx355.com" target="_blank">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yaxin868.net" target="_blank" title="开心娱乐">管理后台入口</a>
+<sub>
+<a href="https://www.yaxin868.net" target="_blank">普通链接通道</a>
+<a href="https://www.yx557.net" target="_blank">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yaxin557.net" target="_blank" title="开心娱乐">管理后台入口一</a>
+<sub>
+<a href="https://www.yaxin222.net" target="_blank">普通链接通道</a>
+<a href="https://www.yx557.net" target="_blank" class="hidden">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yaxin868.net" target="_blank" title="开心娱乐">管理后台入口二</a>
+<sub>
+<a href="https://www.yx333.net" target="_blank">普通链接通道</a>
+<a href="https://www.yx221.net" target="_blank" class="hidden">备用链接通道</a>
+</sub>
+</li>
+<li><span></span>
+<a href="https://www.yx333.net" target="_blank" title="开心娱乐">管理后台入口三</a>
+<sub>
+<a href="https://www.yx333.net" target="_blank">普通链接通道</a>
+<a href="https://www.yx333.net" target="_blank" class="hidden">备用链接通道</a>
+</sub>
+</li>
+</ul>
+</div>
 
-    <div class="software_list clr" id="windowsOS">
-      <h2><img src="yx.png" width="40" height="40" alt=""> 亚星娱乐 系列</h2>
-      <ul>
-        <li class="long">
-          <span></span>
-          <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐"><h3>亚星娱乐全球地址汇聚。所有地区都可以点击进入，请自行选择。</h3></a>
-          <sub>
-            <a href="https://www.yaxin355.com" target="_blank">主力链接通道</a>
-            <a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <span></span>
-          <a href="https://www.yxvip001.com" target="_blank">会员登录入口一</a>
-          <sub>
-            <a href="https://www.yxvip002.com" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin355.com" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <span></span>
-          <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐">会员登录入口二</a>
-          <sub>
-            <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
-            <a href="https://www.yxvip005.com" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <span></span>
-          <a href="https://www.yaxin55.com" target="_blank" title="开心娱乐">海外用户入口三</a>
-          <sub>
-            <a href="https://www.yaxin66.com" target="_blank">普通链接通道</a>
-            <a href="https://www.yx333.com" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-      </ul>
-    </div>
+<div class="site_foot txtCenter">
+请按 <b>Ctrl+D</b> 将本站加入收藏夹，方便以后登录最新服务器
+</div>
 
-    <div class="site_foot txtCenter">
-      请按 <b>Ctrl+D</b> 将本站加入收藏夹，方便以后登录最新服务器
-    </div>
+<div class="clr"></div>
 
-    <div class="clr"></div>
-  </div>
-
-  <div class="site_foot txtCenter">
-    <h6>版权所有 ©2013-2024 博義娛樂</h6>
-  </div>
+<div class="site_foot txtCenter">
+<h6>版权所有 ©2013-2024 博義娛樂</h6>
+</div>
+</div>
 </body>
 </html>
