@@ -4,493 +4,115 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>博義會娛樂</title>
-  
-
   <style>
-
-    @charset "utf-8";
-/* CSS Document */
-
-* {
-  margin: 0 auto;
-  padding: 0;
-  text-indent: 0;
-  list-style-type: none;
-}
-
-body {
-  width: 1275px;
-  background-color: #f8f9fa;
-}
-
-h1{
-  margin: 12px 0;
-  font-size: 36px;
-  text-align: center;
-}
-h2{
-  float: left;
-  width: 100%;
-  height: 48px;
-  margin: 10px 0 5px 0;
-  font-size: 18px;
-  background-color:rgb(63, 63, 63);
-  color:rgb(218, 57, 57);
-  line-height: 48px;
-  text-indent: 16px;
-  border-radius: 8px;
-  box-shadow: 1px 1px 3px 0px #999;
-}
-
-
-b{
-  color: rgb(233, 148, 56);
-  cursor:pointer;
-}
-ul{
-  margin: 0 8px;
-}
-li {
-  float: left;
-  width: 304px;
-  height: 74px;
-  line-height: 74px;
-  float: left;
-  border: solid 1px #ccc;
-  margin: 4px 4px;
-  text-indent: 4px;
-  text-align: left;
-  border-radius: 5px;
-  font-weight: bold;
-  background-color: #efefef;
-  box-shadow: 1px 1px 3px 0px #cdcdcd;
-}
-
-li.hidden{
-  display: none;
-}
-li sub {
-  float: right;
-  font-size: 12px;
-  width: 98px;
-  margin-right: 5px;
-}
-li sub a{
-  float: left;
-  margin: 5px 2px auto 2px;
-  line-height: 25px;
-  width: 90px;
-  background-color: #dedede;
-  padding: 2px;
-  border-radius: 100px;
-  text-align: center;
-  font-weight: normal;
-  box-shadow: 1px 1px 1px 1px #fff;
-}
-li sub a:hover{
-  background-color:khaki;
-  color: red;
-}
-
-li sub a.hidden{
-  display: none;
-}
-
-
-li.long{
-  clear: both;
-  height: 52px;
-  line-height: 52px;
-  width: 1250px;
-}
-li.long1{
-  clear: both;
-  height: 352px;
-  line-height: 32px;
-  width: 1250px;
-}
-li.long h3{
-  float: left;
-  width: 960px;
-  font-size: 16px;
-  line-height: 52px;
-  text-indent: 8px;
-}
-li.long sub {
-  clear: none;
-  float: right;
-  line-height: 52px;
-  height: 52px;
-  width: 200px;
-}
-li.long span{
-  margin-top: 10px;
-}
-li.long sub{
-  margin-top: 8px;
-}
-
-
-li:hover{
-  background-color: #fff;
-}
-
-
-/* Icons */
-li span {
-  float: left;
-  width: 29px;
-  height: 29px;
-  margin: 20px 2px auto 6px;
-}
-
-
-a,a:visited{
-  text-decoration-line: none;
-  color: #333333;
-}
-a:hover{
-  color: #f00;
-}
-
-p{
-  text-indent: 8px;
-  line-height: 32px;
-  width: 60%;
-  float: left;  
-}
-
-.center {
-  width: 100%;
-  margin: 0;
-  background-color: #ffffff;
-}
-.clr{
-  clear: both;  
-}
-
-.site_discription{
-  float: left;
-  width: 100%;
-  margin: 5px auto;
-
-}
-.vipimg{
-  float: right;
-  width: 20%;
-  height: 94px;
-  line-height: 94px;
-}
-.vipmq{
-  float: left;
-  width: 80%;
-  height: 30px;
-  line-height: 30px;
-}
-marquee{
-  height: 30px;
-  line-height: 30px;
-  width: 98%;
-  color: red;
-  font-weight: bold;
-}
-
-.sitenav{
-  clear: both;
-  float: left;
-  width: 100%;
-}
-.sitenav ul li {
-  width: 49%;
-  height: 48px;
-  line-height: 48px;
-  text-align: center;
-  cursor:pointer;
-}
-
-.software_list{
-  float: left;
-  text-align: left;
-}
-.txtCenter{
-  margin-top: 49px;
-  text-align: center;
-}
-
-#MacOS {
-  display: none;
-}
-#MacOS h2{
-  background-color: #f8ce2e;  
-}
-
-.site_foot{
-  float: left;
-  width: 100%;
-  margin: 35px auto;
-
-}
-
-@media only screen and (max-width:1300px) {
-  .container,.container-lg,.container-md,.container-sm,.container-xl {
-    max-width:100%;
-  }
-  body {
-  width: 100%;
-  background-color: #ffffff;
-}
-@media only screen and (max-width:768px) {
-  body > .container {
-    width:50%;
-  }
-  #header {
-    height:3.5rem;
-    position:relative;
-    width:100% !important;
-    background-color:#fff;
-  }
-  #logo {
-    margin:0 10px;
-    padding-top:5px;
-    display:inline-block;
-    float:none;
-    width:auto;
-    height:56px;
-  }
-  #logo img {
-    width:auto;
-    height:46px;
-  }
-  #search {
-    position:initial;
-    float:right;
-    width:170px;
-    height:34px;
-    margin:11px 10px 11px 0;
-    background:#f2f2f2;
-    border-radius:3px;
-  }
-  #search .search-input {
-    float:left;
-  }
-  #search .link-icon {
-    float:right;
-    width:30px;
-    height:34px;
-    vertical-align:top;
-    cursor:pointer;
-  }
-  #search .link-icon .icon {
-    background-repeat:no-repeat;
-    background-image:url(../images/sprite-common-sef7c107ce9.png);
-    background-position:0 -306px;
-    width:16px;
-    height:14px;
-    margin:9px auto;
-    display:block;
-  }
-  #search-form-input {
-    width:115px;
-    height:34px;
-    padding:0 5px 0 10px;
-    line-height:28px;
-    background:transparent;
-    border:none;
-    outline:none;
-  }
-  .hot {
-    display:none;
-  }
-  .navWrap {
-    overflow-x:auto;
-    height:46px;
-    padding-left:12px;
-  }
-  #nav {
-    width:744px !important;
-  }
-  #nav a {
-    font-size:17px;
-    line-height:46px;
-    height:46px;
-    padding:0 12px;
-  }
-  #footer {
-    padding-top:30px;
-  }
-  #footer .container {
-    width:100%;
-  }
-  #footer .logosub {
-    width:89px;
-    height:30px;
-  }
-  .footerlink a,#footer .copyright a {
-    font-size:12px !important;
-    margin-left:10px;
-    margin-right:10px;
-  }
-  #footer .copyright {
-    line-height:16px !important;
-  }
-  .crumbs {
-    margin-bottom:10px;
-    margin-top:10px;
-  }
-  .pagewrap {
-    padding-left:.5rem;
-    padding-right:.5rem;
-  }
-  .aibyte_article blockquote {
-    position:relative;
-  }
-  .aibyte_article blockquote::before {
-    content:'';
-    position:absolute;
-    top:-10px;
-    left:-5px;
-    right:0;
-    border-top:10px solid #1ec356;
-    border-radius:10px 10px 0 0;
-  }
-  .goto_software {
-    height:45px;
-    line-height:45px;
-    padding:11px 0;
-  }
-  .goto_software i {
-    margin-right:10px;
-    width:22px;
-    height:22px;
-  }
-  .goto_software span {
-    height:22px;
-    line-height:22px;
-    letter-spacing:3px;
-  }
-  .aibyte_ad {
-    width:100% !important;
-  }
-  #A01,#B01,#C01 {
-    margin-top:0 !important;
-  }
-  #fast-nav {
-    margin-bottom:10px;
-    padding-left:10px;
-    padding-right:10px;
-  }
-  .cmbox {
-    margin-left:.5rem;
-    margin-right:1.7rem;
-    background:none;
-    border:none;
-  }
-  .cmbox .title .tab {
-    display:flex;
-    padding:0;
-  }
-  .cmbox .title .tab i {
-    flex:1;
-    padding:0;
-  }
-  .corner .photo::after {
-    width:66px;
-    height:65px;
-    left:11px !important;
-    top:2px !important;
-  }
-
-  .article_title_con span::after {
-    right: -12px;
-  }
-}
-@media only screen and (max-width:576px) {
-  #app {
-    width:100%;
-    margin-top: 50px;
-    padding-top: 10px;
-  }
-}
-
-.adv-close{
-  position: absolute;
-  width: 40px;
-  height: 18px;
-  text-align: center;
-  line-height: 18px;
-  color: #fff;
-  font-size: 12px;
-  border-radius: 11px;
-  background: rgba(153,154,170,.6);
-  top: 8px;
-  right: 8px;
-  cursor: pointer;
-  z-index: 9999;
-}
-
-pre{margin:15px auto;font:14px/20px Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New", monospace;font-weight:300;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background-color:#f5f5f5;padding:10px 25px;line-height: 2em}
-code{margin: auto 2px;padding: 4px;font-size: 13px;color: #333;border: 1px solid #ddd;background: #f6f6f6;border-radius: 2px}
-.marked{padding:0.2em;margin:0;background-color: #eceae6;border-radius:3px;font-weight:bold;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace}
-table.reference,table.tecspec{border-collapse:collapse;width:100%;margin-bottom:4px;margin-top:4px}
-table.reference .fa {font-size:24px;}
-table.reference tr:nth-child(odd){background-color:#f6f4f0}
-table.reference tr:nth-child(even){background-color:#fff}
-table.reference tr.fixzebra{background-color:#f6f4f0}
-table.reference th{color:#fff;background-color:#555;border:1px solid #555;font-size:14px;padding-left:10px;vertical-align:top;text-align:left;line-height: 2em}
-table.reference th a:link,table.reference th a:visited{color:#fff}
-table.reference th a:active,table.reference th a:hover{color:#ee872a}
-tr td:first-child{min-width:25px}
-table.reference td{line-height:2em;min-width:24px;border:1px solid #d4d4d4;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top}
-table.reference td.example_code{vertical-align:bottom}
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    body, .center {
+      width: 100%;
+      max-width: 1275px;
+      margin: 0 auto;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+
+    h2 {
+      width: 100%;
+      height: 48px;
+      margin: 10px 0 5px 0;
+      font-size: 18px;
+      background-color: rgb(63, 63, 63);
+      color: rgb(218, 57, 57);
+      line-height: 48px;
+      text-indent: 16px;
+      border-radius: 8px;
+      box-shadow: 1px 1px 3px 0px #999;
+      display: flex;
+      align-items: center;
     }
-    .center img {
-      margin: 20px 10px 0 5px;
-    }
-    .software_list ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+
+    b { color: rgb(233, 148, 56); cursor:pointer; }
+
+    .center img { max-width: 100%; height: auto; margin: 20px 10px 0 5px; display:block; }
+
+    .site_discription { width: 100%; margin: 5px auto; }
+    .vipmq { width: 100%; height: auto; line-height: 30px; }
+    marquee { height: 30px; line-height: 30px; width: 100%; color: red; font-weight: bold; }
+
+    .software_list { width: 100%; text-align: left; }
+    .software_list ul { padding: 0; margin: 0; }
     .software_list li {
-      margin-bottom: 15px;
+      width: 100%;
+      min-height: 52px;
+      line-height: 52px;
+      border: solid 1px #ccc;
+      margin: 4px 0;
+      text-indent: 4px;
+      text-align: left;
+      border-radius: 5px;
+      font-weight: bold;
+      background-color: #efefef;
+      box-shadow: 1px 1px 3px 0px #cdcdcd;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
     }
-    .site_foot {
-      padding: 10px;
-      font-size: 0.9rem;
+
+    .software_list li span {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: #999; /* 可替换为图标背景 */
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .software_list li h3 {
+      flex: 1 1 auto;
+      font-size: 16px;
       line-height: 1.5;
     }
-    @media (max-width: 768px) {
-      .site_discription p {
-        font-size: 0.95rem;
-      }
-      .software_list h2 {
-        font-size: 1.1rem;
-      }
-      .software_list li {
-        padding: 10px;
-      }
+
+    li sub {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 5px;
     }
-    .marquee {
-      overflow: hidden;
+    li sub a {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 6px;
+      background-color: #dedede;
+      border-radius: 100px;
+      text-align: center;
+      font-weight: normal;
+      box-shadow: 1px 1px 1px 1px #fff;
       white-space: nowrap;
-      box-sizing: border-box;
-      animation: marquee 15s linear infinite;
     }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    li sub a:hover { background-color: khaki; color: red; }
+    li sub a.hidden { display: none; }
+
+    a, a:visited { text-decoration: none; color: #333; }
+    a:hover { color: #f00; }
+
+    .site_foot { width: 100%; text-align: center; padding: 10px; font-size: 0.9rem; line-height: 1.5; margin-top:20px; }
+
+    /* 小屏自适应 */
+    @media (max-width: 768px) {
+      .site_discription p { font-size: 0.95rem; }
+      .software_list h2 { font-size: 1.1rem; }
+      .software_list li { width: 100%; }
+      .software_list li sub { flex-wrap: wrap; }
+      .software_list li sub a { margin: 2px 4px 2px 0; }
     }
   </style>
 </head>
-
 <body>
   <div class="center">
     <img src="logo.png" alt="logo" style="width:240px; height:100px;">
@@ -502,26 +124,23 @@ table.reference td.example_code{vertical-align:bottom}
           <marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
             真诚合作欧博环球买分批发特级代理条件全网最,稍后更新微信号，请大家耐心等待谢谢，感谢您的真诚合作！
           </marquee>
-          <!-- <div class="marquee">真诚合作欧博环球买分批发特级代理条件全网最, 稍后更新微信号...</div> -->
         </a>
       </p>
     </div>
-		
-    <div class="sitenav"></div>
 
     <div class="software_list clr" id="windowsOS">
-      <h2><img src="yx.png" width="40" height="40" alt="">&nbsp;亚星娱乐 系列</h2>
+      <h2><img src="yx.png" width="40" height="40" alt=""> 亚星娱乐 系列</h2>
       <ul>
         <li class="long">
-          <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐">
-            <h3>亚星娱乐全球地址汇聚。所有地区都可以点击进入，请自行选择。</h3>
-          </a>
+          <span></span>
+          <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐"><h3>亚星娱乐全球地址汇聚。所有地区都可以点击进入，请自行选择。</h3></a>
           <sub>
             <a href="https://www.yaxin355.com" target="_blank">主力链接通道</a>
             <a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
           </sub>
         </li>
         <li>
+          <span></span>
           <a href="https://www.yxvip001.com" target="_blank">会员登录入口一</a>
           <sub>
             <a href="https://www.yxvip002.com" target="_blank">普通链接通道</a>
@@ -529,6 +148,7 @@ table.reference td.example_code{vertical-align:bottom}
           </sub>
         </li>
         <li>
+          <span></span>
           <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐">会员登录入口二</a>
           <sub>
             <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
@@ -536,45 +156,11 @@ table.reference td.example_code{vertical-align:bottom}
           </sub>
         </li>
         <li>
+          <span></span>
           <a href="https://www.yaxin55.com" target="_blank" title="开心娱乐">海外用户入口三</a>
           <sub>
             <a href="https://www.yaxin66.com" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <a href="https://www.yaxin998.com" target="_blank" title="开心娱乐">会员登录入口五</a>
-          <sub>
-            <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin355.com" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <a href="https://www.yaxin868.net" target="_blank" title="开心娱乐">管理后台入口</a>
-          <sub>
-            <a href="https://www.yaxin868.net" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin557.net" target="_blank">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <a href="https://www.yaxin557.net" target="_blank" title="开心娱乐。">管理后台入口一</a>
-          <sub>
-            <a href="https://www.yaxin222.net" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin557.net" target="_blank" class="hidden">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <a href="https://www.yaxin868.net" target="_blank" title="开心娱乐。">管理后台入口二</a>
-          <sub>
-            <a href="https://www.yaxin333.net" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin221.net" target="_blank" class="hidden">备用链接通道</a>
-          </sub>
-        </li>
-        <li>
-          <a href="https://www.yaxin333.net" target="_blank" title="开心娱乐。">管理后台入口三</a>
-          <sub>
-            <a href="https://www.yaxin333.net" target="_blank">普通链接通道</a>
-            <a href="https://www.yaxin333.net" target="_blank" class="hidden">备用链接通道</a>
+            <a href="https://www.yx333.com" target="_blank">备用链接通道</a>
           </sub>
         </li>
       </ul>
@@ -587,7 +173,7 @@ table.reference td.example_code{vertical-align:bottom}
     <div class="clr"></div>
   </div>
 
-  <div class="site_foot txtCenter">  
+  <div class="site_foot txtCenter">
     <h6>版权所有 ©2013-2024 博義娛樂</h6>
   </div>
 </body>
