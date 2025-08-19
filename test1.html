@@ -1,154 +1,159 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-    <title>汇日全选 - 安全私密聊天应用</title>
-    <meta name="description" content="汇日全选 - 集合市面上各聊天应用所长，安全、私密、稳定，带给用户放心愉悦的体验。">
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="common_v2.css" rel="stylesheet">
-    <link href="header_v2.css" rel="stylesheet">
-    <link href="topic_album.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .header_pc { display: block; }
-        .header_mobile { display: none; }
-        .album_list {
-            padding: 0;
-            list-style: none;
-            margin: 0 auto;
-            max-width: 1200px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .album_list li {
-            cursor: pointer;
-            margin: 10px;
-            width: 30%;
-            min-width: 280px; /* 防止内容过窄 */
-            box-sizing: border-box;
-        }
-        .album_list dl {
-            display: flex;
-            align-items: flex-start;
-        }
-        .album_list dt {
-            flex-shrink: 0;
-            margin-right: 10px;
-        }
-        .album_list dt img {
-            max-width: 100px; /* 限制图片宽度 */
-            height: auto;
-        }
-        .album_list dd {
-            flex-grow: 1;
-            margin: 0;
-        }
-        .album_list h3 {
-            margin: 0 0 5px 0;
-            font-size: 18px;
-            color: #0639a8;
-        }
-        .album_list p {
-            margin: 2px 0;
-            font-size: 12px;
-            line-height: 1.4; /* 增加行距，避免重叠 */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>博義會娛樂</title>
+  <link href="main.css" rel="stylesheet" type="text/css">
 
-        @media (max-width: 1280px) {
-            .header_pc { display: none; }
-            .header_mobile { display: block; }
-            .album_list li {
-                width: 100%;
-                margin: 5px 10px;
-            }
-            .album_list dt img {
-                max-width: 80px; /* 移动端缩小图片 */
-            }
-            .album_list h3 { font-size: 16px; }
-            .album_list p { font-size: 11px; }
-        }
-    </style>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .center img {
+      margin: 20px 10px 0 5px;
+    }
+    .software_list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .software_list li {
+      margin-bottom: 15px;
+    }
+    .site_foot {
+      padding: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .site_discription p {
+        font-size: 0.95rem;
+      }
+      .software_list h2 {
+        font-size: 1.1rem;
+      }
+      .software_list li {
+        padding: 10px;
+      }
+    }
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- PC Header -->
-    <div class="header_pc">
-        <div id="header">
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <a href="https://example.com" target="_self" id="logo"><img src="logo.png" alt="汇日全选 Logo"></a>
-            </div>
-        </div>
-        <div class="login_module_wrap js_wrap">
-            <div class="cont">
-                <h3 style="color: #e90707; margin-left: 20px; font-size: 20px;">
-                    欢迎光临博义娱乐，一键登录各个平台。
-                </h3>
-            </div>
-        </div>
+  <div class="center">
+    <img src="logo.png" alt="logo" style="width:240px; height:100px;">
+
+    <div class="site_discription">
+      <p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>		
+      <p class="vipmq" id="vipfc">
+        <a href="https://www.boyi999.com" target="_blank">
+          <marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
+            真诚合作欧博环球买分批发特级代理条件全网最,稍后更新微信号，请大家耐心等待谢谢，感谢您的真诚合作！
+          </marquee>
+          <!-- <div class="marquee">真诚合作欧博环球买分批发特级代理条件全网最, 稍后更新微信号...</div> -->
+        </a>
+      </p>
+    </div>
+		
+    <div class="sitenav"></div>
+
+    <div class="software_list clr" id="windowsOS">
+      <h2><img src="yx.png" width="40" height="40" alt="">&nbsp;亚星娱乐 系列</h2>
+      <ul>
+        <li class="long">
+          <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐">
+            <h3>亚星娱乐全球地址汇聚。所有地区都可以点击进入，请自行选择。</h3>
+          </a>
+          <sub>
+            <a href="https://www.yaxin355.com" target="_blank">主力链接通道</a>
+            <a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yxvip001.com" target="_blank">会员登录入口一</a>
+          <sub>
+            <a href="https://www.yxvip002.com" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin355.com" target="_blank">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin222.com" target="_blank" title="开心娱乐">会员登录入口二</a>
+          <sub>
+            <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
+            <a href="https://www.yxvip005.com" target="_blank">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin55.com" target="_blank" title="开心娱乐">海外用户入口三</a>
+          <sub>
+            <a href="https://www.yaxin66.com" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin998.com" target="_blank" title="开心娱乐">会员登录入口五</a>
+          <sub>
+            <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin355.com" target="_blank">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin868.net" target="_blank" title="开心娱乐">管理后台入口</a>
+          <sub>
+            <a href="https://www.yaxin868.net" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin557.net" target="_blank">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin557.net" target="_blank" title="开心娱乐。">管理后台入口一</a>
+          <sub>
+            <a href="https://www.yaxin222.net" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin557.net" target="_blank" class="hidden">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin868.net" target="_blank" title="开心娱乐。">管理后台入口二</a>
+          <sub>
+            <a href="https://www.yaxin333.net" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin221.net" target="_blank" class="hidden">备用链接通道</a>
+          </sub>
+        </li>
+        <li>
+          <a href="https://www.yaxin333.net" target="_blank" title="开心娱乐。">管理后台入口三</a>
+          <sub>
+            <a href="https://www.yaxin333.net" target="_blank">普通链接通道</a>
+            <a href="https://www.yaxin333.net" target="_blank" class="hidden">备用链接通道</a>
+          </sub>
+        </li>
+      </ul>
     </div>
 
-    <!-- Mobile Header -->
-    <div class="header_mobile">
-        <div id="header">
-            <div style="display: flex; justify-content: center; align-items: center; margin-top: 9px;">
-                <a href="https://example.com" id="logo"><img src="logo.png" alt="汇日全选 Logo"></a>
-            </div>
-        </div>
-        <h3 style="color: #e90707; margin: 10px 20px; font-size: 16px; line-height: 1.4;">
-            为了广大代理的利益，紧急通知，欧博电子游戏有出货拉彩金，请大家停止电子游戏
-        </h3>
+    <div class="site_foot txtCenter">
+      请按 <b>Ctrl+D</b> 将本站加入收藏夹，方便以后登录最新服务器
     </div>
 
-    <!-- Main Content -->
-    <div id="app" class="topic_album_wrap">
-        <div style="padding: 20px 0;">
-            <ul class="album_list clearfix js_album_list">
-                <li onclick="window.location.href='https://www.talkmore.cc/'; return false;">
-                    <dl data-slug="jdkbanbenji">
-                        <dt><img src="tm.png" alt="Talkmore"></dt>
-                        <dd>
-                            <h3>Talkmore在线聊天app</h3>
-                            <p style="color: #e43509;">
-                                点击窗口，下载并注册jpbest，加好友t10000，配合AI收集百家乐投注数据，1:100上分(1:100结算)，或1:1上分(1:1结算)。①累计打卡30天扎次数据，合计赢送10%，输送净下水10%②隔夜分赠送1%，三倍隔夜分值流水可下赠送分。加t10000了解详情。
-                            </p>
-                        </dd>
-                    </dl>
-                </li>
-                <li onclick="window.location.href='gb.html'; return false;">
-                    <dl data-slug="jdkbanbenji">
-                        <dt><img src="gb.png" alt="皇牌贵宾会"></dt>
-                        <dd>
-                            <h3>皇牌贵宾会</h3>
-                            <p class="time">更新时间：2024-12-20</p>
-                            <p class="decs">皇冠百家乐全网最公正平台！</p>
-                            <p style="color: #e43509; font-size: 14px;">正式上线！手机登录请横向屏幕。</p>
-                        </dd>
-                    </dl>
-                </li>
-                <li onclick="window.location.href='ob.html'; return false;">
-                    <dl data-slug="jdkbanbenji">
-                        <dt><img src="logo_ob.png" alt="欧博网址"></dt>
-                        <dd>
-                            <h3>欧博网址</h3>
-                            <p class="time">更新时间：2024-06-25</p>
-                            <p class="decs">欧博频繁出现打庄出货机器投注等问题，管理网延时6003，可以转至皇牌继续游戏，请联系您的上级代理开管理网</p>
-                        </dd>
-                    </dl>
-                </li>
-                <!-- 其他列表项保持不变，格式已优化 -->
-            </ul>
-        </div>
-    </div>
+    <div class="clr"></div>
+  </div>
 
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 20px 0;">
-        <h3>版权所有 ©2023-2024 博義娛樂 保留所有权</h3>
-    </footer>
+  <div class="site_foot txtCenter">  
+    <h6>版权所有 ©2013-2024 博義娛樂</h6>
+  </div>
 </body>
 </html>
