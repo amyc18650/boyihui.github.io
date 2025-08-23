@@ -170,7 +170,7 @@
         }
 
         /* 响应式设计 */
-        @media (max-width: 768px) {
+         @media (max-width: 768px) {
             .software-list {
                 flex-direction: column;
             }
@@ -179,9 +179,11 @@
                 flex: 1 1 100%;
             }
 
+            /* 已修复：移除H5下的固定尺寸，让图片自动适应，保持比例 */
             .site-logo {
-                width: 180px;
-                height: 75px;
+                width: 100%;
+                max-width: 160px; /* 在移动端使用一个更小的最大宽度 */
+                height: auto;
             }
 
             .software-section h2 {
@@ -353,6 +355,7 @@
 
 </body>
 </html>
+
 
 
 
