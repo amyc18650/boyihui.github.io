@@ -41,10 +41,12 @@
         }
 
         /* Logo */
-        .site-logo {
-            width: 240px;
-            height: 100px;
-            margin: 20px 10px;
+       .site-logo {
+            max-width: 240px; /* 已修复：使用max-width以确保图片在窄屏下能正确缩放 */
+            width: 100%;
+            height: auto;
+            margin: 10px auto; /* 居中显示，并调整了垂直间距 */
+            display: block; /* 确保它是一个块级元素，便于margin auto居中 */
         }
 
         /* 网站描述 */
@@ -332,4 +334,5 @@
 
 </body>
 </html>
+
 
