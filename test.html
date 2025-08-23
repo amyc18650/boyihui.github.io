@@ -15,6 +15,7 @@
             --card-bg: #444; /* 深色卡片背景色 */
             --text-color-primary: #eee; /* 主要文字颜色 */
             --text-color-secondary: #ccc; /* 次要文字颜色 */
+            --marquee-color: #e02b2b; /* 跑马灯文字颜色改为红色 */
             --box-shadow-light: 1px 1px 3px #666;
             --box-shadow-dark: 1px 1px 3px #000;
         }
@@ -58,7 +59,7 @@
         .marquee-announcement {
             height: 30px;
             line-height: 30px;
-            color: var(--primary-color); /* 跑马灯文字颜色保持醒目的黄色 */
+            color: var(--marquee-color); /* 跑马灯文字颜色使用红色变量 */
             font-weight: bold;
             background-color: #111; /* 给跑马灯一个更深的背景 */
             border-radius: 5px;
@@ -89,6 +90,7 @@
             width: 50px;
             height: 41px;
             filter: brightness(1.2); /* 稍微提亮图片 */
+            object-fit: contain;
         }
 
         /* 软件列表 */
@@ -113,11 +115,12 @@
             align-items: flex-start;
         }
 
-        .software-list li .icon {
+        .software-list li img.icon {
             width: 40px;
             height: 33px;
             margin-right: 10px;
             filter: brightness(1.2); /* 稍微提亮图标 */
+            object-fit: contain; /* 保持原始比例，适应容器 */
         }
 
         .software-list li .content {
