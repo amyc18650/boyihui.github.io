@@ -1,93 +1,283 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="zh-CN">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博義娛樂 - 万利娱乐</title>
+    
+    <style>
+        /* CSS 变量定义，便于统一管理颜色和阴影 */
+        :root {
+            --primary-color: #ffcc00; /* 亮黄色作为主要强调色 */
+            --secondary-color: #333; /* 标题背景色 */
+            --dark-bg: #222; /* 深灰色背景色 */
+            --card-bg: #444; /* 深色卡片背景色 */
+            --text-color-primary: #eee; /* 主要文字颜色 */
+            --text-color-secondary: #ccc; /* 次要文字颜色 */
+            --marquee-color: #e02b2b; /* 跑马灯文字颜色改为红色 */
+            --box-shadow-light: 1px 1px 3px #666;
+            --box-shadow-dark: 1px 1px 3px #000;
+        }
 
-<title>博義會娛樂</title>
- <link href="main.css" rel="stylesheet" type="text/css">
- <!-- <script src="hm.js.下载"></script><script>
-var _hmt = _hmt || [];
+        /* 重置和基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: var(--dark-bg); /* 使用深灰色背景 */
+            color: var(--text-color-primary); /* 默认文字颜色为浅灰色 */
+        }
+
+        .center {
+            max-width: 1280px;
+            margin: 0 auto;
+            background-color: transparent; /* center区域背景透明，显示body的深色背景 */
+            padding: 10px;
+        }
+
+        /* Logo */
+        .site-logo {
+            width: 240px;
+            height: 100px;
+            margin: 20px 10px;
+        }
+
+        /* 网站描述 */
+        .site-description p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 16px;
+            color: var(--text-color-secondary); /* 描述文字颜色 */
+        }
+
+        /* 跑马灯公告 */
+        .marquee-announcement {
+            height: 30px;
+            line-height: 30px;
+            color: var(--marquee-color); /* 跑马灯文字颜色使用红色变量 */
+            font-weight: bold;
+            background-color: #111; /* 给跑马灯一个更深的背景 */
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+
+        .marquee-announcement a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 软件列表头部 */
+        .software-section h2 {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            background-color: var(--secondary-color); /* 更深的标题背景 */
+            color: var(--primary-color); /* 标题文字颜色为亮黄色 */
+            line-height: 48px;
+            padding-left: 16px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow-dark);
+            margin-bottom: 10px;
+        }
+
+        .software-section h2 img {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            filter: brightness(1.2); /* 稍微提亮图片 */
+            object-fit: contain;
+        }
+
+        /* 软件列表 */
+        .software-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0 -10px;
+        }
+
+        .software-list li {
+            background-color: var(--card-bg); /* 深色卡片背景 */
+            border: 1px solid #555; /* 更深的边框 */
+            border-radius: 5px;
+            box-shadow: var(--box-shadow-light);
+            margin: 10px;
+            flex: 1 1 calc(50% - 20px);
+            min-width: 300px;
+            padding: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .software-list li.long {
+            flex: 1 1 100%;
+        }
+
+        .software-list li img.icon {
+            width: 40px;
+            height: 33px;
+            margin-right: 10px;
+            filter: brightness(1.2); /* 稍微提亮图标 */
+            object-fit: contain; /* 保持原始比例，适应容器 */
+        }
+
+        .software-list li .content {
+            flex: 1;
+        }
+
+        .software-list li h3, .software-list li .main-link {
+            text-decoration: none;
+            color: var(--text-color-primary); /* 主要链接文字颜色 */
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        /* 针对特殊的长条项目，没有h3的p标签链接 */
+        .software-list li.long .content p a {
+             color: var(--text-color-primary);
+             text-decoration: none;
+             font-weight: bold;
+             display: block;
+             margin-bottom: 5px;
+        }
+        
+        .software-list li.long .content p {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
 
 
- <script src="uaredirect.js.下载" type="text/javascript"></script>
- <script src="jquery-3.6.2.min.js.下载" type="text/javascript"></script>
-<script src="myjs.js.下载" type="text/javascript"></script> -->
+        /* 辅助链接 */
+        .sub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .sub-links a {
+            display: block;
+            padding: 2px 6px;
+            border-radius: 100px;
+            background-color: #555; /* 深色辅助链接背景 */
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color-secondary); /* 辅助链接文字颜色 */
+            box-shadow: 1px 1px 1px #333;
+        }
+
+        .sub-links a:hover {
+            background-color: #777;
+            color: var(--primary-color); /* 鼠标悬停时文字颜色 */
+        }
+
+        /* 页脚 */
+        .site-footer {
+            text-align: center;
+            margin: 35px auto 0;
+            font-size: 0.9rem;
+            color: var(--text-color-secondary); /* 页脚文字颜色 */
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .software-list {
+                flex-direction: column;
+            }
+
+            .software-list li {
+                flex: 1 1 100%;
+            }
+
+            .site-logo {
+                width: 180px;
+                height: 75px;
+            }
+
+            .software-section h2 {
+                font-size: 16px;
+                line-height: 40px;
+            }
+        }
+    </style>
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-RJHQGVKGRV');
-</script>
 <body>
-	<div class="center">
-		<pre>&nbsp;&nbsp;&nbsp</pre><img src="logo.png"/alt="" width="240" height="100" margin: 20px 10px 0px 5px;  >
-		
-		<div class="site_discription">
-  <p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>		
-			<p class="vipmq" id="vipfc">
-				<a href="https://www.boyi999.com" target="_blank">
-					<marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
-						真诚合作欧博环球买分批发特级代理条件全网最高，感谢您的真诚合作！
-					</marquee>
-				</a>
-			</p>
-		</div>
-		
-		<div class="sitenav"> </div>
-		
-	
+<div class="center">
+    <img src="logo.png" alt="logo" class="site-logo">
+    
+    <div class="site-description">
+        <p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>
+        <div class="marquee-announcement">
+            <a href="https://www.boyi999.com" target="_blank">
+                <marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
+                    真诚合作欧博环球买分批发特级代理条件全网最高，感谢您的真诚合作！
+                </marquee>
+            </a>
+        </div>
+    </div>
+    
+    <div class="software-section" id="new-page-content">
+        <h2><img src="wl.png" alt=""/>&nbsp;&nbsp;&nbsp;万利娱乐 系列&nbsp;</h2>
+        <ul class="software-list">
+            <li class="long">
+                <img class="icon" src="wl.png" alt="icon">
+                <div class="content">
+                    <p><a href="626168.com" target="_blank">万利全球地址汇聚。所有地区都可以点击进入，请自行选择。</a></p>
+                    <div class="sub-links">
+                        <a href="https://213168.com" target="_blank">电脑版本入口</a>
+                        <a href="https://213268.com" target="_blank">电脑版本入口</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="wl.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://213168.com" target="_blank" class="main-link">电脑版本入口</a></h3>
+                    <div class="sub-links">
+                        <a href="https://213268.com" target="_blank">电脑版本入口</a>
+                        <a href="https://213168.com" target="_blank">电脑版本入口</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="wl.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://m.213168.com" target="_blank" class="main-link">手机版登录入口</a></h3>
+                    <div class="sub-links">
+                        <a href="https://m.213168.com" target="_blank">手机版登录入口</a>
+                        <a href="https://m.213268.com" target="_blank">手机版登录入口</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="wl.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://vip.213168.com" target="_blank" class="main-link">电脑管理入口</a></h3>
+                    <div class="sub-links">
+                        <a href="https://vip.213168.com" target="_blank">电脑管理入口</a>
+                        <a href="https://vip.213268.com" target="_blank">电脑管理入口</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 
-
-		<div class="software_list clr" id="windowsOS">			<h2><img src="wl.png" width="40" height="40" alt=""/>&nbsp; &nbsp; &nbsp;万利娱乐 系列&nbsp;</h2>
-			<ul>
-				<li class="long">
-					<span class="adobeico"><!-- AdobeIcon --></span>
-					<a href="626168.com" target="_blank" title="开心娱乐"><h3>万利全球地址汇聚。所有地区都可以点击进入，请自行选择。</h3>
-					</a>
-					<sub>
-						<a href="https://213168.com" target="_blank">电脑版本入口</a>
-						<a href="https://213268.com">电脑版本入口</a>
-					</sub>
-				</li>
-				<li>
-					<span class="psico"><!-- PsIcon --></span>
-					<a href="https://213168.com" target="_blank">电脑版本入口</a>
-					<sub>
-						<a href="https://213268.com" target="_blank">电脑版本入口</a>
-						<a href="https://213168.com" target="_blank">电脑版本入口</a>
-					</sub>
-				</li>
-				<li>
-					<span class="aiico"><!-- PsIcon --></span>
-					<a href="https://m.213168.com" target="_blank" title="开心娱乐">手机版登录入口</a>
-					<sub>
-						<a href="https://m.213168.com" target="_blank">手机版登录入口</a>
-						<a href="https://m.213268.com" target="_blank">手机版登录入口</a>
-					</sub>
-				</li>
-			
-				
-				
-				<li>
-					<span class="dnico"><!-- DnIcon --></span>
-					<a href="https://vip.213168.com" target="_blank" title="开心娱乐">电脑管理入口</a>
-					<sub>
-						<a href="https://vip.213168.com" target="_blank">电脑管理入口</a>
-						<a href="https://vip.213268.com" target="_blank">电脑管理入口</a>
-					</sub>
-				</li>
-			
-				
-			</ul>
+    <div class="site-footer">
+        <p>请按 <b>Ctrl+D</b> 将本站加入收藏夹，方便以后登录最新服务器</p>
+    </div>
 </div>
-<div class="site_foot txtCenter">
-	  请按<b>Ctrl+D</b>将本站加入收藏夹，方便以后登录最新服务器
-		</div>
-		
-		<div class="clr"></div>
-	</div>
-	<div class="site_foot txtCenter">  
-	<h6>版权所有 ©2013-2024 博義娛樂 </h6>
-	 </div>
-</body></html>
+
+<div class="site-footer">
+    <h6>版权所有 ©2013-2024 博義娛樂</h6>
+</div>
+
+</body>
+</html>
