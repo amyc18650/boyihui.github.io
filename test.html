@@ -1,163 +1,243 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>计算器</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 10px;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        h1 {
-            font-size: 1.5em;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        label {
-            font-size: 0.9em;
-            display: block;
-            margin-bottom: 5px;
-        }
-        input, button, select {
-            margin: 5px 0;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 0.9em;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-        .highlight-base { 
-            color: #006400; /* 深绿色 */
-            font-weight: bold; 
-        }
-        .highlight-diff { 
-            color: red; /* 加粗红色用于 arr */
-            font-weight: bold; 
-        }
-        .highlight-n { 
-            color: #1976d2; /* 加粗深绿色用于 N */
-            font-weight: bold; 
-        }
-        @media (max-width: 1200px) {
-            h1 { font-size: 1.2em; }
-            input, button, select { padding: 8px; }
-            .container { padding: 5px; }
-            label { font-size: 0.85em; }
-        }
-    </style>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博義娛樂 </title>
+  <!-- 引入 Poppins 字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #0d0d1a), 
+                  url("https://www.transparenttextures.com/patterns/stardust.png");
+      background-size: cover;
+      color: #ffffff;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .center {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* LOGO */
+    .center img#logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 240px;
+      height: auto;
+    }
+
+    /* 通知消息 */
+    .notice {
+      background: rgba(42,42,64,0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #ff4d4d;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* 卡片列表 */
+    .album_list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .album_list li {
+      flex: 1 1 calc(50% - 20px);
+      background: rgba(42,42,64,0.85);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    }
+    .album_list li:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+    }
+    .album_list dl {
+      display: flex;
+      margin: 0;
+      align-items: center; /* 垂直居中对齐 */
+    }
+    .album_list dt {
+      flex-shrink: 0;
+      margin: 8px 12px 8px 12px; /* 缩小间距，让图标更靠近文字 */
+    }
+    .album_list dt img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+    .album_list dd {
+      flex: 1;
+      padding: 8px 10px 8px 0; /* 缩小上下和右边间距 */
+    }
+    .album_list h3 {
+      font-size: 18px;
+      background: linear-gradient(90deg, #4da6ff, #66ffcc, #4da6ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 0 0 5px 0;
+      background-size: 200% auto;
+      animation: shine 3s linear infinite; /* 加流光动画 */
+    }
+    .album_list p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+    .album_list .time {
+      font-size: 12px;
+      color: #ffcc66;
+    }
+
+    h3.footer {
+      text-align: center;
+      font-size: 14px;
+      color: #bbbbbb;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* 渐变流光效果 */
+    @keyframes shine {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @media (max-width: 768px) {
+      .album_list li {
+        flex: 1 1 100%;
+      }
+      .album_list dt img {
+        width: 48px;
+        height: 48px;
+      }
+      .center img#logo {
+        width: 180px;
+      }
+      .album_list li {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>老苏开心查</h1>
-        <label for="number">输入一个数字(必填项):</label>
-        <input type="number" id="number" required>
+<div class="center">
+  <img src="logo.png" id="logo" alt="Logo" loading="lazy">
+  <div class="notice">
+        博义娱乐近期将推出自有聊天软件，安全可靠，根据需要可做到随时双向永久删除聊天信息，做到真正规避风险，请大家联系上级代理咨询！
+  </div>
 
-        <label for="baseStep">区间步进单位:</label>
-        <select id="baseStep">
-            <option value="100">100 步进</option>
-            <option value="1000" selected>1000 步进 (默认)</option>
-            <option value="10000">10000 步进</option>
-        </select>
+  <ul class="album_list">
+    <li onclick="window.location.href='https://www.talkmore.cc';">
+      <dl>
+        <dt><img src="tm.png" alt="JPbest" loading="lazy"></dt>
+        <dd>
+          <h3>JPbest在线聊天app</h3>
+          <p>点击窗口，下载并注册jpbest，像微信一样，安全，快捷。可用于替代Skype。</p>
+        </dd>
+      </dl>
+    </li>
 
-        <label for="step">步进（默认0.005）:</label>
-        <input type="number" id="step" step="0.001" value="0.005">
+    <li onclick="window.location.href='gb.html';">
+      <dl>
+        <dt><img src="gb.png" alt="皇牌贵宾会" loading="lazy"></dt>
+        <dd>
+          <h3>皇牌贵宾会</h3>
+          <p class="time">更新时间：2024-12-20</p>
+          <p>皇冠百家乐全网最公正平台！</p>
+          <p style="color:#ff4d4d;">正式上线！手机登录请横向屏幕。</p>
+        </dd>
+      </dl>
+    </li>
 
-        <label for="left">左值（默认7.000）:</label>
-        <input type="number" id="left" step="0.001" value="7.000">
+    <li onclick="window.location.href='ob.html';">
+      <dl>
+        <dt><img src="logo_ob.png" alt="欧博网址" loading="lazy"></dt>
+        <dd>
+          <h3>欧博网址</h3>
+          <p class="time">更新时间：2024-06-25</p>
+          <p>欧博频繁出现打庄出货机器投注等问题可以转至皇牌继续游戏</p>
+        </dd>
+      </dl>
+    </li>
 
-        <label for="right">右值（默认7.900）:</label>
-        <input type="number" id="right" step="0.001" value="7.900">
+    <li onclick="window.location.href='360.html';">
+      <dl>
+        <dt><img src="logo.3f6e1494.webp" alt="环球360" loading="lazy"></dt>
+        <dd>
+          <h3>环球360</h3>
+          <p class="time">更新时间：2024-07-15</p>
+          <p style="color:#ff4d4d;">环球360维护结束，请正常登录</p>
+        </dd>
+      </dl>
+    </li>
 
-        <button onclick="calculate()">点我让老苏同志帮你猜一猜</button>
-        <div class="result" id="result"></div>
-    </div>
+    <li onclick="window.location.href='hg.html';">
+      <dl>
+        <dt><img src="logo_hg.png" alt="皇冠网址" loading="lazy"></dt>
+        <dd>
+          <h3>皇冠网址</h3>
+          <p class="time">更新时间：2024-05-19</p>
+          <p>皇冠会员代理登录端口</p>
+        </dd>
+      </dl>
+    </li>
 
-    <script>
-        function calculate() {
-            const startTime = performance.now();
+    <li onclick="window.location.href='ka.html';">
+      <dl>
+        <dt><img src="logo_kk.png" alt="卡卡湾电投" loading="lazy"></dt>
+        <dd>
+          <h3>卡卡湾电投</h3>
+          <p>登录/联系客服窗口</p>
+          <p style="color:#ff4d4d;">会员登陆</p>
+        </dd>
+      </dl>
+    </li>
 
-            const baseNumberInput = document.getElementById('number');
-            const baseNumber = parseFloat(baseNumberInput.value);
-            if (!baseNumberInput.value || isNaN(baseNumber)) {
-                document.getElementById('result').textContent = '请输入一个有效的数字！';
-                return;
-            }
+    <li onclick="window.location.href='yx.html';">
+      <dl>
+        <dt><img src="yx.png" alt="亚星" loading="lazy"></dt>
+        <dd>
+          <h3>亚星</h3>
+          <p class="time">更新时间：2024-09-12</p>
+          <p>亚星会员/管理登录</p>
+        </dd>
+      </dl>
+    </li>
 
-            const baseStr = baseNumber.toString();
-            const baseClass = (baseStr[baseStr.length - 1] === '0' || baseStr[baseStr.length - 1] === '5') ? 'highlight-base' : '';
+    <li onclick="window.location.href='wl.html';">
+      <dl>
+        <dt><img src="wl.png" alt="万利" loading="lazy"></dt>
+        <dd>
+          <h3>万利</h3>
+          <p>您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p>
+          <p>万利会员/管理登录</p>
+        </dd>
+      </dl>
+    </li>
+  </ul>
 
-            const step = parseFloat(document.getElementById('step').value) || 0.005;
-            const startN = parseFloat(document.getElementById('left').value) || 7.200;
-            const endN = parseFloat(document.getElementById('right').value) || 7.900;
-            const baseStep = parseInt(document.getElementById('baseStep').value);
-
-            let minValue = Math.floor((baseNumber * startN) / baseStep) * baseStep;
-            let maxValue = Math.ceil((baseNumber * endN) / baseStep) * baseStep;
-            let arrs = [];
-            for (let i = minValue; i <= maxValue; i += baseStep) {
-                arrs.push(i);
-            }
-
-            let results = [];
-            let N = startN;
-            while (N <= endN) {
-                let Y = baseNumber * N;
-                for (let arr of arrs) {
-                    let diff = Math.abs(Y - arr);
-                    if (diff < N && Y < arr) {
-                        let result = { N, Y, arr, diff };
-                        // 修改高亮逻辑：N 在 7.08 到 7.48 范围内，且满足 arr 是 10000 或 (N < 25000 时 1000) 的倍数
-                        result.arrClass = (N >= 7.18 && N <= 7.48 && (arr % 10000 === 0 || (N < 25000 && arr % 1000 === 0))) ? 'highlight-diff' : '';
-                        const nStr = N.toFixed(3);
-                        result.nClass = (nStr[nStr.length - 1] === '0' || nStr[nStr.length - 1] === '5') ? 'highlight-n' : '';
-                        results.push(result);
-                    }
-                }
-                N = parseFloat((N + step).toFixed(3));
-            }
-
-            let resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '';
-            if (results.length > 0) {
-                resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p>` +
-                    results.map(r => `<p>(<span class="${baseClass}">${baseNumber}</span> * <span class="${r.nClass}">${r.N.toFixed(3)}</span> = ${r.Y.toFixed(2)}) - <span class="${r.arrClass}">${r.arr}</span> = ${r.diff.toFixed(2)} 小于 <span class="${r.nClass}">${r.N.toFixed(3)}</span></p>`).join('');
-            } else {
-                resultDiv.innerHTML = `<p>区间步进单位: ${baseStep}</p><p>没有找到符合条件的结果。</p>`;
-            }
-
-            const endTime = performance.now();
-            resultDiv.innerHTML += `<p>总共耗时: ${(endTime - startTime).toFixed(2)} 毫秒</p>`;
-        }
-    </script>
+  <h3 class="footer">版权所有 ©2023-2025 博義娛樂 保留所有权</h3>
+</div>
 </body>
 </html>
