@@ -76,28 +76,28 @@
     }
     .album_list dt {
       flex-shrink: 0;
-      margin: 8px 6px 8px 8px; /* 减小左右间距 */
+      margin: 6px 6px 6px 8px; /* 再缩小边距 */
     }
     .album_list dt img {
-      width: 58px;
-      height: 58px;
+      width: 56px;
+      height: 56px;
       object-fit: contain;
     }
     .album_list dd {
       flex: 1;
-      padding: 8px 0; /* 去掉左 padding，让文字更贴近图标 */
+      padding: 6px 0 6px 2px; /* 左边只留2px，紧贴图标 */
     }
     .album_list h3 {
       font-size: 18px;
       background: linear-gradient(90deg, #4da6ff, #66ffcc, #4da6ff);
       -webkit-background-clip: text;
       color: transparent;
-      margin: 0 0 5px 0;
+      margin: 0 0 4px 0; /* 减小顶部间距 */
       background-size: 200% auto;
       animation: shine 3s linear infinite; /* 流光动画 */
     }
     .album_list p {
-      margin: 3px 0;
+      margin: 2px 0;
       font-size: 14px;
     }
     .album_list .time {
