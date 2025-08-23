@@ -1,243 +1,343 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>博義娛樂 </title>
-  <!-- 引入 Poppins 字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", "Microsoft YaHei", sans-serif;
-      background: linear-gradient(135deg, #1a1a2e, #0d0d1a), 
-                  url("https://www.transparenttextures.com/patterns/stardust.png");
-      background-size: cover;
-      color: #ffffff;
-    }
-    a { text-decoration: none; color: inherit; }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博義娛樂</title>
+    
+    <style>
+        /* CSS 变量定义，便于统一管理 */
+        :root {
+            --primary-color: #d21414; /* 按钮和标题点缀色 */
+            --secondary-color: #121212; /* 标题背景色 */
+            --light-gray: #f8f9fa; /* 背景色 */
+            --card-bg: #efefef; /* 卡片背景色 */
+            --text-color: #333; /* 主要文字颜色 */
+            --box-shadow-light: 1px 1px 3px #cdcdcd;
+            --box-shadow-dark: 1px 1px 3px #999;
+        }
 
-    .center {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+        /* 重置和基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* LOGO */
-    .center img#logo {
-      display: block;
-      margin: 0 auto 20px;
-      width: 240px;
-      height: auto;
-    }
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: var(--light-gray);
+        }
 
-    /* 通知消息 */
-    .notice {
-      background: rgba(42,42,64,0.85);
-      backdrop-filter: blur(6px);
-      border-radius: 12px;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 18px;
-      color: #ff4d4d;
-      animation: fadeIn 1s ease-out;
-    }
+        .center {
+            max-width: 1280px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 10px;
+        }
+        
+        /* Logo */
+        .site-logo {
+            width: 240px;
+            height: 100px;
+            margin: 20px 10px;
+        }
 
-    /* 卡片列表 */
-    .album_list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .album_list li {
-      flex: 1 1 calc(50% - 20px);
-      background: rgba(42,42,64,0.85);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-    }
-    .album_list li:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.7);
-    }
-    .album_list dl {
-      display: flex;
-      margin: 0;
-      align-items: center; /* 垂直居中对齐 */
-    }
-    .album_list dt {
-      flex-shrink: 0;
-      margin: 6px 6px 6px 8px; /* 再缩小边距 */
-    }
-    .album_list dt img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-    }
-    .album_list dd {
-      flex: 1;
-      padding: 6px 0 6px 2px; /* 左边只留2px，紧贴图标 */
-    }
-    .album_list h3 {
-      font-size: 18px;
-      background: linear-gradient(90deg, #4da6ff, #66ffcc, #4da6ff);
-      -webkit-background-clip: text;
-      color: transparent;
-      margin: 0 0 4px 0; /* 减小顶部间距 */
-      background-size: 200% auto;
-      animation: shine 3s linear infinite; /* 流光动画 */
-    }
-    .album_list p {
-      margin: 2px 0;
-      font-size: 14px;
-    }
-    .album_list .time {
-      font-size: 12px;
-      color: #ffcc66;
-    }
+        /* 网站描述 */
+        .site-description p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 16px;
+        }
 
-    h3.footer {
-      text-align: center;
-      font-size: 14px;
-      color: #bbbbbb;
-      margin-top: 30px;
-    }
+        /* 跑马灯公告 */
+        .marquee-announcement {
+            height: 30px;
+            line-height: 30px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+        .marquee-announcement a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 软件列表头部 */
+        .software-section h2 {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 48px;
+            padding-left: 16px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow-dark);
+            margin-bottom: 10px;
+        }
 
-    /* 渐变流光效果 */
-    @keyframes shine {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
+        .software-section h2 img {
+            margin-right: 10px;
+            width: 50px;
+            height: 41px;
+        }
 
-    @media (max-width: 768px) {
-      .album_list li {
-        flex: 1 1 100%;
-      }
-      .album_list dt img {
-        width: 48px;
-        height: 48px;
-      }
-      .center img#logo {
-        width: 180px;
-      }
-      .album_list li {
-        margin-bottom: 10px;
-      }
-    }
-  </style>
+        /* 软件列表 */
+        .software-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0 -10px;
+        }
+
+        .software-list li {
+            background-color: var(--card-bg);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow-light);
+            margin: 10px;
+            flex: 1 1 calc(50% - 20px);
+            min-width: 300px;
+            padding: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .software-list li .icon {
+            width: 40px;
+            height: 33px;
+            margin-right: 10px;
+        }
+
+        .software-list li .content {
+            flex: 1;
+        }
+
+        .software-list li h3, .software-list li .main-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        /* 辅助链接 */
+        .sub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .sub-links a {
+            display: block;
+            padding: 2px 6px;
+            border-radius: 100px;
+            background-color: #dedede;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 1px 1px 1px #fff;
+        }
+
+        .sub-links a:hover {
+            background-color: khaki;
+            color: var(--primary-color);
+        }
+        
+        /* 页脚 */
+        .site-footer {
+            text-align: center;
+            margin: 35px auto 0;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .software-list {
+                flex-direction: column;
+            }
+
+            .software-list li {
+                flex: 1 1 100%;
+            }
+
+            .site-logo {
+                width: 180px;
+                height: 75px;
+            }
+
+            .software-section h2 {
+                font-size: 16px;
+                line-height: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="center">
-  <img src="logo.png" id="logo" alt="Logo" loading="lazy">
-  <div class="notice">
-        博义娱乐近期将推出自有聊天软件，安全可靠，根据需要可做到随时双向永久删除聊天信息，做到真正规避风险，请大家联系上级代理咨询！
-  </div>
+    <img src="logo.png" alt="logo" class="site-logo">
+    
+    <div class="site-description">
+        <p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>
+        <div class="marquee-announcement">
+            <a href="https://www.boyi999.com" target="_blank">
+                <marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
+                    真诚合作欧博环球买分批发特级代理条件全网最,稍后更新微信号，请大家耐心等待谢谢，感谢您的真诚合作！
+                </marquee>
+            </a>
+        </div>
+    </div>
+    
+    <div class="software-section" id="windowsOS">
+        <h2><img src="logo.3f6e1494.webp" alt=""/>环球360 系列</h2>
+        <ul class="software-list">
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.325628265.com" target="_blank" class="main-link">环球360登陆入口汇集，请选择您喜爱的入口登录。</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.67171085.com/" target="_blank">主力链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.325628265.com" target="_blank" class="main-link">会员登录入口（最新）</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.32471315.com/" target="_blank">最新链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">最新链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.325628265.com" target="_blank" class="main-link">会员登录入口二</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.325628265.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.325628265.com" target="_blank" class="main-link">会员登录入口三</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.325628265.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.32471315.com/" target="_blank" class="main-link">会员登录入口五</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.32471315.com/" target="_blank">普通链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.325628265.com" target="_blank" class="main-link">会员登录入口六</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.32471315.com/" target="_blank">普通链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.32471315.com/" target="_blank" class="main-link">会员登录入口七</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.325628265.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.325628265.com" target="_blank" class="main-link">会员登录入口八</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.32471315.com/" target="_blank">普通链接通道</a>
+                        <a href="https://www.984154271.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://www.32471315.com/" target="_blank" class="main-link">会员登录入口九</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.325628265.com" target="_blank">普通链接通道</a>
+                        <a href="https://agen.325628265.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://agen.645513545.com" target="_blank" class="main-link">管理后台入口（最新）</a></h3>
+                    <div class="sub-links">
+                        <a href="https://agen.645513545.com" target="_blank">最新链接通道</a>
+                        <a href="https://agen.875564835.com" target="_blank">最新链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://agen.875564835.com" target="_blank" class="main-link">管理后台入口一</a></h3>
+                    <div class="sub-links">
+                        <a href="https://agen.957323709.com" target="_blank">普通链接通道</a>
+                        <a href="https://agen.325628265.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://agen.396884652.com" target="_blank" class="main-link">管理后台入口二</a></h3>
+                    <div class="sub-links">
+                        <a href="https://agen.875564835.com" target="_blank">普通链接通道</a>
+                        <a href="https://agen.325628265.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="logo.3f6e1494.webp" alt="">
+                <div class="content">
+                    <h3><a href="https://agen.875564835.com" target="_blank" class="main-link">管理后台入口三</a></h3>
+                    <div class="sub-links">
+                        <a href="https://agen.875564835.com" target="_blank">普通链接通道</a>
+                        <a href="https://agen.325628265.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 
-  <ul class="album_list">
-    <li onclick="window.location.href='https://www.talkmore.cc';">
-      <dl>
-        <dt><img src="tm.png" alt="JPbest" loading="lazy"></dt>
-        <dd>
-          <h3>JPbest在线聊天app</h3>
-          <p>点击窗口，下载并注册jpbest，像微信一样，安全，快捷。可用于替代Skype。</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='gb.html';">
-      <dl>
-        <dt><img src="gb.png" alt="皇牌贵宾会" loading="lazy"></dt>
-        <dd>
-          <h3>皇牌贵宾会</h3>
-          <p class="time">更新时间：2024-12-20</p>
-          <p>皇冠百家乐全网最公正平台！</p>
-          <p style="color:#ff4d4d;">正式上线！手机登录请横向屏幕。</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='ob.html';">
-      <dl>
-        <dt><img src="logo_ob.png" alt="欧博网址" loading="lazy"></dt>
-        <dd>
-          <h3>欧博网址</h3>
-          <p class="time">更新时间：2024-06-25</p>
-          <p>欧博频繁出现打庄出货机器投注等问题可以转至皇牌继续游戏</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='360.html';">
-      <dl>
-        <dt><img src="logo.3f6e1494.webp" alt="环球360" loading="lazy"></dt>
-        <dd>
-          <h3>环球360</h3>
-          <p class="time">更新时间：2024-07-15</p>
-          <p style="color:#ff4d4d;">环球360维护结束，请正常登录</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='hg.html';">
-      <dl>
-        <dt><img src="logo_hg.png" alt="皇冠网址" loading="lazy"></dt>
-        <dd>
-          <h3>皇冠网址</h3>
-          <p class="time">更新时间：2024-05-19</p>
-          <p>皇冠会员代理登录端口</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='ka.html';">
-      <dl>
-        <dt><img src="logo_kk.png" alt="卡卡湾电投" loading="lazy"></dt>
-        <dd>
-          <h3>卡卡湾电投</h3>
-          <p>登录/联系客服窗口</p>
-          <p style="color:#ff4d4d;">会员登陆</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='yx.html';">
-      <dl>
-        <dt><img src="yx.png" alt="亚星" loading="lazy"></dt>
-        <dd>
-          <h3>亚星</h3>
-          <p class="time">更新时间：2024-09-12</p>
-          <p>亚星会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='wl.html';">
-      <dl>
-        <dt><img src="wl.png" alt="万利" loading="lazy"></dt>
-        <dd>
-          <h3>万利</h3>
-          <p>您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p>
-          <p>万利会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
-  </ul>
-
-  <h3 class="footer">版权所有 ©2023-2025 博義娛樂 保留所有权</h3>
+    <div class="site-footer">
+        <p>请按 <b>Ctrl+D</b> 将本站加入收藏夹，方便以后登录最新服务器</p>
+    </div>
 </div>
+
+<div class="site-footer">
+    <h6>版权所有 ©2013-2024 博義娛樂</h6>
+</div>
+
 </body>
 </html>
