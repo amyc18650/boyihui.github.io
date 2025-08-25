@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RJHQGVKGRV');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博義娛樂 - UG环球娱乐</title>
+    
+    <style>
+        /* CSS 变量定义，便于统一管理颜色和阴影 */
+        :root {
+            --primary-color: #ffcc00; /* 亮黄色作为主要强调色 */
+            --secondary-color: #333; /* 标题背景色 */
+            --dark-bg: #222; /* 深灰色背景色 */
+            --card-bg: #444; /* 深色卡片背景色 */
+            --text-color-primary: #eee; /* 主要文字颜色 */
+            --text-color-secondary: #ccc; /* 次要文字颜色 */
+            --marquee-color: #e02b2b; /* 跑马灯文字颜色改为红色 */
+            --box-shadow-light: 1px 1px 3px #666;
+            --box-shadow-dark: 1px 1px 3px #000;
+        }
+
+        /* 重置和基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: var(--dark-bg); /* 使用深灰色背景 */
+            color: var(--text-color-primary); /* 默认文字颜色为浅灰色 */
+        }
+
+        .center {
+            max-width: 1280px;
+            margin: 0 auto;
+            background-color: transparent; /* center区域背景透明，显示body的深色背景 */
+            padding: 10px;
+        }
+
+        /* Logo */
+       .site-logo {
+            max-width: 240px; /* 已修复：使用max-width以确保图片在窄屏下能正确缩放 */
+            width: 100%;
+            height: auto;
+            margin: 10px auto; /* 居中显示，并调整了垂直间距 */
+            display: block; /* 确保它是一个块级元素，便于margin auto居中 */
+        }
+
+        /* 网站描述 */
+        .site-description p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 16px;
+            color: var(--text-color-secondary); /* 描述文字颜色 */
+        }
+
+        /* 跑马灯公告 */
+        .marquee-announcement {
+            height: 30px;
+            line-height: 30px;
+            color: var(--marquee-color); /* 跑马灯文字颜色使用红色变量 */
+            font-weight: bold;
+            background-color: #111; /* 给跑马灯一个更深的背景 */
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+
+        .marquee-announcement a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 软件列表头部 */
+        .software-section h2 {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            background-color: var(--secondary-color); /* 更深的标题背景 */
+            color: var(--primary-color); /* 标题文字颜色为亮黄色 */
+            line-height: 48px;
+            padding-left: 16px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow-dark);
+            margin-bottom: 10px;
+        }
+
+        .software-section h2 img {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            filter: brightness(1.2); /* 稍微提亮图片 */
+            object-fit: contain;
+        }
+
+        /* 软件列表 */
+        .software-list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0 -10px;
+        }
+
+        .software-list li {
+            background-color: var(--card-bg); /* 深色卡片背景 */
+            border: 1px solid #555; /* 更深的边框 */
+            border-radius: 5px;
+            box-shadow: var(--box-shadow-light);
+            margin: 10px;
+            flex: 1 1 calc(50% - 20px);
+            min-width: 300px;
+            padding: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .software-list li.long {
+            flex: 1 1 100%;
+        }
+
+        .software-list li img.icon {
+            width: 40px;
+            height: 33px;
+            margin-right: 10px;
+            filter: brightness(1.2); /* 稍微提亮图标 */
+            object-fit: contain; /* 保持原始比例，适应容器 */
+        }
+
+        .software-list li .content {
+            flex: 1;
+        }
+
+        .software-list li h3, .software-list li .main-link {
+            text-decoration: none;
+            color: var(--text-color-primary); /* 主要链接文字颜色 */
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        /* 针对特殊的长条项目，没有h3的p标签链接 */
+        .software-list li.long .content p a {
+             color: var(--text-color-primary);
+             text-decoration: none;
+             font-weight: bold;
+             display: block;
+             margin-bottom: 5px;
+        }
+        
+        .software-list li.long .content p {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        /* 辅助链接 */
+        .sub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .sub-links a {
+            display: block;
+            padding: 2px 6px;
+            border-radius: 100px;
+            background-color: #555; /* 深色辅助链接背景 */
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color-secondary); /* 辅助链接文字颜色 */
+            box-shadow: 1px 1px 1px #333;
+        }
+
+        .sub-links a:hover {
+            background-color: #777;
+            color: var(--primary-color); /* 鼠标悬停时文字颜色 */
+        }
+
+        /* 页脚 */
+        .site-footer {
+            text-align: center;
+            margin: 35px auto 0;
+            font-size: 0.9rem;
+            color: var(--text-color-secondary); /* 页脚文字颜色 */
+        }
+
+        /* 小屏自适应 */
+       @media (max-width: 768px) {
+            .software-list {
+                flex-direction: column;
+            }
+
+            .software-list li {
+                flex: 1 1 100%;
+            }
+
+            /* 已修复：移除H5下的固定尺寸，让图片自动适应，保持比例 */
+            .site-logo {
+                width: 100%;
+                max-width: 160px; /* 在移动端使用一个更小的最大宽度 */
+                height: auto;
+            }
+
+            .software-section h2 {
+                font-size: 16px;
+                line-height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <img src="logo_ug.png" alt="logo" class="site-logo">
+    
+    <div class="site-description">
+        <p>欢迎玩家选择喜爱的游戏内容和最快得服务器进行游戏娱乐。</p>
+        <div class="marquee-announcement">
+            <a href="https://www.boyi999.com" target="_blank">
+                <marquee scrollamount="5" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
+                    真诚合作欧博环球买分批发特级代理条件全网最,稍后更新微信号，请大家耐心等待谢谢，感谢您的真诚合作！
+                </marquee>
+            </a>
+        </div>
+    </div>
+    
+    <div class="software-section" id="new-page-content">
+        <h2><img src="yx.png" alt=""/>&nbsp;&nbsp;&nbsp;亚星娱乐 系列&nbsp;</h2>
+        <ul class="software-list">
+            <li class="long">
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <p><a href="https://www.yaxin222.com" target="_blank">亚星娱乐全球地址汇聚。所有地区都可以点击进入，请自行选择。</a></p>
+                    <div class="sub-links">
+                        <a href="https://www.yaxin355.com" target="_blank">主力链接通道</a>
+                        <a href="https://www.yaxin333.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yxvip001.com" target="_blank" class="main-link">会员登录入口一</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yxvip002.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.yaxin355.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yaxin222.com" target="_blank" class="main-link">会员登录入口二</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.yxvip005.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yaxin55.com" target="_blank" class="main-link">海外用户入口三</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yx66.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.yx333.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yaxin998.com" target="_blank" class="main-link">会员登录入口五</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yxvip003.com" target="_blank">普通链接通道</a>
+                        <a href="https://www.yx355.com" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yaxin868.net" target="_blank" class="main-link">管理后台入口</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yx868.net" target="_blank">普通链接通道</a>
+                        <a href="https://www.yx557.net" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yx557.net" target="_blank" class="main-link">管理后台入口一</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yx222.net" target="_blank">普通链接通道</a>
+                        <a href="https://www.yx557.net" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yaxin868.net" target="_blank" class="main-link">管理后台入口二</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yx333.net" target="_blank">普通链接通道</a>
+                        <a href="https://www.yx221.net" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img class="icon" src="yx.png" alt="icon">
+                <div class="content">
+                    <h3><a href="https://www.yx333.net" target="_blank" class="main-link">管理后台入口三</a></h3>
+                    <div class="sub-links">
+                        <a href="https://www.yx333.net" target="_blank">普通链接通道</a>
+                        <a href="https://www.yx333.net" target="_blank">备用链接通道</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="site-footer">
+        <p>请按 <b>Ctrl+D</b> 将本站加入收藏夹，方便以后登录最新服务器</p>
+    </div>
+</div>
+
+<div class="site-footer">
+    <h6>版权所有 ©2013-2024 博義娛樂</h6>
+</div>
+
+</body>
+</html>
+
+
