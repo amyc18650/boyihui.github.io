@@ -18,9 +18,11 @@
     margin: 0;
     padding: 0;
     font-family: "Poppins", "Microsoft YaHei", sans-serif;
+    
     color: #ffffff;
-    background: url("542.jpg") no-repeat center center fixed;
-    background-size: cover;
+ 
+  background: url("542.jpg") no-repeat center center fixed;
+  background-size: cover;
   }
   a { text-decoration: none; color: inherit; }
 
@@ -30,6 +32,7 @@
     padding: 20px;
   }
 
+  /* LOGO */
   .center img#logo {
     display: block;
     margin: 0 auto 20px;
@@ -37,6 +40,7 @@
     height: auto;
   }
 
+  /* 通知消息 */
   .notice {
     background: rgba(42,42,64,0.85);
     backdrop-filter: blur(6px);
@@ -49,6 +53,7 @@
     animation: fadeIn 1s ease-out;
   }
 
+  /* 卡片列表 */
   .album_list {
     display: flex;
     flex-wrap: wrap;
@@ -67,50 +72,28 @@
     cursor: pointer;
     box-shadow: 0 6px 15px rgba(0,0,0,0.5);
   }
-
+  .album_list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+  }
   .album_list dl {
     display: flex;
     margin: 0;
-    align-items: center;
+    align-items: center; /* 垂直居中对齐 */
   }
   .album_list dt {
     flex-shrink: 0;
-    margin: 10px 10px 10px 20px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
+    margin: 10px 10px 10px 20px; /* 上 10 右 10 下 10 左 20 */
   }
   .album_list dt img {
-    width: 60px;
+    width: 60px; /* 调整图标大小 */
     height: 60px;
     object-fit: contain;
-    margin-left: 10px;
-    transition: transform 0.6s ease;
+	  margin-left: 10px;
   }
-
-  /* 调整光影效果 */
-  .album_list dt.special::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -40%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-20deg);
-    animation: shine 3s linear infinite;
-    pointer-events: none;
-  }
-  .album_list dt.special:hover::after {
-    animation: shine 1s linear infinite;
-  }
-  .album_list li.special:hover dt img {
-    transform: scale(1.1);
-  }
-
   .album_list dd {
     flex: 1;
-    padding: 10px 10px 10px 0;
+    padding: 10px 10px 10px 0; /* 右边距减少，靠近图标 */
   }
   .album_list h3 {
     font-size: 18px;
@@ -139,10 +122,6 @@
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
   }
-  @keyframes shine {
-    0% { left: -40%; }
-    100% { left: 100%; }
-  }
 
   @media (max-width: 768px) {
     .album_list li {
@@ -154,7 +133,6 @@
     }
   }
 </style>
-
 </head>
 <body>
 <div class="center">
@@ -238,6 +216,17 @@
           <h3>亚星</h3>
           <p class="time">更新时间：2024-09-12</p>
           <p>亚星会员/管理登录</p>
+        </dd>
+      </dl>
+    </li>
+
+	    <li onclick="window.location.href='ug.html';">
+      <dl>
+        <dt><img src="logo_ug.png" alt=""></dt>
+        <dd>
+          <h3>UG环球</h3>
+          <p class="time">更新时间：2025-08-12</p>
+          <p>会员/管理登录</p>
         </dd>
       </dl>
     </li>
