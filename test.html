@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RJHQGVKGRV');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>博義娛樂 </title>
@@ -75,7 +83,7 @@
   }
   .album_list dt {
     flex-shrink: 0;
-    margin: 10px 10px 10px 30px; /* 上 10 右 10 下 10 左 20 */
+    margin: 10px 10px 10px 20px; /* 上 10 右 10 下 10 左 20 */
   }
   .album_list dt img {
     width: 60px; /* 调整图标大小 */
@@ -85,7 +93,7 @@
   }
   .album_list dd {
     flex: 1;
-    padding: 10px 10px 10px -30px; /* 右边距减少，靠近图标 */
+    padding: 10px 10px 10px 0; /* 右边距减少，靠近图标 */
   }
   .album_list h3 {
     font-size: 18px;
@@ -109,7 +117,54 @@
     color: #bbbbbb;
     margin-top: 30px;
   }
+<style>
+  /* 你原有的 CSS ... */
 
+  /* ====== 光影效果 ====== */
+  .album_list dt {
+    position: relative;
+    overflow: hidden; /* 防止光影溢出 */
+    border-radius: 8px;
+  }
+
+  .album_list dt img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    border-radius: inherit;
+    transition: transform .6s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 光影层 */
+  .album_list dt::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+      transparent 0%,
+      rgba(255,255,255,0.6) 50%,
+      transparent 100%);
+    transform: translateX(-100%);
+    animation: shine 6s linear infinite; /* 默认慢速流动 */
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* 鼠标悬停时，加速光影并放大图标 */
+  .album_list li:hover dt img {
+    transform: scale(1.1);
+  }
+  .album_list li:hover dt::after {
+    animation: shine 2s linear infinite; /* 加速 */
+  }
+
+  @keyframes shine {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
   @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
