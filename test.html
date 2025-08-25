@@ -30,7 +30,6 @@
     padding: 20px;
   }
 
-  /* LOGO */
   .center img#logo {
     display: block;
     margin: 0 auto 20px;
@@ -38,7 +37,6 @@
     height: auto;
   }
 
-  /* 通知消息 */
   .notice {
     background: rgba(42,42,64,0.85);
     backdrop-filter: blur(6px);
@@ -51,7 +49,6 @@
     animation: fadeIn 1s ease-out;
   }
 
-  /* 卡片列表 */
   .album_list {
     display: flex;
     flex-wrap: wrap;
@@ -91,13 +88,16 @@
     transition: transform 0.6s ease;
   }
 
-  /* 仅针对图片的光影效果 */
+  /* 调整光影效果 */
   .album_list dt.special::after {
     content: "";
     position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
-    transform: translateX(-100%);
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
     animation: shine 3s linear infinite;
     pointer-events: none;
   }
@@ -140,8 +140,8 @@
     to {opacity: 1; transform: translateY(0);}
   }
   @keyframes shine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% { left: -40%; }
+    100% { left: 100%; }
   }
 
   @media (max-width: 768px) {
