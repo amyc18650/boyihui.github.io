@@ -1,114 +1,162 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RJHQGVKGRV');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>博義娛樂 </title>
 <style>
-body {
-margin: 0;
-padding: 0;
-font-family: "Microsoft YaHei", sans-serif;
-color: #ffffff;
-background: url("542.jpg") no-repeat center center fixed;
-background-size: cover;
-}
-a { text-decoration: none; color: inherit; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family:  "Microsoft YaHei", sans-serif;
+    color: #ffffff;
+    background: url("542.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+  a { text-decoration: none; color: inherit; }
 
+  .center {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-.center {
-max-width: 1200px;
-margin: 0 auto;
-padding: 20px;
-}
+  .center img#logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 240px;
+    height: auto;
+  }
 
+  .notice {
+    background: rgba(42,42,64,0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #ff4d4d;
+    animation: fadeIn 1s ease-out;
+  }
 
-.center img#logo {
-display: block;
-margin: 0 auto 20px;
-width: 240px;
-height: auto;
-}
+  .album_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
+  .album_list li {
+    flex: 1 1 calc(50% - 20px);
+    background: rgba(42,42,64,0.85);
+    border-radius: 12px;
+    display: flex;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
 
-.notice {
-background: rgba(42,42,64,0.85);
-backdrop-filter: blur(6px);
-border-radius: 12px;
-padding: 15px 20px;
-margin-bottom: 20px;
-text-align: center;
-font-size: 18px;
-color: #ff4d4d;
-animation: fadeIn 1s ease-out;
-}
+  .album_list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: transform 0.5s ease-out;
+  }
 
+  .album_list li:hover::before {
+    transform: translateX(130%);
+  }
 
-.album_list {
-display: flex;
-flex-wrap: wrap;
-gap: 20px;
-list-style: none;
-padding: 0;
-margin: 0;
-}
+  .album_list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.7);
+    border-color: rgba(77,166,255,0.6);
+  }
 
+  .album_list dd {
+    flex: 1;
+    padding: 10px 4px 4px 0;
+  }
+  .album_list dl {
+    display: flex;
+    margin: 0;
+    align-items: center;
+  }
+  .album_list dt {
+    flex-shrink: 0;
+    margin: 10px 10px 10px 20px;
+  }
+  .album_list dt img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-left: 10px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .album_list li:hover dt img {
+    transform: scale(1.5) rotate(2deg);
+  }
 
-.album_list li {
-flex: 1 1 calc(50% - 20px);
-background: rgba(42,42,64,0.85);
-border-radius: 12px;
-overflow: hidden;
-display: flex;
-cursor: pointer;
-box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-border: 2px solid rgba(255,255,255,0.1);
-position: relative;
+  .album_list h3 {
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #4da6ff, #66ffcc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 0 5px 0;
+  }
+  .album_list p {
+    margin: 3px 0;
+    font-size: 14px;
+    color: #dddddd;
+    line-height: 1.5;
+  }
+  .album_list p.time {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: rgba(255, 204, 102, 0.15);
+    color: #ffcc66;
+    font-size: 9px;
+  }
+  .album_list p.alert {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 12px;
+  }
 
+  h3.footer {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 30px;
+  }
 
-transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
 
-
-.album_list li::before {
-content: '';
-position: absolute;
-top: 0;
-left: -120%;
-width: 120%;
-height: 100%;
-background: rgba(255,255,255,0.08);
-transform: skewX(-20deg);
-transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-opacity: 0.6;
-}
-
-
-.album_list li:hover::before {
-transform: translateX(120%);
-opacity: 0.8;
-}
-
-
-.album_list li:hover {
-transform: translateY(-6px);
-box-shadow: 0 14px 30px rgba(0,0,0,0.7);
-border-color: rgba(77,166,255,0.65);
-}
-
-
-.album_list dd {
-flex: 1;
+  @media (max-width: 768px) {
+    .album_list li {
+      flex: 1 1 100%;
+    }
+    .album_list dt img {
+      width: 50px;
+      height: 50px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -206,21 +254,9 @@ flex: 1;
         </dd>
       </dl>
     </li>
-
-    <li onclick="window.location.href='wl.html';">
-      <dl>
-        <dt><img src="wl.png" alt=""></dt>
-        <dd>
-          <h3>万利</h3>
-          <p>您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p>
-          <p>万利会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
   </ul>
 
   <h3 class="footer">版权所有 ©2023-2025 博義娛樂 保留所有权</h3>
 </div>
 </body>
 </html>
-
