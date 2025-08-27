@@ -311,18 +311,24 @@ let idleTimer;
 const clockContainer = document.getElementById('matrixClockContainer');
 
 
-function resetIdleTimer() {
-clearTimeout(idleTimer);
-clockContainer.classList.remove('screensaver');
-idleTimer = setTimeout(() => {
-clockContainer.classList.add('screensaver');
-}, 10000); // 10秒无操作
+
+  function resetIdleTimer() {
+  clearTimeout(idleTimer);
+  wrapper.classList.remove('screensaver');
+
+  // 仅在宽屏触发屏保
+  if (window.innerWidth >= 768) {
+    idleTimer = setTimeout(() => {
+      wrapper.classList.add('screensaver');
+    }, 10000); // 10秒无操作触发
+  }
 }
 
-
+// 监听鼠标和键盘操作
 document.addEventListener('mousemove', resetIdleTimer);
 document.addEventListener('keydown', resetIdleTimer);
 resetIdleTimer();
+
 </script>
   
 </body>
