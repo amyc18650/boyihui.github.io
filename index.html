@@ -325,22 +325,22 @@ function resetIdleTimer() {
   clearTimeout(idleTimer);
   wrapper.classList.remove('screensaver');
 
-  // 仅在宽屏触发屏保
-  if (window.innerWidth >= 768) {
-    idleTimer = setTimeout(() => {
+  idleTimer = setTimeout(() => {
+    if (window.innerWidth >= 768) { // 宽屏才触发屏保
       wrapper.classList.add('screensaver');
-    }, 10000); // 10秒无操作触发
-  }
+    }
+  }, 10000); // 10秒无操作触发
 }
 
-// 监听鼠标和键盘操作
 document.addEventListener('mousemove', resetIdleTimer);
 document.addEventListener('keydown', resetIdleTimer);
 resetIdleTimer();
+
 </script>
 	
 </body>
 </html>
+
 
 
 
