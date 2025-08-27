@@ -198,6 +198,7 @@
   }
 
 
+<style>
 #matrixClockContainer {
     display: flex;
     justify-content: center;
@@ -210,7 +211,7 @@
     justify-content: center;
     align-items: center;
     background: transparent;
-    transform: scale(0.5); /* 控制整体大小 */
+    transform: scale(0.4); /* 控制整体大小 */
     transform-origin: center center; /* 保证居中缩放 */
     text-align: center;
 }
@@ -218,7 +219,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2px; /* 缩小时间/日期/时区间距 */
+    gap: 2px; /* 缩小时间/日期间距 */
     flex-wrap: wrap;
 }
 .matrix-clock .digit {
@@ -248,22 +249,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.matrix-clock .timezone {
-    font-family: monospace;
-    font-size: 12px;
-    color: #00ff55;
-    transform: scale(0.9);
-    margin-left: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.center-container {
-  display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
-
 }
   
 </style>
@@ -418,14 +403,11 @@ function updateClock() {
   const day = String(now.getDate()).padStart(2,'0');
   const dateStr = `${year}-${month}-${day}`;
 
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
   let html = '<div class="line">';
   for (let ch of timeStr) html += renderDigit(ch);
   html += '</div>';
   html += '<div class="line date">';
   for (let ch of dateStr) html += renderDigit(ch);
-  html += `<div class="timezone">${tz}</div>`;
   html += '</div>';
 
   document.getElementById('matrixClock').innerHTML = html;
@@ -434,6 +416,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
+
 
 
   <div class="center-container">   
