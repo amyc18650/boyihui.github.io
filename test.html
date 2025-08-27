@@ -207,11 +207,19 @@
   margin: 0 auto; /* 左右外边距自动调整，实现水平居中 */
 }
 
-
-
-.matrix-clock .screen,
-.matrix-clock .date {
+<style>
+#matrixClock {
+    display: inline-block;
+    background: transparent;
+    transform: scale(0.4); /* 控制整体大小，1为原始尺寸，可调节 */
+    transform-origin: top left;
     text-align: center;
+}
+.matrix-clock .line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 时间/日期/时区间距 */
 }
 .matrix-clock .digit {
     display: inline-block;
@@ -238,11 +246,10 @@
     transform: scale(0.6);
 }
 .matrix-clock .timezone {
-    margin-top: 2px;
-    text-align: center;
     font-family: monospace;
     font-size: 9px;
     color: #00ff55;
+    transform: scale(0.9);
 }
   
 </style>
@@ -355,7 +362,7 @@
     </li>
   </ul>
 
- <script>
+<script>
 const digitMap = {
   "0": ["01110","10001","10011","10101","11001","10001","01110"],
   "1": ["00100","01100","00100","00100","00100","00100","01110"],
@@ -392,20 +399,18 @@ function updateClock() {
   const s = String(now.getSeconds()).padStart(2,'0');
   const timeStr = h + ":" + m + ":" + s;
 
-  let html = "<div class='screen'>";
-  for (let ch of timeStr) html += renderDigit(ch);
-  html += '</div>';
-
   const year = now.getFullYear();
   const month = String(now.getMonth()+1).padStart(2,'0');
   const day = String(now.getDate()).padStart(2,'0');
   const dateStr = `${year}-${month}-${day}`;
-  html += '<div class="date">';
-  for (let ch of dateStr) html += renderDigit(ch);
-  html += '</div>';
 
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  html += `<div class="timezone">时区: ${tz}</div>`;
+
+  let html = '<div class="line">';
+  for (let ch of timeStr) html += renderDigit(ch);
+  for (let ch of dateStr) html += renderDigit(ch);
+  html += `<div class="timezone">${tz}</div>`;
+  html += '</div>';
 
   document.getElementById('matrixClock').innerHTML = html;
 }
@@ -413,6 +418,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
+
  <li>
       <dl>
         <dd>
