@@ -210,11 +210,18 @@
  
 	
 }
+#matrixClock {
+    display: inline-block;
+    background: transparent;
+    transform: scale(0.4); /* 控制整体大小，1为原始尺寸，可调节 */
+    transform-origin: top left;
+    text-align: center;
+}
 .matrix-clock .line {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* 时间/日期/时区间距 */
+    gap: 3px; /* 缩小时间/日期/时区间距 */
 }
 .matrix-clock .digit {
     display: inline-block;
@@ -239,8 +246,18 @@
 }
 .matrix-clock .date {
     transform: scale(0.5); /* 日期缩小显示 */
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0 2px; /* 减小间距 */
+    display: flex;
+    align-items: center;
+}
+.matrix-clock .timezone {
+    font-family: monospace;
+    font-size: 9px;
+    color: #00ff55;
+    transform: scale(0.8);
+    margin-left: 2px; /* 紧跟日期 */
+    display: flex;
+    align-items: center;
 }
 .center-container {
 
