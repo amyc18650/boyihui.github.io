@@ -196,6 +196,23 @@
     transform: scale(0.5);
     margin: 0 2px;
   }
+
+#matrixClockContainer.screensaver {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.85);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+#matrixClockContainer.screensaver #matrixClock {
+transform: scale(2); /* 放大时钟显示 */
+}
+  
 </style>
 </head>
 <body>
@@ -289,5 +306,24 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
+<script>
+let idleTimer;
+const clockContainer = document.getElementById('matrixClockContainer');
+
+
+function resetIdleTimer() {
+clearTimeout(idleTimer);
+clockContainer.classList.remove('screensaver');
+idleTimer = setTimeout(() => {
+clockContainer.classList.add('screensaver');
+}, 10000); // 10秒无操作
+}
+
+
+document.addEventListener('mousemove', resetIdleTimer);
+document.addEventListener('keydown', resetIdleTimer);
+resetIdleTimer();
+</script>
+  
 </body>
 </html>
