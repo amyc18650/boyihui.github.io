@@ -237,7 +237,12 @@
     margin-left: 5px;
     margin-right: 5px;
 }
-
+.center-container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100vh; /* 使容器高度占满整个视口，这样垂直居中才有效 */
+}
   
 </style>
 </head>
@@ -410,9 +415,11 @@ updateClock();
 
  <li>
      
-          <p><h3 class="footer">版权所有 ©2023-2025 博義娛樂 </h3></p><div class="matrix-clock" id="matrixClock"></div>
+          <p><h3 class="footer">版权所有 ©2023-2025 博義娛樂 </h3></p></div>
    </li>     
- <div class="matrix-clock" id="matrixClock"></div>
+ <div class="center-container">
+  <div class="matrix-clock" id="matrixClock"></div>
+</div>
 
   
 </div>
