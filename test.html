@@ -355,7 +355,7 @@
     </li>
   </ul>
 
-  <script>
+ <script>
 const digitMap = {
   "0": ["01110","10001","10011","10101","11001","10001","01110"],
   "1": ["00100","01100","00100","00100","00100","00100","01110"],
@@ -391,20 +391,23 @@ function updateClock() {
   const m = String(now.getMinutes()).padStart(2,'0');
   const s = String(now.getSeconds()).padStart(2,'0');
   const timeStr = h + ":" + m + ":" + s;
-  let html = "";
+
+  let html = "<div class='screen'>";
   for (let ch of timeStr) html += renderDigit(ch);
-  document.getElementById("clock").innerHTML = html;
+  html += '</div>';
 
   const year = now.getFullYear();
   const month = String(now.getMonth()+1).padStart(2,'0');
   const day = String(now.getDate()).padStart(2,'0');
   const dateStr = `${year}-${month}-${day}`;
-  let dateHtml = "";
-  for (let ch of dateStr) dateHtml += renderDigit(ch);
-  document.getElementById("date").innerHTML = dateHtml;
+  html += '<div class="date">';
+  for (let ch of dateStr) html += renderDigit(ch);
+  html += '</div>';
 
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  document.getElementById("timezone").innerText = `时区: ${tz}`;
+  html += `<div class="timezone">时区: ${tz}</div>`;
+
+  document.getElementById('matrixClock').innerHTML = html;
 }
 
 setInterval(updateClock, 1000);
