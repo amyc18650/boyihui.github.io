@@ -198,23 +198,28 @@
   }
 
 
-
- 
-	#matrixClock {
+#matrixClockContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+#matrixClock {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: transparent;
-    transform: scale(0.6); /* 控制整体大小，1为原始尺寸，可调节 */
+    transform: scale(0.5); /* 控制整体大小 */
     transform-origin: center center; /* 保证居中缩放 */
     text-align: center;
-	
 }
 .matrix-clock .line {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3px; /* 缩小时间/日期/时区间距 */
+    gap: 2px; /* 缩小时间/日期/时区间距 */
+    flex-wrap: wrap;
 }
 .matrix-clock .digit {
     display: inline-block;
@@ -239,17 +244,19 @@
 }
 .matrix-clock .date {
     transform: scale(0.5); /* 日期缩小显示 */
-    margin: 0 2px; /* 减小间距 */
+    margin: 0 2px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .matrix-clock .timezone {
     font-family: monospace;
     font-size: 12px;
     color: #00ff55;
-    transform: scale(1);
-    margin-left: 2px; /* 紧跟日期 */
+    transform: scale(0.9);
+    margin-left: 2px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .center-container {
@@ -415,9 +422,9 @@ function updateClock() {
 
   let html = '<div class="line">';
   for (let ch of timeStr) html += renderDigit(ch);
-  html += '<div class="date">';
-  for (let ch of dateStr) html += renderDigit(ch);
   html += '</div>';
+  html += '<div class="line date">';
+  for (let ch of dateStr) html += renderDigit(ch);
   html += `<div class="timezone">${tz}</div>`;
   html += '</div>';
 
@@ -433,8 +440,9 @@ updateClock();
           <p><h3 class="footer">版权所有 ©2023-2025 博義娛樂 </h3></p>
 	     
    </div>
- <div class="center-container">
-  <div class="matrix-clock" id="matrixClock"></div>
+<div class="matrix-clock" id="matrixClockContainer">
+  <div id="matrixClock"></div>
+</div>
 </div>
 </div>
 </div>
