@@ -199,23 +199,23 @@
 
 
 <style>
-#matrixClockContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-	width: 300px;
-   margin: 0 auto; /* 设置左右外边距为 auto，实现水平居中 */
+
+
+	#matrixClockContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
+
 #matrixClock {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    transform: scale(0.4); /* 控制整体大小 */
-    transform-origin: center center; /* 保证居中缩放 */
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.4); /* 控制整体大小 */
+  transform-origin: center center; /* 缩放以中心为原点 */
+  text-align: center;
 }
 .matrix-clock .line {
     display: flex;
@@ -425,9 +425,11 @@ updateClock();
           <p><h3 class="footer">版权所有 ©2023-2025 博義娛樂 </h3></p>
 	     
    </div>
-<div class="matrix-clock" id="matrixClockContainer">
+
+<div id="matrixClockContainer">
   <div id="matrixClock"></div>
 </div>
+	
 </div>
 </div>
 </div>
