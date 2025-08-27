@@ -201,7 +201,7 @@
 #matrixClock {
     display: inline-block;
     background: transparent;
-    transform: scale(0.4); /* 控制整体大小，1为原始尺寸，可调节 */
+    transform: scale(0.8); /* 控制整体大小，1为原始尺寸，可调节 */
     transform-origin: top left;
     text-align: center;
 }
@@ -232,14 +232,16 @@
     height: 6px;
     line-height: 0;
 }
-.matrix-clock .date .digit {
-    transform: scale(0.3);
+.matrix-clock .date {
+    transform: scale(0.5); /* 日期缩小显示 */
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .matrix-clock .timezone {
     font-family: monospace;
-    font-size:12px;
+    font-size: 7px;
     color: #00ff55;
-    transform: scale(0.9);
+    transform: scale(1);
 }
   
 </style>
@@ -398,7 +400,9 @@ function updateClock() {
 
   let html = '<div class="line">';
   for (let ch of timeStr) html += renderDigit(ch);
+  html += '<div class="date">';
   for (let ch of dateStr) html += renderDigit(ch);
+  html += '</div>';
   html += `<div class="timezone">${tz}</div>`;
   html += '</div>';
 
@@ -410,12 +414,9 @@ updateClock();
 </script>
 
  <li>
-      <dl>
-        <dd>
+     
           <p><h3 class="footer">版权所有 ©2023-2025 博義娛樂 </h3></p><div class="matrix-clock" id="matrixClock"></div>
-        </dd>
-      </dl>
-    </li>
+   </li>     
  <div class="matrix-clock" id="matrixClock"></div>
 
   
