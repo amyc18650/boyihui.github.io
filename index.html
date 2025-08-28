@@ -151,7 +151,7 @@
     .album_list dt img { width: 50px; height: 50px; }
 	
   }
-  }
+  
 
   /* 矩阵时钟容器 */
   #matrixClockContainer {
@@ -224,12 +224,11 @@ z-index: 9999;
 #matrixClockContainer.screensaver #matrixClock {
 transform: scale(5); /* 放大时钟显示 */
 }
-/* 窄屏 (H5) 下缩放为2倍 */
+
 @media (max-width: 768px) {
-  #matrixClockWrapper.screensaver #matrixClock {
+  #matrixClockContainer.screensaver #matrixClock {
     transform: scale(2);
   }
-}
 }
 	
 </style>
@@ -327,7 +326,7 @@ updateClock();
 </script>
 
 
-	<script>
+<script>
 let idleTimer;
 const clockContainer = document.getElementById('matrixClockContainer');
 
@@ -348,6 +347,7 @@ resetIdleTimer();
 	
 </body>
 </html>
+
 
 
 
