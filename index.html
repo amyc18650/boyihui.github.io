@@ -222,7 +222,11 @@ z-index: 9999;
 #matrixClockContainer.screensaver #matrixClock {
 transform: scale(5); /* 放大时钟显示 */
 }
-
+@media (max-width: 768px) {
+  #matrixClockWrapper.screensaver #matrixClock {
+      transform: scale(2);
+  }
+}
 	
 </style>
 </head>
@@ -340,6 +344,7 @@ resetIdleTimer();
 	
 </body>
 </html>
+
 
 
 
