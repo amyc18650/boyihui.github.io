@@ -1,23 +1,52 @@
-<!DOCTYPE html>
+
+     
+
+     <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>最近英超比赛结果</title>
+<title>英超积分榜与比赛结果</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  #matches div { margin-bottom: 6px; padding: 4px; border-bottom: 1px solid #ccc; }
+  body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h2 { text-align: center; margin-bottom: 20px; }
+  #matches div {
+    margin-bottom: 6px;
+    padding: 4px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+  }
+  .team { display:flex; align-items:center; margin-right:10px; }
+  .team img { width:15px; height:15px; margin-right:4px; }
 </style>
 </head>
 <body>
 
-<h2>最近英超比赛结果（5场）</h2>
+<h2>英超积分榜</h2>
+<div id="wg-api-football-standings"
+     data-host="v3.football.api-sports.io"
+     data-key="87a09c92c4msh9bb478609584bf9p1b0f47jsnccb65d51d9dc"  <!-- 替换为你的 RapidAPI Key -->
+     data-league="39"
+     data-season="2025"
+     data-theme="dark"
+     class="wg_loader">
+</div>
+
+<h2 style="margin-top:40px;">最近 5 场比赛结果</h2>
 <div id="matches">加载中…</div>
 
+<script type="module" src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
+
 <script>
-const API_KEY = "87a09c92c4msh9bb478609584bf9p1b0f47jsnccb65d51d9dc"; // 替换为你的 RapidAPI Key
+const API_KEY = "YOUR_API_KEY"; // 替换为你的 RapidAPI Key
 const API_HOST = "api-football-v1.p.rapidapi.com";
-const LEAGUE_ID = "39"; // 英超 Premier League
-const SEASON = "2025"; // 可以修改为当前赛季
+const LEAGUE_ID = "39"; // 英超
+const SEASON = "2025";   // 当前赛季
 
 async function loadMatches() {
   const container = document.getElementById("matches");
@@ -31,8 +60,8 @@ async function loadMatches() {
         "X-RapidAPI-Host": API_HOST
       }
     });
-
     const data = await res.json();
+
     if (!data.response || data.response.length === 0) {
       container.innerHTML = "暂无比赛结果";
       return;
@@ -45,8 +74,10 @@ async function loadMatches() {
       const date = new Date(fixture.date);
       return `
         <div>
-          <strong>${date.toLocaleDateString()} ${date.toLocaleTimeString()}</strong><br>
-          ${teams.home.name} ${score.home} - ${score.away} ${teams.away.name}
+          <div class="team"><img src="${teams.home.logo}" alt="${teams.home.name}"/>${teams.home.name}</div>
+          <div><strong>${score.home} - ${score.away}</strong></div>
+          <div class="team"><img src="${teams.away.logo}" alt="${teams.away.name}"/>${teams.away.name}</div>
+          <div style="margin-left:10px; font-size:12px; color:#aaa;">${date.toLocaleDateString()} ${date.toLocaleTimeString()}</div>
         </div>
       `;
     }).join("");
@@ -61,6 +92,9 @@ async function loadMatches() {
 
 // 页面加载默认调用
 loadMatches();
+
+// 每 5 分钟自动刷新
+setInterval(loadMatches, 5 * 60 * 1000);
 </script>
 
 </body>
