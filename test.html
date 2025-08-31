@@ -1,51 +1,67 @@
-<div>
-  <label for="league">选择联赛：</label>
-  <select id="league">
-    <option value="PL">英超 (Premier League)</option>
-    <option value="PD">西甲 (LaLiga)</option>
-    <option value="BL1">德甲 (Bundesliga)</option>
-  </select>
-</div>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>最近英超比赛结果</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  #matches div { margin-bottom: 6px; padding: 4px; border-bottom: 1px solid #ccc; }
+</style>
+</head>
+<body>
 
-<div id="matches" style="margin-top:10px; font-family:Arial, sans-serif;"></div>
+<h2>最近英超比赛结果（5场）</h2>
+<div id="matches">加载中…</div>
 
 <script>
-const apiKey = "c55bdf268950426faf49aff8c9aca36f"; // 替换为你的 football-data.org API Key
+const API_KEY = "87a09c92c4msh9bb478609584bf9p1b0f47jsnccb65d51d9dc"; // 替换为你的 RapidAPI Key
+const API_HOST = "api-football-v1.p.rapidapi.com";
+const LEAGUE_ID = "39"; // 英超 Premier League
+const SEASON = "2025"; // 可以修改为当前赛季
 
-async function loadMatches(competition) {
+async function loadMatches() {
   const container = document.getElementById("matches");
   container.innerHTML = "加载中…";
 
   try {
-    const url = `https://api.football-data.org/v4/matches?competitions=${competition}&status=FINISHED&limit=5`;
-    const res = await fetch(url, { headers: { "X-Auth-Token": apiKey } });
-    const data = await res.json();
+    const res = await fetch(`https://${API_HOST}/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&status=FT&last=5`, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": API_KEY,
+        "X-RapidAPI-Host": API_HOST
+      }
+    });
 
-    if (!data.matches || data.matches.length === 0) {
+    const data = await res.json();
+    if (!data.response || data.response.length === 0) {
       container.innerHTML = "暂无比赛结果";
       return;
     }
 
-    const html = data.matches.map(m => `
-      <div style="margin-bottom:6px; padding:4px; border-bottom:1px solid #ccc;">
-        <strong>${m.competition.name}</strong><br>
-        ${m.homeTeam.name} ${m.score.fullTime.home} - ${m.score.fullTime.away} ${m.awayTeam.name}<br>
-        <span style="font-size:12px; color:#555;">${new Date(m.utcDate).toLocaleString()}</span>
-      </div>
-    `).join("");
+    const html = data.response.map(m => {
+      const fixture = m.fixture;
+      const teams = m.teams;
+      const score = m.goals;
+      const date = new Date(fixture.date);
+      return `
+        <div>
+          <strong>${date.toLocaleDateString()} ${date.toLocaleTimeString()}</strong><br>
+          ${teams.home.name} ${score.home} - ${score.away} ${teams.away.name}
+        </div>
+      `;
+    }).join("");
 
     container.innerHTML = html;
+
   } catch(e) {
-    container.innerHTML = "获取比赛数据失败";
     console.error(e);
+    container.innerHTML = "获取比赛数据失败";
   }
 }
 
-// 页面加载默认英超
-loadMatches("PL");
-
-// 联赛选择变化时刷新
-document.getElementById("league").addEventListener("change", (e) => {
-  loadMatches(e.target.value);
-});
+// 页面加载默认调用
+loadMatches();
 </script>
+
+</body>
+</html>
