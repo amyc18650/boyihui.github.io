@@ -1,100 +1,67 @@
-
-     
-
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>英超积分榜与比赛结果</title>
+<title>英超比赛与积分榜</title>
 <style>
-  body {
-    background-color: #121212;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  h2 { text-align: center; margin-bottom: 20px; }
-  #matches div {
-    margin-bottom: 6px;
-    padding: 4px;
-    border-bottom: 1px solid #333;
-    display: flex;
-    align-items: center;
-  }
-  .team { display:flex; align-items:center; margin-right:10px; }
-  .team img { width:15px; height:15px; margin-right:4px; }
+  body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; margin: 20px; }
+  h2 { text-align:center; margin-bottom:20px; }
+  #matches div, #standings div { padding:4px; border-bottom:1px solid #333; display:flex; justify-content:space-between; }
+  .team { display:flex; align-items:center; }
 </style>
 </head>
 <body>
 
-<h2>英超积分榜</h2>
-<div id="wg-api-football-standings"
-     data-host="v3.football.api-sports.io"
-     data-key="87a09c92c4msh9bb478609584bf9p1b0f47jsnccb65d51d9dc"  <!-- 替换为你的 RapidAPI Key -->
-     data-league="39"
-     data-season="2025"
-     data-theme="dark"
-     class="wg_loader">
-</div>
-
-<h2 style="margin-top:40px;">最近 5 场比赛结果</h2>
+<h2>最近 5 场英超比赛结果</h2>
 <div id="matches">加载中…</div>
 
-<script type="module" src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
+<h2 style="margin-top:40px;">英超积分榜</h2>
+<div id="standings">加载中…</div>
 
 <script>
-const API_KEY = "YOUR_API_KEY"; // 替换为你的 RapidAPI Key
-const API_HOST = "api-football-v1.p.rapidapi.com";
-const LEAGUE_ID = "39"; // 英超
-const SEASON = "2025";   // 当前赛季
-
 async function loadMatches() {
-  const container = document.getElementById("matches");
-  container.innerHTML = "加载中…";
-
-  try {
-    const res = await fetch(`https://${API_HOST}/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&status=FT&last=5`, {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": API_KEY,
-        "X-RapidAPI-Host": API_HOST
-      }
-    });
-    const data = await res.json();
-
-    if (!data.response || data.response.length === 0) {
-      container.innerHTML = "暂无比赛结果";
-      return;
-    }
-
-    const html = data.response.map(m => {
-      const fixture = m.fixture;
-      const teams = m.teams;
-      const score = m.goals;
-      const date = new Date(fixture.date);
-      return `
-        <div>
-          <div class="team"><img src="${teams.home.logo}" alt="${teams.home.name}"/>${teams.home.name}</div>
-          <div><strong>${score.home} - ${score.away}</strong></div>
-          <div class="team"><img src="${teams.away.logo}" alt="${teams.away.name}"/>${teams.away.name}</div>
-          <div style="margin-left:10px; font-size:12px; color:#aaa;">${date.toLocaleDateString()} ${date.toLocaleTimeString()}</div>
-        </div>
-      `;
-    }).join("");
-
-    container.innerHTML = html;
-
-  } catch(e) {
-    console.error(e);
-    container.innerHTML = "获取比赛数据失败";
+  const res = await fetch('/api/matches');
+  const data = await res.json();
+  const container = document.getElementById('matches');
+  if (!data.matches || data.matches.length === 0) {
+    container.innerHTML = "暂无比赛数据";
+    return;
   }
+  container.innerHTML = data.matches.map(m => {
+    const date = new Date(m.utcDate);
+    return `
+      <div>
+        <div class="team">${m.homeTeam.name}</div>
+        <div><strong>${m.score.fullTime.home} - ${m.score.fullTime.away}</strong></div>
+        <div class="team">${m.awayTeam.name}</div>
+        <div style="font-size:12px; color:#aaa;">${date.toLocaleDateString()}</div>
+      </div>
+    `;
+  }).join('');
 }
 
-// 页面加载默认调用
-loadMatches();
+async function loadStandings() {
+  const res = await fetch('/api/standings');
+  const data = await res.json();
+  const container = document.getElementById('standings');
+  if (!data.standings || !data.standings[0].table) {
+    container.innerHTML = "暂无积分榜数据";
+    return;
+  }
+  container.innerHTML = data.standings[0].table.map(team => `
+    <div>
+      <div>${team.position}. ${team.team.name}</div>
+      <div>${team.points} 分</div>
+    </div>
+  `).join('');
+}
 
-// 每 5 分钟自动刷新
-setInterval(loadMatches, 5 * 60 * 1000);
+// 页面加载
+loadMatches();
+loadStandings();
+
+// 每 5 分钟刷新
+setInterval(() => { loadMatches(); loadStandings(); }, 5*60*1000);
 </script>
 
 </body>
