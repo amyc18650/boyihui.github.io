@@ -13,7 +13,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>博義娛樂</title>
-<style>
+
+ <style>
   body {
     margin: 0;
     padding: 0;
@@ -208,6 +209,53 @@
     margin: 0 2px;
   }
 
+
+	 /* 弹出菜单按钮 */
+ .timezone-container {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .timezone-btn {
+    padding: 4px 12px;
+    background: #111;
+    border: 1px solid #00ff55;
+    color: #00ff55;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .timezone-menu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    border: 1px solid #00ff55;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;             /* 横向排列 */
+    flex-direction: row;
+    z-index: 10;
+  }
+
+  .timezone-menu button {
+    padding: 6px 12px;
+    background: #111;
+    color: #00ff55;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .timezone-menu button:hover {
+    background: #004400;
+  }
+
 /* 屏保样式 */
 #matrixClockContainer.screensaver {
 position: fixed;
@@ -257,18 +305,33 @@ transform: scale(5); /* 放大时钟显示 */
   <!-- 矩阵时钟 -->
   <div id="matrixClockContainer">
     <div class="matrix-clock" id="matrixClock">
-       <h3 class="footer">
-  版权所有 ©2023-2025 博義娛樂<br>
-  All Rights Reserved ©Boyi Entertainment
-</h3>
+  
     </div>
+ </div>
+
+	
+ <div class="timezone-container">
+  <button class="timezone-btn" id="tzBtn">时区: 中国</button>
+  <div class="timezone-menu" id="tzMenu">
+    <button data-tz="Asia/Shanghai">中国</button>
+    <button data-tz="Asia/Tokyo">日本</button>
+    <button data-tz="Australia/Sydney">澳洲</button>
+    <button data-tz="Asia/Bangkok">泰国</button>
+    <button data-tz="Asia/Singapore">新加坡</button>
+    <button data-tz="Asia/Kolkata">印度</button>
+    <button data-tz="Europe/London">英国</button>
+    <button data-tz="America/New_York">纽约</button>
+    <button data-tz="America/Los_Angeles">洛杉矶</button>
   </div>
+</div>
+	  
+ 
    <h3 class="footer">
   版权所有 ©2023-2025 博義娛樂<br>
   All Rights Reserved ©Boyi Entertainment
 </h3>
 
-</div>
+
 
 <script>
 const digitMap = {
@@ -292,7 +355,7 @@ function renderDigit(char) {
   for (let row of pattern) {
     html += '<div class="row">';
     for (let c of row) {
-      html += `<span class="pixel ${c === '1' ? 'on' : ''}"></span>`;
+      html += `<span class="pixel ${c==='1'?'on':''}"></span>`;
     }
     html += '</div>';
   }
@@ -300,8 +363,10 @@ function renderDigit(char) {
   return html;
 }
 
+let currentTZ = "Asia/Shanghai";
+
 function updateClock() {
-  const now = new Date();
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: currentTZ }));
   const h = String(now.getHours()).padStart(2,'0');
   const m = String(now.getMinutes()).padStart(2,'0');
   const s = String(now.getSeconds()).padStart(2,'0');
@@ -324,8 +389,31 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
-</script>
 
+// 弹出菜单逻辑
+const tzBtn = document.getElementById('tzBtn');
+const tzMenu = document.getElementById('tzMenu');
+
+tzBtn.addEventListener('click', () => {
+  tzMenu.style.display = tzMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+tzMenu.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    currentTZ = btn.dataset.tz;
+    tzBtn.textContent = '时区: ' + btn.textContent;
+    tzMenu.style.display = 'none';
+    updateClock();
+  });
+});
+
+// 点击页面其他地方关闭菜单
+document.addEventListener('click', (e)=>{
+  if (!tzBtn.contains(e.target) && !tzMenu.contains(e.target)) {
+    tzMenu.style.display = 'none';
+  }
+});
+</script>
 
 <script>
 let idleTimer;
@@ -348,20 +436,3 @@ resetIdleTimer();
 	
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
