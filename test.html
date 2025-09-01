@@ -1,99 +1,140 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<script src="https://cdn.tailwindcss.com"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>博義娛樂</title>
 <style>
- /* ===== 全局设置 ===== */
-body {
-  font-family: "PingFang SC", "Microsoft YaHei", "Roboto", sans-serif;
-  font-size: 14px;
-  color: #e0e0e0;
-  background: url('542.jpg') no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", sans-serif;
+    color: #ffffff;
+    background: url("542.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+  a { text-decoration: none; color: inherit; }
 
-/* ===== 卡片基础样式 ===== */
-.album_list li {
-  flex: 1 1 calc(50% - 20px);
-  box-sizing: border-box;
-  padding: 20px;
-  background: rgba(42, 42, 64, 0.85);
-  border-radius: 15px;
-  border: 1px solid #4da6ff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-}
-
-.album_list li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-}
-
-/* ===== 卡片内容 ===== */
-.album_list h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #4da6ff; /* 统一亮蓝色 */
-  margin-bottom: 12px;
-}
-
-.album_list p {
-  font-size: 14px;
-  color: #e0e0e0;
-  margin: 5px 0;
-}
-
-.album_list p.time {
-  font-size: 12px;
-  color: #aaaaaa; /* 次要信息灰色 */
-}
-
-/* ===== 公告板块 ===== */
-.notice {
-  background: rgba(50, 50, 80, 0.9);
-  border: 1px solid #4da6ff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-.notice h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #4da6ff;
-  margin-bottom: 15px;
-}
-
-.notice p {
-  font-size: 14px;
-  color: #e0e0e0;
-  margin: 8px 0;
-}
-
-/* ===== Footer ===== */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: #aaaaaa;
-  margin-top: 20px;
-}
-
-/* ===== 响应式 ===== */
-@media (max-width: 768px) {
-  .album_list li {
-    flex: 1 1 100%;
+  .center {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .center img#logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 240px;
+    height: auto;
+  }
+  .notice {
+    background: rgba(42,42,64,0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #ff4d4d;
+    animation: fadeIn 1s ease-out;
   }
 
-
+  /* 卡片列表 + 流动特效1.0 */
+  .album_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .album_list li {
+    flex: 1 1 calc(50% - 20px);
+    background: rgba(42,42,64,0.85);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .album_list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: skewX(-20deg);
+    transition: transform 0.3s ease-out;
+  }
+  .album_list li:hover::before {
+    transform: translateX(100%);
+  }
+  .album_list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+    border-color: rgba(77,166,255,0.6);
+  }
+  .album_list dd {
+    flex: 1;
+    padding: 10px 4px 4px 0;
+  }
+  .album_list dl {
+    display: flex;
+    margin: 0;
+    align-items: center;
+  }
+  .album_list dt {
+    flex-shrink: 0;
+    margin: 10px 10px 10px 20px;
+  }
+  .album_list dt img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-left: 10px;
+    transition: transform 0.3s;
+  }
+  .album_list li:hover dt img {
+    transform: scale(1.5);
+  }
+  .album_list h3 {
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #4da6ff, #66ffcc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 0 5px 0;
+  }
+  .album_list p {
+    margin: 3px 0;
+    font-size: 14px;
+    color: #dddddd;
+    line-height: 1.5;
+  }
+  .album_list p.time {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: rgba(255, 204, 102, 0.15);
+    color: #ffcc66;
+    font-size: 9px;
+  }
+  .album_list p.alert {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  h3.footer {
+    text-align: center;
+    font-size: 14px;
+    color: #bbbbbb;
+    margin: 5px 0px 0px 0px;;
+  }
   @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
@@ -159,6 +200,50 @@ body {
     margin: 0 2px;
   }
 
+
+	 /* 弹出菜单按钮 */
+  .timezone-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .timezone-btn {
+    padding: 8px 16px;
+    background: #111;
+    border: 1px solid #00ff55;
+    color: #00ff55;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .timezone-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #111;
+    border: 1px solid #00ff55;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .timezone-menu button {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    background: #111;
+    color: #00ff55;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .timezone-menu button:hover {
+    background: #004400;
+  }
+
 /* 屏保样式 */
 #matrixClockContainer.screensaver {
 position: fixed;
@@ -208,11 +293,24 @@ transform: scale(5); /* 放大时钟显示 */
   <!-- 矩阵时钟 -->
   <div id="matrixClockContainer">
     <div class="matrix-clock" id="matrixClock">
-       <h3 class="footer">
-  版权所有 ©2023-2025 博義娛樂<br>
-  All Rights Reserved ©Boyi Entertainment
-</h3>
+  
     </div>
+
+ <div class="timezone-container">
+  <button class="timezone-btn" id="tzBtn">时区: 中国</button>
+  <div class="timezone-menu" id="tzMenu">
+    <button data-tz="Asia/Shanghai">中国</button>
+    <button data-tz="Asia/Tokyo">日本</button>
+    <button data-tz="Australia/Sydney">澳大利亚</button>
+    <button data-tz="Asia/Bangkok">泰国</button>
+    <button data-tz="Asia/Singapore">新加坡</button>
+    <button data-tz="Asia/Kolkata">印度</button>
+    <button data-tz="Europe/London">英国</button>
+    <button data-tz="America/New_York">美国 - 纽约</button>
+    <button data-tz="America/Los_Angeles">美国 - 洛杉矶</button>
+  </div>
+</div>
+	  
   </div>
    <h3 class="footer">
   版权所有 ©2023-2025 博義娛樂<br>
@@ -243,7 +341,7 @@ function renderDigit(char) {
   for (let row of pattern) {
     html += '<div class="row">';
     for (let c of row) {
-      html += `<span class="pixel ${c === '1' ? 'on' : ''}"></span>`;
+      html += `<span class="pixel ${c==='1'?'on':''}"></span>`;
     }
     html += '</div>';
   }
@@ -251,8 +349,10 @@ function renderDigit(char) {
   return html;
 }
 
+let currentTZ = "Asia/Shanghai";
+
 function updateClock() {
-  const now = new Date();
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: currentTZ }));
   const h = String(now.getHours()).padStart(2,'0');
   const m = String(now.getMinutes()).padStart(2,'0');
   const s = String(now.getSeconds()).padStart(2,'0');
@@ -275,8 +375,31 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
-</script>
 
+// 弹出菜单逻辑
+const tzBtn = document.getElementById('tzBtn');
+const tzMenu = document.getElementById('tzMenu');
+
+tzBtn.addEventListener('click', () => {
+  tzMenu.style.display = tzMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+tzMenu.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    currentTZ = btn.dataset.tz;
+    tzBtn.textContent = '时区: ' + btn.textContent;
+    tzMenu.style.display = 'none';
+    updateClock();
+  });
+});
+
+// 点击页面其他地方关闭菜单
+document.addEventListener('click', (e)=>{
+  if (!tzBtn.contains(e.target) && !tzMenu.contains(e.target)) {
+    tzMenu.style.display = 'none';
+  }
+});
+</script>
 
 <script>
 let idleTimer;
