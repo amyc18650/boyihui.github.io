@@ -202,9 +202,11 @@
 
 
 	 /* 弹出菜单按钮 */
-  .timezone-container {
+ .timezone-container {
     position: relative;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .timezone-btn {
@@ -220,24 +222,25 @@
   .timezone-menu {
     display: none;
     position: absolute;
-    top: 110%;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #111;
     border: 1px solid #00ff55;
     border-radius: 6px;
     overflow: hidden;
+    display: flex;             /* 横向排列 */
+    flex-direction: row;
     z-index: 10;
   }
 
   .timezone-menu button {
-    display: block;
-    width: 100%;
     padding: 6px 12px;
     background: #111;
     color: #00ff55;
     border: none;
-    text-align: left;
     cursor: pointer;
+    white-space: nowrap;
   }
 
   .timezone-menu button:hover {
