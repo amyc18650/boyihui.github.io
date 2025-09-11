@@ -302,17 +302,90 @@ transform: scale(5); /* 放大时钟显示 */
 }
 
 .float-bubble {
-      display: none;
-      position: fixed;
-      right: 20px;
-      bottom: 40px;
-      background: #007bff;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    z-index: 9999;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(30px) scale(1);
+    transition: opacity 0.6s ease, transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+
+  .float-bubble.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .float-bubble.shrink {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.7;
+  }
+
+  .float-bubble img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .install-tip {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 260px;
+    background: rgba(0,0,0,0.88);
+    color: white;
+    padding: 18px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    z-index: 9998;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .install-tip.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .install-tip::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 25px;
+    border-width: 12px 12px 0 12px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.88) transparent transparent transparent;
+  }
+
+  .install-tip .close-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  @media(max-width: 400px) {
+    .float-bubble { padding: 10px 14px; font-size: 14px; }
+    .float-bubble img { width: 18px; height: 18px; }
+    .install-tip { width: 220px; font-size: 13px; padding: 14px; }
+  }
 	 
 </style>
 </head>
@@ -335,7 +408,16 @@ transform: scale(5); /* 放大时钟显示 */
     <li onclick="window.location.href='ug.html';"><dl><dt><img src="logo_ug.png" alt=""></dt><dd><h3>UG环球</h3><p class="time">更新时间：2025-08-12</p><p>UG环球会员/管理登录</p></dd></dl></li>
     <li onclick="window.location.href='wl.html';"><dl><dt><img src="wl.png" alt=""></dt><dd><h3>万利</h3><p>您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p><p>万利会员/管理登录</p></dd></dl></li>
   </ul>
-   <div class="float-bubble" id="installBtn">📌 添加到桌面</div>
+   <div style="height: 1200px;"></div>
+
+<div class="float-bubble" id="installBtn">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="icon"> 添加到桌面
+</div>
+
+<div class="install-tip" id="installTip">
+  <span class="close-btn" id="closeTip">×</span>
+  👉 安卓可直接点击按钮安装，iOS Safari 请点击底部分享按钮 → 添加到主屏幕。
+</div>
   <!-- 矩阵时钟 -->
   <div id="matrixClockContainer">
     <div class="matrix-clock" id="matrixClock">
@@ -468,33 +550,67 @@ document.addEventListener('keydown', resetIdleTimer);
 resetIdleTimer();
 </script>
 
- <script>
-    // 注册 Service Worker
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/service-worker.js");
-      });
-    }
+<script>
+const installBtn = document.getElementById("installBtn");
+const installTip = document.getElementById("installTip");
+const closeTip = document.getElementById("closeTip");
+let deferredPrompt = null;
+const todayKey = "installTipDate";
+const today = new Date().toISOString().slice(0,10);
+const lastShown = localStorage.getItem(todayKey);
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-    // 处理安装提示
-    let deferredPrompt;
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById("installBtn").style.display = "block";
-    });
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    document.getElementById("installBtn").addEventListener("click", async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt = null;
-      } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-        alert("👉 Safari 中点击底部分享按钮，然后选择【添加到主屏幕】");
-      } else {
-        alert("您的浏览器可能不支持自动安装，请手动添加到桌面。");
-      }
+// 安卓 PWA beforeinstallprompt
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  showInstallBtn();
+});
+
+// 每日首次显示
+if (lastShown !== today) showInstallBtn();
+
+function showInstallBtn() {
+  setTimeout(() => {
+    installBtn.classList.add("show");
+    localStorage.setItem(todayKey, today);
+  }, 500);
+}
+
+// 点击按钮
+installBtn.addEventListener("click", async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(choiceResult => {
+      console.log("用户选择:", choiceResult.outcome);
+      deferredPrompt = null;
     });
-  </script>
+  } else {
+    installTip.classList.add("show");
+    localStorage.setItem(todayKey, today);
+  }
+});
+
+// 关闭提示
+closeTip.addEventListener("click", () => {
+  installTip.classList.remove("show");
+});
+
+// 滚动智能缩放
+window.addEventListener("scroll", () => {
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+  if(st > lastScrollTop + 10) {
+    // 向下滚动
+    installBtn.classList.add("shrink");
+  } else if(st < lastScrollTop - 10) {
+    // 向上滚动
+    installBtn.classList.remove("shrink");
+  }
+  lastScrollTop = st <= 0 ? 0 : st;
+});
+</script>
 
 	
 </body>
