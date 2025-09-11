@@ -321,21 +321,15 @@ transform: scale(5); /* 放大时钟显示 */
     transform: translateY(30px) scale(1);
     transition: opacity 0.6s ease, transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
   }
-
   .float-bubble.show {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
-
   .float-bubble.shrink {
     transform: translateY(0) scale(0.8);
     opacity: 0.7;
   }
-
-  .float-bubble img {
-    width: 22px;
-    height: 22px;
-  }
+  .float-bubble img { width: 22px; height: 22px; }
 
   .install-tip {
     display: none;
@@ -355,13 +349,11 @@ transform: scale(5); /* 放大时钟显示 */
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
-
   .install-tip.show {
     display: block;
     opacity: 1;
     transform: translateY(0);
   }
-
   .install-tip::after {
     content: '';
     position: absolute;
@@ -371,7 +363,6 @@ transform: scale(5); /* 放大时钟显示 */
     border-style: solid;
     border-color: rgba(0,0,0,0.88) transparent transparent transparent;
   }
-
   .install-tip .close-btn {
     position: absolute;
     top: 6px;
@@ -394,7 +385,6 @@ transform: scale(5); /* 放大时钟显示 */
   <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="icon"> 添加到桌面
 </div>
 
-<!-- iOS提示 -->
 <div class="install-tip" id="installTip">
   <span class="close-btn" id="closeTip">×</span>
   👉 安卓可直接点击按钮安装，iOS Safari 请点击底部分享按钮 → 添加到主屏幕。
@@ -558,6 +548,10 @@ const installBtn = document.getElementById("installBtn");
 const installTip = document.getElementById("installTip");
 const closeTip = document.getElementById("closeTip");
 let deferredPrompt = null;
+const todayKey = "installTipDate";
+const today = new Date().toISOString().slice(0,10);
+
+// 检测 iOS
 const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
 // 安卓 PWA beforeinstallprompt
@@ -567,10 +561,16 @@ window.addEventListener("beforeinstallprompt", (e) => {
   showInstallBtn();
 });
 
-// 每次访问都显示按钮
+// 显示按钮并10秒后自动隐藏
 function showInstallBtn() {
   installBtn.classList.add("show");
+  setTimeout(() => {
+    installBtn.classList.remove("show");
+  }, 10000); // 10秒自动隐藏
 }
+
+// 页面加载后显示按钮
+showInstallBtn();
 
 // 点击按钮
 installBtn.addEventListener("click", async () => {
@@ -590,7 +590,7 @@ closeTip.addEventListener("click", () => {
   installTip.classList.remove("show");
 });
 
-// 滚动缩放
+// 滚动智能缩放
 let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 window.addEventListener("scroll", () => {
   const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -598,9 +598,6 @@ window.addEventListener("scroll", () => {
   else if(st < lastScrollTop - 10) installBtn.classList.remove("shrink");
   lastScrollTop = st <= 0 ? 0 : st;
 });
-
-// 初始化显示
-showInstallBtn();
 </script>
 </body>
 </html>
