@@ -390,6 +390,16 @@ transform: scale(5); /* 放大时钟显示 */
 </style>
 </head>
 <body>
+<div class="float-bubble" id="installBtn">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="icon"> 添加到桌面
+</div>
+
+<!-- iOS提示 -->
+<div class="install-tip" id="installTip">
+  <span class="close-btn" id="closeTip">×</span>
+  👉 安卓可直接点击按钮安装，iOS Safari 请点击底部分享按钮 → 添加到主屏幕。
+</div>
+	
 <div class="center">
   <img src="logo.png" id="logo" alt="Logo">
   <div class="notice">
@@ -548,12 +558,7 @@ const installBtn = document.getElementById("installBtn");
 const installTip = document.getElementById("installTip");
 const closeTip = document.getElementById("closeTip");
 let deferredPrompt = null;
-const todayKey = "installTipDate";
-const today = new Date().toISOString().slice(0,10);
-const lastShown = localStorage.getItem(todayKey);
 const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-
-let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
 // 安卓 PWA beforeinstallprompt
 window.addEventListener("beforeinstallprompt", (e) => {
@@ -562,14 +567,9 @@ window.addEventListener("beforeinstallprompt", (e) => {
   showInstallBtn();
 });
 
-// 每日首次显示
- showInstallBtn();
-
+// 每次访问都显示按钮
 function showInstallBtn() {
-  setTimeout(() => {
-    installBtn.classList.add("show");
-    localStorage.setItem(todayKey, today);
-  }, 500);
+  installBtn.classList.add("show");
 }
 
 // 点击按钮
@@ -582,7 +582,6 @@ installBtn.addEventListener("click", async () => {
     });
   } else {
     installTip.classList.add("show");
-    localStorage.setItem(todayKey, today);
   }
 });
 
@@ -591,28 +590,18 @@ closeTip.addEventListener("click", () => {
   installTip.classList.remove("show");
 });
 
-// 滚动智能缩放
+// 滚动缩放
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 window.addEventListener("scroll", () => {
   const st = window.pageYOffset || document.documentElement.scrollTop;
-  if(st > lastScrollTop + 10) {
-    // 向下滚动
-    installBtn.classList.add("shrink");
-  } else if(st < lastScrollTop - 10) {
-    // 向上滚动
-    installBtn.classList.remove("shrink");
-  }
+  if(st > lastScrollTop + 10) installBtn.classList.add("shrink");
+  else if(st < lastScrollTop - 10) installBtn.classList.remove("shrink");
   lastScrollTop = st <= 0 ? 0 : st;
 });
+
+// 初始化显示
+showInstallBtn();
 </script>
-
-<div class="float-bubble" id="installBtn">
-  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="icon"> 添加到桌面
-</div>
-
-<div class="install-tip" id="installTip">
-  <span class="close-btn" id="closeTip">×</span>
-  👉 安卓可直接点击按钮安装，iOS Safari 请点击底部分享按钮 → 添加到主屏幕。
-</div>	
 </body>
 </html>
 
