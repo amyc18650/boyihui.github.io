@@ -563,14 +563,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 // 每日首次显示
-if (lastShown !== today) showInstallBtn();
 
-function showInstallBtn() {
-  setTimeout(() => {
-    installBtn.classList.add("show");
-    localStorage.setItem(todayKey, today);
-  }, 500);
-}
 
 // 点击按钮
 installBtn.addEventListener("click", async () => {
