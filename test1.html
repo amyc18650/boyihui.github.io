@@ -3,32 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>博義娛樂 高质感页面</title>
+<title>博義娛樂</title>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2b4f8380ba42fb80b5252c4c1c347329";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RJHQGVKGRV');
+</script>
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="BOYI999" />
+<link rel="manifest" href="/manifest.json">	
+
 <style>
   body {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(135deg, #1a1a2e, #0d0d1a);
+    font-family: "Microsoft YaHei", sans-serif;
     color: #ffffff;
+    background: url("542.jpg") no-repeat center center fixed;
+    background-size: cover;
   }
   a { text-decoration: none; color: inherit; }
-
-  .center {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  /* LOGO */
-  .center img#logo {
-    display: block;
-    margin: 0 auto 20px;
-    width: 240px;
-    height: auto;
-  }
-
-  /* 通知消息 */
+  .center { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  .center img#logo { display: block; margin: 0 auto 20px; width: 240px; height: auto; }
   .notice {
     background: rgba(42,42,64,0.85);
     backdrop-filter: blur(6px);
@@ -41,184 +56,156 @@
     animation: fadeIn 1s ease-out;
   }
 
-  /* 卡片列表 */
-  .album_list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .album_list li {
-    flex: 1 1 calc(50% - 20px);
-    background: rgba(42,42,64,0.85);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-  }
-  .album_list li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
-  }
-  .album_list dl {
-    display: flex;
-    margin: 0;
-    align-items: center; /* 垂直居中对齐 */
-  }
-  .album_list dt {
-    flex-shrink: 0;
-    margin: 10px;
-  }
-  .album_list dt img {
-    width: 60px; /* 调整图标大小 */
-    height: 60px;
-    object-fit: contain;
-  }
-  .album_list dd {
-    flex: 1;
-    padding: 10px 10px 10px 0; /* 右边距减少，靠近图标 */
-  }
-  .album_list h3 {
-    font-size: 18px;
-    background: linear-gradient(90deg, #4da6ff, #66ffcc);
-    -webkit-background-clip: text;
-    color: transparent;
-    margin: 0 0 5px 0;
-  }
-  .album_list p {
-    margin: 3px 0;
-    font-size: 14px;
-  }
-  .album_list .time {
-    font-size: 12px;
-    color: #ffcc66;
-  }
+  /* 卡片列表样式 */
+  .album_list { display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin: 0; }
+  .album_list li { flex: 1 1 calc(50% - 20px); background: rgba(42,42,64,0.85); border-radius: 12px; overflow: hidden; display: flex; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: pointer; box-shadow: 0 6px 15px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); position: relative; }
+  .album_list li::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255,255,255,0.1); transform: skewX(-20deg); transition: transform 0.3s ease-out; }
+  .album_list li:hover::before { transform: translateX(100%); }
+  .album_list li:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.7); border-color: rgba(77,166,255,0.6); }
+  .album_list dd { flex: 1; padding: 10px 4px 4px 0; }
+  .album_list dl { display: flex; margin: 0; align-items: center; }
+  .album_list dt { flex-shrink: 0; margin: 10px 10px 10px 20px; }
+  .album_list dt img { width: 60px; height: 60px; object-fit: contain; margin-left: 10px; transition: transform 0.3s; }
+  .album_list li:hover dt img { transform: scale(1.5); }
+  .album_list h3 { font-size: 18px; font-weight: bold; background: linear-gradient(90deg, #4da6ff, #66ffcc); -webkit-background-clip: text; color: transparent; margin: 0 0 5px 0; }
+  .album_list p { margin: 3px 0; font-size: 14px; color: #dddddd; line-height: 1.5; }
+  .album_list p.time { display: inline-block; padding: 2px 6px; border-radius: 6px; background: rgba(255, 204, 102, 0.15); color: #ffcc66; font-size: 9px; }
+  .album_list p.alert { color: #ff4d4d; font-weight: bold; font-size: 12px; }
+  h3.footer { text-align: center; font-size: 14px; color: #bbbbbb; margin: 5px 0 0 0; }
 
-  h3.footer {
-    text-align: center;
-    font-size: 14px;
-    color: #bbbbbb;
-    margin-top: 30px;
-  }
+  @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+  @media (max-width: 768px) { .album_list li { flex: 1 1 100%; } .album_list dt img { width: 50px; height: 50px; } }
 
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
+  /* 矩阵时钟 */
+  #matrixClockContainer { display: flex; justify-content: center; align-items: center; width: 100%; height: 50px; overflow: hidden; margin: 20px 0 0 0; }
+  #matrixClock { display: inline-flex; flex-direction: column; justify-content: center; align-items: center; background: transparent; text-align: center; transform: scale(0.6); transform-origin: center center; }
+  .matrix-clock .line { display: flex; justify-content: center; align-items: center; gap: 2px; flex-wrap: wrap; }
+  .matrix-clock .digit { display: inline-block; margin: 1px; }
+  .matrix-clock .pixel { width: 4px; height: 4px; margin: 1px; display: inline-block; background: #001800; border-radius: 1px; transition: background 0.2s; box-shadow: 0 0 2px #002200; }
+  .matrix-clock .pixel.on { background: #00ff55; box-shadow: 0 0 4px #00ff55; }
+  .matrix-clock .row { height: 6px; line-height: 0; }
+  .matrix-clock .date { display: flex; justify-content: center; align-items: center; transform: scale(0.5); margin: 0 2px; }
 
-  @media (max-width: 768px) {
-    .album_list li {
-      flex: 1 1 100%;
-    }
-    .album_list dt img {
-      width: 50px;
-      height: 50px;
-    }
-  }
+  /* 弹出菜单按钮 */
+  .timezone-container { position: relative; margin-bottom: 20px; display: flex; justify-content: center; }
+  .timezone-btn { padding: 4px 12px; background: #111; border: 1px solid #00ff55; color: #00ff55; border-radius: 6px; cursor: pointer; font-size: 14px; }
+  .timezone-menu { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #111; border: 1px solid #00ff55; border-radius: 6px; overflow: hidden; display: flex; flex-direction: row; z-index: 10; }
+  .timezone-menu button { padding: 6px 12px; background: #111; color: #00ff55; border: none; cursor: pointer; white-space: nowrap; }
+  .timezone-menu button:hover { background: #004400; }
+
+  /* 浮动按钮 & iOS提示 */
+  .float-bubble { position: fixed; right: 20px; bottom: 40px; background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 12px 18px; border-radius: 30px; cursor: pointer; box-shadow: 0 6px 15px rgba(0,0,0,0.25); z-index: 9999; font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 8px; opacity: 0; transform: translateY(30px) scale(1); transition: opacity 0.6s ease, transform 0.3s cubic-bezier(.68,-0.55,.27,1.55); }
+  .float-bubble.show { opacity: 1; transform: translateY(0) scale(1); }
+  .float-bubble.shrink { transform: translateY(0) scale(0.8); opacity: 0.7; }
+  .float-bubble img { width: 22px; height: 22px; }
+  .install-tip { display: none; position: fixed; bottom: 100px; right: 20px; width: 260px; background: rgba(0,0,0,0.88); color: white; padding: 18px; border-radius: 14px; font-size: 14px; line-height: 1.5; box-shadow: 0 6px 20px rgba(0,0,0,0.3); z-index: 9998; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .install-tip.show { display: block; opacity: 1; transform: translateY(0); }
+  .install-tip::after { content: ''; position: absolute; bottom: -12px; right: 25px; border-width: 12px 12px 0 12px; border-style: solid; border-color: rgba(0,0,0,0.88) transparent transparent transparent; }
+  .install-tip .close-btn { position: absolute; top: 6px; right: 10px; cursor: pointer; font-weight: bold; font-size: 16px; }
+  @media(max-width: 400px) { .float-bubble { padding: 10px 14px; font-size: 14px; } .float-bubble img { width: 18px; height: 18px; } .install-tip { width: 220px; font-size: 13px; padding: 14px; } }
+
+  /* 屏保样式 */
+  #matrixClockContainer.screensaver { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 9999; background: rgba(0,0,0,0.85); }
+  #matrixClockContainer.screensaver #matrixClock { transform: scale(5); }
+  @media (max-width: 768px) { #matrixClockContainer.screensaver #matrixClock { transform: scale(1.3); } }
 </style>
 </head>
 <body>
+
+<!-- 浮动按钮 -->
+<div class="float-bubble" id="installBtn">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="icon"> 添加到桌面
+</div>
+
+<!-- iOS提示 -->
+<div class="install-tip" id="installTip">
+  <span class="close-btn" id="closeTip">×</span>
+  👉 安卓可直接点击按钮安装，iOS Safari 请点击底部分享按钮 → 添加到主屏幕。
+</div>
+
 <div class="center">
   <img src="logo.png" id="logo" alt="Logo">
   <div class="notice">
-    欧博网络出现波动，现在临时局部登录不上请大家耐心等待！
+    博义娱乐近期将推出自有聊天软件，安全可靠，根据需要可做到随时双向永久删除聊天信息...
   </div>
 
   <ul class="album_list">
-    <li onclick="window.location.href='https://www.talkmore.cc';">
-      <dl>
-        <dt><img src="tm.png" alt=""></dt>
-        <dd>
-          <h3>JPbest在线聊天app</h3>
-          <p>点击窗口，下载并注册jpbest，像微信一样，安全，快捷。可用于替代Skype。</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='gb.html';">
-      <dl>
-        <dt><img src="gb.png" alt=""></dt>
-        <dd>
-          <h3>皇牌贵宾会</h3>
-          <p class="time">更新时间：2024-12-20</p>
-          <p>皇冠百家乐全网最公正平台！</p>
-          <p style="color:#ff4d4d;">正式上线！手机登录请横向屏幕。</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='ob.html';">
-      <dl>
-        <dt><img src="logo_ob.png" alt=""></dt>
-        <dd>
-          <h3>欧博网址</h3>
-          <p class="time">更新时间：2024-06-25</p>
-          <p>欧博频繁出现打庄出货机器投注等问题可以转至皇牌继续游戏</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='360.html';">
-      <dl>
-        <dt><img src="logo.3f6e1494.webp" alt=""></dt>
-        <dd>
-          <h3>环球360</h3>
-          <p class="time">更新时间：2024-07-15</p>
-          <p style="color:#ff4d4d;">环球360维护结束，请正常登录</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='hg.html';">
-      <dl>
-        <dt><img src="logo_hg.png" alt=""></dt>
-        <dd>
-          <h3>皇冠网址</h3>
-          <p class="time">更新时间：2024-05-19</p>
-          <p>皇冠会员代理登录端口</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='ka.html';">
-      <dl>
-        <dt><img src="logo_kk.png" alt=""></dt>
-        <dd>
-          <h3>卡卡湾电投</h3>
-          <p>登录/联系客服窗口</p>
-          <p style="color:#ff4d4d;">会员登陆</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='yx.html';">
-      <dl>
-        <dt><img src="yx.png" alt=""></dt>
-        <dd>
-          <h3>亚星</h3>
-          <p class="time">更新时间：2024-09-12</p>
-          <p>亚星会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
-
-    <li onclick="window.location.href='wl.html';">
-      <dl>
-        <dt><img src="wl.png" alt=""></dt>
-        <dd>
-          <h3>万利</h3>
-          <p>您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p>
-          <p>万利会员/管理登录</p>
-        </dd>
-      </dl>
-    </li>
+    <li onclick="window.location.href='https://www.talkmore.cc';"><dl><dt><img src="tm.png" alt=""></dt><dd><h3>JPbest在线聊天app</h3><p>点击窗口，下载并注册jpbest，像微信一样，安全，快捷。</p></dd></dl></li>
+    <li onclick="window.location.href='gb.html';"><dl><dt><img src="gb.png" alt=""></dt><dd><h3>皇牌贵宾会</h3><p class="time">更新时间：2024-12-20</p><p class="alert">正式上线！手机登录请横向屏幕。</p></dd></dl></li>
+    <!-- 其他卡片略 -->
   </ul>
 
-  <h3 class="footer">版权所有 ©2023-2024 博義娛樂 保留所有权</h3>
+  <!-- 矩阵时钟 -->
+  <div id="matrixClockContainer">
+    <div class="matrix-clock" id="matrixClock"></div>
+  </div>
+
+  <!-- 时区选择 -->
+  <div class="timezone-container">
+    <button class="timezone-btn" id="tzBtn">时区: 中国</button>
+    <div class="timezone-menu" id="tzMenu">
+      <button data-tz="Asia/Shanghai">中国</button>
+      <button data-tz="Asia/Tokyo">日本</button>
+      <button data-tz="Australia/Sydney">澳洲</button>
+      <button data-tz="Asia/Bangkok">泰国</button>
+      <button data-tz="Asia/Singapore">新加坡</button>
+      <button data-tz="Asia/Kolkata">印度</button>
+      <button data-tz="Europe/London">英国</button>
+      <button data-tz="America/New_York">纽约</button>
+      <button data-tz="America/Los_Angeles">洛杉矶</button>
+    </div>
+  </div>
+
+  <h3 class="footer">版权所有 ©2023-2025 博義娛樂<br>All Rights Reserved ©Boyi Entertainment</h3>
 </div>
+
+<script>
+// 矩阵时钟逻辑
+const digitMap = { "0":["01110","10001","10011","10101","11001","10001","01110"], "1":["00100","01100","00100","00100","00100","00100","01110"], "2":["01110","10001","00001","00010","00100","01000","11111"], "3":["01110","10001","00001","00110","00001","10001","01110"], "4":["00010","00110","01010","10010","11111","00010","00010"], "5":["11111","10000","11110","00001","00001","10001","01110"], "6":["01110","10000","11110","10001","10001","10001","01110"], "7":["11111","00001","00010","00100","01000","10000","10000"], "8":["01110","10001","10001","01110","10001","10001","01110"], "9":["01110","10001","10001","01111","00001","00001","01110"], ":":["00000","00100","00100","00000","00100","00100","00000"], "-":["00000","00000","00000","11111","00000","00000","00000"] };
+function renderDigit(char) { const pattern = digitMap[char]||digitMap["0"]; let html='<div class="digit">'; for(let row of pattern){ html+='<div class="row">'; for(let c of row){ html+=`<span class="pixel ${c==='1'?'on':''}"></span>`; } html+='</div>'; } html+='</div>'; return html; }
+let currentTZ="Asia/Shanghai";
+function updateClock() {
+  const now=new Date(new Date().toLocaleString("en-US",{timeZone:currentTZ}));
+  const h=String(now.getHours()).padStart(2,'0'), m=String(now.getMinutes()).padStart(2,'0'), s=String(now.getSeconds()).padStart(2,'0');
+  const timeStr=h+":"+m+":"+s;
+  const year=now.getFullYear(), month=String(now.getMonth()+1).padStart(2,'0'), day=String(now.getDate()).padStart(2,'0');
+  const dateStr=`${year}-${month}-${day}`;
+  let html='<div class="line">';
+  for(let ch of timeStr) html+=renderDigit(ch);
+  html+='</div><div class="line date">';
+  for(let ch of dateStr) html+=renderDigit(ch);
+  html+='</div>';
+  document.getElementById('matrixClock').innerHTML=html;
+}
+setInterval(updateClock,1000); updateClock();
+
+// 时区菜单
+const tzBtn=document.getElementById('tzBtn'), tzMenu=document.getElementById('tzMenu');
+tzBtn.addEventListener('click',()=>{ tzMenu.style.display=tzMenu.style.display==='block'?'none':'block'; });
+tzMenu.querySelectorAll('button').forEach(btn=>{ btn.addEventListener('click',()=>{ currentTZ=btn.dataset.tz; tzBtn.textContent='时区: '+btn.textContent; tzMenu.style.display='none'; updateClock(); }); });
+document.addEventListener('click',(e)=>{ if(!tzBtn.contains(e.target)&&!tzMenu.contains(e.target)) tzMenu.style.display='none'; });
+
+// 屏保逻辑
+let idleTimer, clockContainer=document.getElementById('matrixClockContainer');
+function resetIdleTimer(){ clearTimeout(idleTimer); clockContainer.classList.remove('screensaver'); idleTimer=setTimeout(()=>{ clockContainer.classList.add('screensaver'); },15000); }
+document.addEventListener('mousemove',resetIdleTimer);
+document.addEventListener('keydown',resetIdleTimer);
+resetIdleTimer();
+
+// 安装按钮逻辑
+const installBtn=document.getElementById("installBtn"), installTip=document.getElementById("installTip"), closeTip=document.getElementById("closeTip");
+let deferredPrompt=null, isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+window.addEventListener("beforeinstallprompt",(e)=>{ e.preventDefault(); deferredPrompt=e; showInstallBtn(); });
+function showInstallBtn(){ installBtn.classList.add("show"); }
+installBtn.addEventListener("click",async ()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt.userChoice.then(choiceResult=>{ console.log("用户选择:",choiceResult.outcome); deferredPrompt=null; }); }
+  else{ installTip.classList.add("show"); }
+});
+closeTip.addEventListener("click",()=>{ installTip.classList.remove("show"); });
+let lastScrollTop=window.pageYOffset||document.documentElement.scrollTop;
+window.addEventListener("scroll",()=>{ const st=window.pageYOffset||document.documentElement.scrollTop; if(st>lastScrollTop+10) installBtn.classList.add("shrink"); else if(st<lastScrollTop-10) installBtn.classList.remove("shrink"); lastScrollTop=st<=0?0:st; });
+showInstallBtn();
+</script>
+
 </body>
 </html>
