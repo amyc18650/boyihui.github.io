@@ -17,7 +17,7 @@ var _hmt = _hmt || [];
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="BOYI999" />
-<link rel="manifest" href="main.dbiziernf25qg.amplifyapp.com/manifest.json">		
+	
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
 <script>
@@ -528,65 +528,11 @@ document.addEventListener('keydown', resetIdleTimer);
 resetIdleTimer();
 </script>
 
-<script>
-const installBtn = document.getElementById("installBtn");
-const installTip = document.getElementById("installTip");
-const closeTip = document.getElementById("closeTip");
-let deferredPrompt = null;
-const todayKey = "installTipDate";
-const today = new Date().toISOString().slice(0,10);
 
-// 检测 iOS
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-
-// 安卓 PWA beforeinstallprompt
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  showInstallBtn();
-});
-
-// 显示按钮并10秒后自动隐藏
-function showInstallBtn() {
-  installBtn.classList.add("show");
-  setTimeout(() => {
-    installBtn.classList.remove("show");
-  }, 10000); // 10秒自动隐藏
-}
-
-// 页面加载后显示按钮
-showInstallBtn();
-
-// 点击按钮
-installBtn.addEventListener("click", async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(choiceResult => {
-      console.log("用户选择:", choiceResult.outcome);
-      deferredPrompt = null;
-    });
-  } else {
-    installTip.classList.add("show");
-  }
-});
-
-// 关闭提示
-closeTip.addEventListener("click", () => {
-  installTip.classList.remove("show");
-});
-
-// 滚动智能缩放
-let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-window.addEventListener("scroll", () => {
-  const st = window.pageYOffset || document.documentElement.scrollTop;
-  if(st > lastScrollTop + 10) installBtn.classList.add("shrink");
-  else if(st < lastScrollTop - 10) installBtn.classList.remove("shrink");
-  lastScrollTop = st <= 0 ? 0 : st;
-});
-</script>
 	
 </body>
 </html>
+
 
 
 
