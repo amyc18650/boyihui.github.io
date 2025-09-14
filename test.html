@@ -17,8 +17,6 @@ var _hmt = _hmt || [];
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="BOYI999" />
-<link rel="manifest" href="/manifest.json">	
-
 	
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJHQGVKGRV"></script>
@@ -234,7 +232,7 @@ var _hmt = _hmt || [];
 	 /* 弹出菜单按钮 */
  .timezone-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
   }
@@ -250,6 +248,7 @@ var _hmt = _hmt || [];
   }
 
   .timezone-menu {
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -258,21 +257,13 @@ var _hmt = _hmt || [];
     border: 1px solid #00ff55;
     border-radius: 6px;
     overflow: hidden;
+    display: flex;             /* 横向排列 */
     flex-direction: row;
     z-index: 10;
-    opacity: 0;
-    pointer-events: none;       /* 隐藏时不接收点击 */
-    transition: opacity 0.3s ease;
-    display: flex;              /* 保留 flex 布局 */
-}
-
-.timezone-menu.show {
-    opacity: 1;
-    pointer-events: auto;       /* 显示时可以点击 */
-}
+  }
 
   .timezone-menu button {
-    padding: 6px 12px;
+    padding: 6px 9px;
     background: #111;
     color: #00ff55;
     border: none;
@@ -307,7 +298,6 @@ transform: scale(5); /* 放大时钟显示 */
     transform: scale(1.3);
   }
 }
-
 .float-bubble {
     position: fixed;
     right: 20px;
@@ -383,20 +373,10 @@ transform: scale(5); /* 放大时钟显示 */
     .float-bubble { padding: 10px 14px; font-size: 14px; }
     .float-bubble img { width: 18px; height: 18px; }
     .install-tip { width: 220px; font-size: 13px; padding: 14px; }
-  }
-	 
+  }	
 </style>
 </head>
 <body>
-<div class="float-bubble" id="installBtn">
-  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="icon"> 添加到桌面
-</div>
-
-<div class="install-tip" id="installTip">
-  <span class="close-btn" id="closeTip">×</span>
-  👉 安卓可直接点击按钮安装，iOS Safari 请点击底部分享按钮 → 添加到主屏幕。
-</div>
-	
 <div class="center">
   <img src="logo.png" id="logo" alt="Logo">
   <div class="notice">
@@ -415,8 +395,6 @@ transform: scale(5); /* 放大时钟显示 */
     <li onclick="window.location.href='ug.html';"><dl><dt><img src="logo_ug.png" alt=""></dt><dd><h3>UG环球</h3><p class="time">更新时间：2025-08-12</p><p>UG环球会员/管理登录</p></dd></dl></li>
     <li onclick="window.location.href='wl.html';"><dl><dt><img src="wl.png" alt=""></dt><dd><h3>万利</h3><p>您好，為保護各位貴賓的權利公司將進行不定期更換網址，舊網址將於2025/05/22休台後停止使用，望請通知底下客人，不便之處敬請諒解。</p><p>万利会员/管理登录</p></dd></dl></li>
   </ul>
-   
-
 
   <!-- 矩阵时钟 -->
   <div id="matrixClockContainer">
@@ -531,22 +509,6 @@ document.addEventListener('click', (e)=>{
 });
 </script>
 
-	<script>
-const tzBtn = document.getElementById('tzBtn');
-const tzMenu = document.getElementById('tzMenu');
-
-tzBtn.addEventListener('click', () => {
-  tzMenu.classList.toggle('show');  // 切换显示
-});
-
-// 点击页面其他地方关闭菜单
-document.addEventListener('click', (e)=>{
-  if (!tzBtn.contains(e.target) && !tzMenu.contains(e.target)) {
-    tzMenu.classList.remove('show');
-  }
-});
-</script>
-
 <script>
 let idleTimer;
 const clockContainer = document.getElementById('matrixClockContainer');
@@ -566,64 +528,16 @@ document.addEventListener('keydown', resetIdleTimer);
 resetIdleTimer();
 </script>
 
-<script>
-const installBtn = document.getElementById("installBtn");
-const installTip = document.getElementById("installTip");
-const closeTip = document.getElementById("closeTip");
-let deferredPrompt = null;
-const todayKey = "installTipDate";
-const today = new Date().toISOString().slice(0,10);
 
-// 检测 iOS
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-
-// 安卓 PWA beforeinstallprompt
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  showInstallBtn();
-});
-
-// 显示按钮并10秒后自动隐藏
-function showInstallBtn() {
-  installBtn.classList.add("show");
-  setTimeout(() => {
-    installBtn.classList.remove("show");
-  }, 10000); // 10秒自动隐藏
-}
-
-// 页面加载后显示按钮
-showInstallBtn();
-
-// 点击按钮
-installBtn.addEventListener("click", async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(choiceResult => {
-      console.log("用户选择:", choiceResult.outcome);
-      deferredPrompt = null;
-    });
-  } else {
-    installTip.classList.add("show");
-  }
-});
-
-// 关闭提示
-closeTip.addEventListener("click", () => {
-  installTip.classList.remove("show");
-});
-
-// 滚动智能缩放
-let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-window.addEventListener("scroll", () => {
-  const st = window.pageYOffset || document.documentElement.scrollTop;
-  if(st > lastScrollTop + 10) installBtn.classList.add("shrink");
-  else if(st < lastScrollTop - 10) installBtn.classList.remove("shrink");
-  lastScrollTop = st <= 0 ? 0 : st;
-});
-</script>
+	
 </body>
 </html>
+
+
+
+
+
+
 
 
 
