@@ -247,6 +247,21 @@ var _hmt = _hmt || [];
     .actions a:hover {
       background: #005a9e;
     }
+
+      .pdf-button {
+  display: inline-block;
+  padding: 10px 20px;       /* 按钮大小 */
+  background-color: #0078d7; /* 按钮背景色 */
+  color: white;             /* 字体颜色 */
+  text-decoration: none;    /* 去掉下划线 */
+  border-radius: 5px;       /* 圆角 */
+  font-weight: bold;        /* 加粗字体 */
+  transition: background 0.3s;
+}
+
+.pdf-button:hover {
+  background-color: #005a9e; /* 鼠标悬停颜色 */
+}
     </style>
 </head>
 <body>
@@ -255,7 +270,7 @@ var _hmt = _hmt || [];
     
     <div class="site-description">
         <div class="preview-container">
-    <a href="/360.pdf" target="_blank">点击打开环球360管理网操作手册</a>
+    <a href="/360.pdf" target="_blank" class="pdf-button">点击打开环球360管理网操作手册</a>
   </div>
 
   <!-- 打开和下载链接 -->
@@ -421,6 +436,7 @@ var _hmt = _hmt || [];
 
 </body>
 </html>
+
 
 
 
